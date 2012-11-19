@@ -11,10 +11,10 @@ this.type = typ;
 	div.style.height="100px";
 	div.style.position="absolute";
 	div.style.backgroundColor = farbe;
-	div.addEventListener("mousedown",down,false);
-	div.addEventListener("mousemove",move,false);
-	div.addEventListener("mouseup",up.bind(that),false);
-	div.addEventListener("mouseout",move,false);
+	div.addEventListener("touchstart",down,false);
+	div.addEventListener("touchmove",move,false);
+	div.addEventListener("touchend",up.bind(this),false);
+	//div.addEventListener("touchleave",move,false);
 
 	this.ziele = array;
 

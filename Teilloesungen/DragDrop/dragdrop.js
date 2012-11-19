@@ -33,11 +33,11 @@ function down(evt){
 	Rahmens verschoben werden können
 	*/
 	
-
-		dx = element.offsetLeft - evt.clientX;
-		dy = element.offsetTop - evt.clientY;
-		//dx = element.offsetLeft - evt.touches[0].clientX;
-		//dy = element.offsetTop - evt.touches[0].clientY;
+	
+		//dx = element.offsetLeft - evt.clientX;
+		//dy = element.offsetTop - evt.clientY;
+		dx = element.offsetLeft - evt.touches[0].clientX;
+		dy = element.offsetTop - evt.touches[0].clientY;
 		el = element;
 		//el.style.cursor = "move"; //Damit wird die Form des Mauszeigers verändert
 		element.parentNode.appendChild(element);
@@ -59,10 +59,10 @@ function move(evt){
 	if(el != null){
 	//Die gedrückte Stelle des Elements wird auf die Mausposition gesetzt
 	
-	//el.style.left = evt.touches[0].clientX + dx + "px";
-	//el.style.top = evt.touches[0].clientY + dy + "px";
-	el.style.left = evt.clientX + dx + "px";
-	el.style.top = evt.clientY + dy + "px";
+	el.style.left = evt.touches[0].clientX + dx + "px";
+	el.style.top = evt.touches[0].clientY + dy + "px";
+	//el.style.left = evt.clientX + dx + "px";
+	//el.style.top = evt.clientY + dy + "px";
 	
 
 	}
@@ -84,10 +84,12 @@ if(el != null){
             evt.returnValue = false; // The IE way
         }
 	//this.vergleich();
-	console.log(this.type);
+	
+
+	
 	for(var i=0; i<this.ziele.length; i++){
-	if(evt.clientX > this.ziele[i].div.offsetLeft && evt.clientY > this.ziele[i].div.offsetTop && 
-		evt.clientX < (this.ziele[i].div.offsetLeft + this.ziele[i].div.offsetWidth) && evt.clientY < (this.ziele[i].div.offsetTop + this.ziele[i].div.offsetHeight) ){
+	if(evt.changedTouches[0].clientX > this.ziele[i].div.offsetLeft && evt.changedTouches[0].clientY > this.ziele[i].div.offsetTop && 
+		evt.changedTouches[0].clientX < (this.ziele[i].div.offsetLeft + this.ziele[i].div.offsetWidth) && evt.changedTouches[0].clientY < (this.ziele[i].div.offsetTop + this.ziele[i].div.offsetHeight) ){
 		 if(this.type == this.ziele[i].type) alert("Hurra");
 		 else alert("Nope");
 		}
