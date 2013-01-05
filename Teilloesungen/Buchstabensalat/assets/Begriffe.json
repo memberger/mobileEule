@@ -1,0 +1,77 @@
+{
+	"0100": {
+		"name": "Obst",
+		"begriffe": [
+			{
+				"id": "0101",
+				"name": "Apfel"
+			},
+			{
+				"id": "0102",
+				"name": "Banane"
+			},
+			{
+				"id": "0103",
+				"name": "Kirsche"
+			},
+			{
+				"id": "0104",
+				"name": "Erdbeere"
+			},
+			{
+				"id": "0105",
+				"name": "Weintrauben"
+			}
+		]
+	},
+	"0200": {
+		"name": "Gemüse",
+		"begriffe": [
+			{
+				"id": "0201",
+				"name": "Karotte"
+			},
+			{
+				"id": "0202",
+				"name": "Salat"
+			},
+			{
+				"id": "0203",
+				"name": "Tomate"
+			},
+			{
+				"id": "0204",
+				"name": "Erdäpfel"
+			},
+			{
+				"id": "0205",
+				"name": "Zwiebel"
+			}
+		]
+	},
+	"0300": {
+		"name": "Tiere",
+		"begriffe": [
+			{
+				"id": "0301",
+				"name": "Vogel"
+			},
+			{
+				"id": "0302",
+				"name": "Fisch"
+			},
+			{
+				"id": "0303",
+				"name": "Hund"
+			},
+			{
+				"id": "0304",
+				"name": "Katze"
+			},
+			{
+				"id": "0305",
+				"name": "Giraffe"
+			}
+		]
+	}
+}
