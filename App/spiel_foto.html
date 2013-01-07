@@ -9,15 +9,53 @@
 
 <link rel="stylesheet" href="assets/css/eule.css" />
 <script type="text/javascript" src="assets/js/eule.js"  charset="UTF-8"> </script>
+<script type="text/javascript" src="cordova-2.2.0.js"   charset="UTF-8"> </script>
 
+<style>
 
+    .foto{
+        
+        display : block;
+        width:80%;
+        height:auto;
+        margin-top:2em;
+        
+    }
+    
+</style>
+    
 </head>
-
+  
 <body>
 <h1>Hier kann ein Foto aufgenommen werden</h1>
 
 <button ontouchend="window.location='spiel_belohnung.html'">Fertig und Zurück</button>
 
+ 
+    <button ontouchend="capturePhoto();">Ein Bild aufnehmen</button>
+    <button ontouchend="loadPic();">Ein Bild Laden</button><br>
 
+    <img style="display:none;width:600px;height:auto;" id="smallImage" src="" />
+    <!--<img style="display:block;width:800px;height:600px;border: 2px solid red;" id="largeImage" src="" /> -->
+
+    <script type="text/javascript" src="assets/js/foto.js"  charset="UTF-8"> </script>
 
 </body>
+    
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
