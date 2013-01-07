@@ -74,4 +74,129 @@
 			}
 		]
 	}
+	"0400": {
+		"name": "Farben",
+		"begriffe": [
+			{
+				"id": "0401",
+				"name": "Rot"
+			},
+			{
+				"id": "0402",
+				"name": "Gelb"
+			},
+			{
+				"id": "0403",
+				"name": "Blau"
+			},
+			{
+				"id": "0404",
+				"name": "Grün"
+			},
+			{
+				"id": "0405",
+				"name": "Orange"
+			}
+		]
+	}
+	"0500": {
+		"name": "Formen",
+		"begriffe": [
+			{
+				"id": "0501",
+				"name": "Viereck"
+			},
+			{
+				"id": "0502",
+				"name": "Dreieck"
+			},
+			{
+				"id": "0503",
+				"name": "Kreis"
+			},
+			{
+				"id": "0504",
+				"name": "Stern"
+			},
+			{
+				"id": "0505",
+				"name": "Herz"
+			}
+		]
+	}
+	"0600": {
+		"name": "Kleidung",
+		"begriffe": [
+			{
+				"id": "0601",
+				"name": "Kleid"
+			},
+			{
+				"id": "0602",
+				"name": "Hose"
+			},
+			{
+				"id": "0603",
+				"name": "Shirt"
+			},
+			{
+				"id": "0604",
+				"name": "Schuh"
+			},
+			{
+				"id": "0605",
+				"name": "Pullover"
+			}
+		]
+	}
+	"0700": {
+		"name": "Wetter",
+		"begriffe": [
+			{
+				"id": "0701",
+				"name": "Sonne"
+			},
+			{
+				"id": "0702",
+				"name": "Regen"
+			},
+			{
+				"id": "0703",
+				"name": "Wolke"
+			},
+			{
+				"id": "0704",
+				"name": "Schnee"
+			},
+			{
+				"id": "0705",
+				"name": "Gewitter"
+			}
+		]
+	}
+	"0800": {
+		"name": "Beruf",
+		"begriffe": [
+			{
+				"id": "0801",
+				"name": "Koch/Köchin"
+			},
+			{
+				"id": "0802",
+				"name": "Lehrer/Lehrerin"
+			},
+			{
+				"id": "0803",
+				"name": "Pilot/Pilotin"
+			},
+			{
+				"id": "0804",
+				"name": "Arzt/Ärztin"
+			},
+			{
+				"id": "0805",
+				"name": "Handwerker/Handwerkerin"
+			}
+		]
+	}
 }
