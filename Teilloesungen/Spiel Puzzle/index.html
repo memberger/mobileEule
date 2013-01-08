@@ -1,42 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" /> 
-<meta name = "viewport" content = "initial-scale = 0.5, user-scalable = no, maximum-scale=0.5, width=device-width"/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<script type="text/javascript" src="dragdrop.js"></script>
-<script type="text/javascript" src="classes.js"></script>
+<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name = "viewport" content = "width = device-width, maximum-scale = 1, minimum-scale = 1, user-scalable = no"/>
+		<meta name = "apple-mobile-web-app-capable" content="yes"/>
+<script type="text/javascript" src="assets/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="assets/js/dragdrop.js"></script>
+<script type="text/javascript" src="assets/js/classes.js"></script>
+
+<link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+
+
 <script type="text/javascript">
 window.onload = function(){
-var ziele = new Array();
-ziele[0] = new Ziel("karotte","Images/Content/karotte.jpg","Images/Puzzle/02-01.png",0);
-ziele[1] = new Ziel("salat","Images/Content/salat.jpg", "Images/Puzzle/04-01.png",1);
-ziele[2] = new Ziel("tomate","Images/Content/tomate.jpg", "Images/Puzzle/02-01.png",2);
-
-var quelle2 = new Quelle("salat", "Salat", 0,"Images/Puzzle/04-02.png", ziele);
-var quelle3 = new Quelle("tomate", "Tomate", 1,"Images/Puzzle/02-02.png", ziele);
-var quelle1 = new Quelle("karotte", "Karotte", 2,"Images/Puzzle/02-02.png", ziele);
-
-
+getJSONData();
 };
+
 </script>
-<style type="text/css">
-html,body{
 
-height:100%;
-width:100%;
-
-}
-
-div{
-position: absolute;
-}
-</style>
 </head>
 
 <body>
-
-
-
+<h1 id="kategorieName"></h1>
+		<div id="kategorieBildContainer"><img id="kategorieBild" src=""/></div>
+		
+		<ul id="navBottom">
+			<li><a href="#"><img src="assets/img/system/karte.png" /></a></li>
+			<li><a href="#"><img src="assets/img/system/einstellungen.png" /></a></li>
+			<li><a href="#"><img src="assets/img/system/hilfe.png" /></a></li>
+		</ul>
 </body>
 </html>

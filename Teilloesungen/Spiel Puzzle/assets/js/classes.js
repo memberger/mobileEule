@@ -1,32 +1,36 @@
-function Quelle(typ, text, reihenfolge, urlpuzzle, array){
+function Quelle(typ, text, reihenfolge, array){
 var that = this;
 this.type = typ;
  //var color = farbe;
  var position = reihenfolge;
 this.dragdrop = true;
 this.div=document.createElement("div");
-this.div.style.top= 400+"px";
-this.div.style.left= 100 + (160 * reihenfolge)+"px";
-this.div.style.width="150px";
-this.div.style.height="100px";
+this.div.style.top= 60+"%";
+this.div.style.left= 5 + (25 * reihenfolge)+"%";
+
+this.startTop = this.div.style.top;
+this.startLeft = this.div.style.left;
+
+this.div.style.width="20%";
+this.div.style.height="15%";
 this.div.style.position="absolute";
 	//div.style.backgroundColor = "red";
 
 	
 
-	//div.addEventListener("touchstart",down,false);
-	//div.addEventListener("touchmove",move,false);
-	//div.addEventListener("touchend",up.bind(this),false);
-this.div.addEventListener("mousedown",down.bind(this),false);
-this.div.addEventListener("mousemove",move,false);
-this.div.addEventListener("mouseup",up.bind(this),false);
-	//div.addEventListener("touchleave",move,false);
+this.div.addEventListener("touchstart",down,false);
+this.div.addEventListener("touchmove",move,false);
+this.div.addEventListener("touchend",up.bind(this),false);
+//this.div.addEventListener("mousedown",down.bind(this),false);
+//this.div.addEventListener("mousemove",move,false);
+//this.div.addEventListener("mouseup",up.bind(this),false);
+this.div.addEventListener("touchleave",move,false);
 	
 	this.ziele = array;
 	var bild = document.createElement("img");
-	bild.setAttribute("src", urlpuzzle);
-	bild.setAttribute("height", "100px");
-	bild.setAttribute("width", "150px");
+	bild.setAttribute("src", "assets/img/puzzle/01-02.png");
+	bild.setAttribute("height", "100%");
+	bild.setAttribute("width", "100%");
 	bild.addEventListener("mousedown",down.bind(this),false);
 	bild.addEventListener("mousemove",move,false);
 	bild.addEventListener("mouseup",up.bind(this),false);
@@ -38,8 +42,9 @@ this.div.appendChild(bild);
 	puzzleText.appendChild(textNode);
 this.div.appendChild(puzzleText);
 	puzzleText.style.position = "absolute";
-	puzzleText.style.left = "50px";
-	puzzleText.style.top = "50px";
+	puzzleText.style.left = "39%";
+	puzzleText.style.top = "50%";
+	puzzleText.style.fontSize = "1.5em";
 	puzzleText.addEventListener("mousedown",down.bind(this),false);
 	puzzleText.addEventListener("mousemove",move,false);
 	puzzleText.addEventListener("mouseup",up.bind(this),false);
@@ -55,30 +60,30 @@ this.div.appendChild(puzzleText);
 
 }
 
-function Ziel(typ, urlcontent, urlpuzzle, reihenfolge){
+function Ziel(typ, urlcontent, reihenfolge){
 this.type = typ;
  //var color = farbe;
  var position = reihenfolge;
  
 this.div=document.createElement("div");
-this.div.style.top= 100+"px";
-this.div.style.left= 100 + (160 * reihenfolge)+"px";
-this.div.style.width="150px";
-this.div.style.height="200px";
+this.div.style.top= 10+"%";
+this.div.style.left= 5 + (25 * reihenfolge)+"%";
+this.div.style.width="20%";
+this.div.style.height="30%";
 this.div.style.position="absolute";
 
 var puzzlebild = document.createElement("img");
-	puzzlebild.setAttribute("src", urlpuzzle);
-	puzzlebild.setAttribute("height", "200px");
-	puzzlebild.setAttribute("width", "150px");
+	puzzlebild.setAttribute("src", "assets/img/puzzle/01-01.png");
+	puzzlebild.setAttribute("height", "100%");
+	puzzlebild.setAttribute("width", "100%");
 this.div.appendChild(puzzlebild);
 
 var bild = document.createElement("img");
 	bild.setAttribute("src", urlcontent);
-	bild.setAttribute("height", "100px");
-	bild.setAttribute("width", "100px");
-	bild.style.left = "25px";
-	bild.style.top = "25px";
+	bild.setAttribute("height", "60%");
+	bild.setAttribute("width", "60%");
+	bild.style.left = "20%";
+	bild.style.top = "15%";
 	bild.style.position="absolute";
 this.div.appendChild(bild);
 
