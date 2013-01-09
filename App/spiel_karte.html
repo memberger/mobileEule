@@ -18,33 +18,69 @@
         <ul id="slideContainer">                   
 
             <li id="p1">
-	            <button class="btn-karte-spiel-beenden" ontouchend="window.location='index.html'">Spiel beenden</button>
-	            <button class = "icon-spiel-1" ontouchend="window.location='spiel_wissen.html'">Spiel1</button>
-	            <button class = "icon-spiel-2" ontouchend="window.location='spiel_wissen.html'">Spiel2</button>
-	            <button class = "icon-spiel-3" ontouchend="window.location='spiel_wissen.html'">Spiel3</button>
-	            <button class = "icon-spiel-4" ontouchend="window.location='spiel_wissen.html'">Spiel4</button>
+	            <button class = "spiel" kat = "0100">Spiel1</button>
+	            <button class = "spiel" kat = "0200">Spiel2</button>
+	            <button class = "spiel" kat = "0300">Spiel3</button>
+
             </li>  
  
             <li id="p2">
-	            <button class="btn-karte-spiel-beenden" ontouchend="window.location='index.html'">Spiel beenden</button>
-	            <button class = "icon-spiel-1" ontouchend="window.location='spiel_wissen.html'">Spiel5</button>
-	            <button class = "icon-spiel-2" ontouchend="window.location='spiel_wissen.html'">Spiel6</button>
-	            <button class = "icon-spiel-3" ontouchend="window.location='spiel_wissen.html'">Spiel7</button>
-	            <button class = "icon-spiel-4" ontouchend="window.location='spiel_wissen.html'">Spiel8</button>
+	            <button class = "spiel" kat = "0500">Spiel5</button>
+	            <button class = "spiel" kat = "0600">Spiel6</button>
+	            <button class = "spiel" kat = "0700">Spiel7</button>
+	            <button class = "spiel" kat = "0800">Spiel8</button>
             </li> 
 
             <li id="p3">
-	            <button class="btn-karte-spiel-beenden" ontouchend="window.location='index.html'">Spiel beenden</button>
             </li> 
             <li id="p4">
-	            <button class="btn-karte-spiel-beenden" ontouchend="window.location='index.html'">Spiel beenden</button>
             </li> 
             <li id="p5">
-	            <button class="btn-karte-spiel-beenden" ontouchend="window.location='index.html'">Spiel beenden</button>
             </li> 
 	       
         </ul>       
     </div>  
 </body>
 <script type="text/javascript" src="assets/js/swipe.js"  charset="UTF-8"> </script>
+<script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
+<script type="text/javascript">
+
+
+
+/*Event Listener by Michael Emberger*/
+function initEvents(){
+
+	var d = document;
+	var myEvent = localStorage.myEvent;
+	var alleSpiele = d.getElementsByClassName('spiel');
+
+	for( var i=0,len=alleSpiele.length; i < len; i++ ){
+		
+		alleSpiele[i].addEventListener(myEvent,spielClicked,false);
+
+	}
+	
+}
+
+
+var spielClicked = function(evt){
+
+	var el = evt.target;
+	var kat = el.getAttribute("kat");
+
+	myJson.createTemp(kat);	
+
+	window.location = 'spiel_wissen.html';
+
+}
+
+var myJson = new MyJson();
+myJson.loadAll();
+
+initEvents();
+
+
+
+
+</script>
 </html>

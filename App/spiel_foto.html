@@ -8,8 +8,7 @@
 
 
 <link rel="stylesheet" href="assets/css/eule.css" />
-<script type="text/javascript" src="assets/js/eule.js"  charset="UTF-8"> </script>
-<script type="text/javascript" src="cordova-2.2.0.js"   charset="UTF-8"> </script>
+
 
 <style>
 
@@ -32,13 +31,18 @@
 <button ontouchend="window.location='spiel_belohnung.html'">Fertig und Zurück</button>
 
  
-    <button ontouchend="capturePhoto();">Ein Bild aufnehmen</button>
-    <button ontouchend="loadPic();">Ein Bild Laden</button><br>
+    <button id="btn-bild-aufnehmen">Ein Bild Aufnehmen</button>
+    <button id="btn-load-bilder">Bilder der Kategorie laden</button><br>
 
-    <img style="display:none;width:600px;height:auto;" id="smallImage" src="" />
-    <!--<img style="display:block;width:800px;height:600px;border: 2px solid red;" id="largeImage" src="" /> -->
+    <img style="display:none;width:600px;height:auto;" id="image" src="" />
+  
 
+    <script type="text/javascript" src="assets/js/eule.js"  charset="UTF-8"> </script>
+    <script type="text/javascript" src="cordova-2.2.0.js"   charset="UTF-8"> </script>
+    <script type="text/javascript" src="assets/js/Classes/MyPicture.js"  charset="UTF-8"> </script>
+    <script type="text/javascript" src="assets/js/Classes/MyFileSystem.js"  charset="UTF-8"> </script>
     <script type="text/javascript" src="assets/js/foto.js"  charset="UTF-8"> </script>
+
 
 </body>
     

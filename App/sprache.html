@@ -23,9 +23,36 @@
 
 <h1>Sprache wählen</h1>
 
-<button ontouchend="window.location='index.html'">fertig</button>
+<button id="btn-zuruckIndex">fertig</button>
+
+
+<script type="text/javascript" src="assets/js/modernizr.custom.js"  charset="UTF-8"> </script>
+<script type="text/javascript">
 
 
 
+/*Event Listener by Michael Emberger*/
+function initEvents(){
+
+	var d = document;
+	var myEvent;	
+
+	if(Modernizr.touch){
+		myEvent = "touchend";
+		
+	}else{
+		myEvent = "click";
+	}
+
+	d.getElementById('btn-zuruckIndex').addEventListener(myEvent, function(){ window.location='index.html' });
+
+}
+
+initEvents();
+
+
+
+
+</script>
 
 </body>

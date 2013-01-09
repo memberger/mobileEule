@@ -23,15 +23,41 @@
 <body>
 <h1>Startscreen</h1>
 
-<button ontouchend="window.location='spiel_karte.html'">Spiel Start</button>
+<button id="btn-spielStarten">Spiel Starten</button>
 
-<button ontouchend="window.location='sprache.html'">Sprache wählen</button>
-
-
+<button id="btn-spracheWaehlen">Sprache wählen</button>
 
 
+<script type="text/javascript" src="assets/js/modernizr.custom.js"  charset="UTF-8"> </script>
+<script type="text/javascript">
+
+
+
+/*Event Listener by Michael Emberger*/
+function initEvents(){
+
+	if(Modernizr.touch){
+
+		localStorage.myEvent = "touchend";
+
+	}else{
+
+		localStorage.myEvent = "click";	
+
+	}
+
+	var d = document;
+	var myEvent = localStorage.myEvent;
+	
+	d.getElementById('btn-spielStarten').addEventListener(myEvent, function(){ window.location='spiel_karte.html' });
+	d.getElementById('btn-spracheWaehlen').addEventListener(myEvent, function(){ window.location='sprache.html' });
+
+}
+
+initEvents();
 
 
 
 
+</script>
 </body>

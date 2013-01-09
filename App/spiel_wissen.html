@@ -16,8 +16,47 @@
 <body>
 <h1>Hier wird Wissen zur ausgewählten Kategorie übermittelt</h1>
 
-<button ontouchend="window.location='spiel_1.html'">Genug gelernt! Los geht's</button>
+<button id="btn-weiter" >Genug gelernt! Los geht's</button>
 
 
 
+<script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
+<script type="text/javascript">
+
+
+
+/*Event Listener by Michael Emberger*/
+function initEvents(){
+
+	var d = document;
+	var myEvent = localStorage.myEvent;
+
+	d.getElementById("btn-weiter").addEventListener(myEvent, startSpiel);
+
+	
+}
+
+
+
+var myJson = new MyJson();
+myJson.loadTemp();
+
+
+console.log("Aktuelle Kategorie: "+myJson.temp.kat.spiel);
+
+
+
+
+var startSpiel = function(){
+
+myJson.saveTemp();
+window.location = 'spiel_'+myJson.temp.kat.spiel+'.html';
+
+}
+
+
+initEvents();
+
+
+</script>
 </body>
