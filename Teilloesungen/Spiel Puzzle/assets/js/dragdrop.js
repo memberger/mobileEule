@@ -10,7 +10,7 @@ var Kategorien = null;
 // Sonstige globale Variablen
 var JSONLoaded = false; // Wenn das true ist, sind alle drei JSON-Objekte befüllt
 // Variablen für Spiel 1
-var kat = "0300"; // Aktuelle Kategorie
+var kat = "0100"; // Aktuelle Kategorie
 var katBegriffe;
 var richtigeBegriffe = 0;
 var wort1,wort2,wort3;
