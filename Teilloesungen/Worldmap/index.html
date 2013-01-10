@@ -126,9 +126,10 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y){
         	isflying  = true;
         	changeEule();
 		    updateEndpoint(x, y);
-	        setTimeout(startAnim, 100);
-	        setTimeout(updateStartpoint, 2500);
-	        setTimeout(changeEule, 2510);
+		    startAnim(function(){updateStartpoint(); changeEule()});
+	        //setTimeout(startAnim, 100);
+	        //setTimeout(updateStartpoint, 2500);
+	        //setTimeout(changeEule, 2510);
         }
     }
         
@@ -146,6 +147,7 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y){
 	    arrDot[0][0] = Y.one('#eule_worldmap').getStyle('left');
 	    arrDot[0][1] = Y.one('#eule_worldmap').getStyle('top');
         isflying = false;
+        alert("updateStartpoint Ende");
     }
     
     var lastx3 = 200;
@@ -169,7 +171,7 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y){
     
 
     //Sets the anim curve values with the XY values from the array
-    var startAnim = function(e){
+    var startAnim = function(callback){
         var oX = origin.getX(),
             oY = origin.getY();
         
@@ -178,6 +180,8 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y){
         [ (arrDot[3][0] + oX), (arrDot[3][1] + oY) ]]
         });
         anim.run();
+        
+        setTimeout(callback, 2600);
     };
     
        
