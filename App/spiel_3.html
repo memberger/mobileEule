@@ -8,23 +8,30 @@
 
 
 <link rel="stylesheet" href="assets/css/eule.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/style_spiel3.css"/>
+
+<script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
+<script type="text/javascript" src="assets/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="assets/js/dragdrop.js"></script>
+<script type="text/javascript" src="assets/js/classes_puzzle.js"></script>
 <script type="text/javascript" src="assets/js/eule.js"  charset="UTF-8"> </script>
 
 
 </head>
 
 <body>
-<h1>Spiel 3 - Das Spiel</h1>
-
 <button id="zurueck-karte">Spiel beenden zurück zur Karte</button>
 
+<h1 id="kategorieName"></h1>
+		<div id="kategorieBildContainer"><img id="kategorieBild" src=""/></div>
+		
+		<ul id="navBottom">
+			<li><a href="#"><img src="assets/img/system/karte.png" /></a></li>
+			<li><a href="#"><img src="assets/img/system/einstellungen.png" /></a></li>
+			<li><a href="#"><img src="assets/img/system/hilfe.png" /></a></li>
+		</ul>
 
-<button id="spiel-fertig">Spiel erfolgreich weiter zu "Belohnung"</button>
 
-
-
-
-<script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
 <script type="text/javascript">
 
 
@@ -35,27 +42,22 @@ function initEvents(){
 	var myEvent = localStorage.myEvent;
 	
 	d.getElementById("zurueck-karte").addEventListener(myEvent,function(){ window.location = 'spiel_karte.html'});
-	d.getElementById("spiel-fertig").addEventListener(myEvent,spielFertig);
+	//d.getElementById("spiel-fertig").addEventListener(myEvent,spielFertig);
 	
 }
 
 
-var spielFertig = function(){
-
+function spielFertig(){
+ kat.fortschritt = 0;
+ kat.gewonnen = 350;
+ myJson.saveTemp();
  window.location = 'spiel_belohnung.html';
-
-
 }
 
 initEvents();
+nextBilder();
 
-var myJson = new MyJson();
-
-var items = myJson.getBegriffe();// Alle nötigen Begriffe
-var kat   = myJson.getKategorie();//Alle nötige aus Katrgorie.json
-
-kat.gewonnen = 350; //  gewonnen verändern
-
+/*kat.gewonnen = 350; //  gewonnen verändern
 
 myJson.saveTemp();// save Temp muss aufgerufen werden damit alle änderungen in kat gespeichert werden! es reicht
 // wenn sie kurz bevor die seite verlassen wird aufgerufen wird -> einmal aufrufen wenn spiel beendet!
@@ -63,15 +65,8 @@ myJson.saveTemp();// save Temp muss aufgerufen werden damit alle änderungen in 
 //da aktuell alles JSONstrings im Lokal Storage gespeichert werden und daher bei einem neuen Seitenaufruf nicht zurück gesetzt werden
 //hat myJson noch die Methode reset(); Diese resetet alle betroffenen items im localStorage und lädt die original JSON files erneut!
 //Diese function sollten wenn nötig nur in der Konsole aufgerufen werden, da sie sonst ws probleme machen kann ( ist eher zum entwickeln gedacht )
-//myJson.reset()
-
-for(var i = 0, len = items.begriffe.length; i < len; i++){
-	
-	var ptag = document.createElement("p");
-	ptag.textContent = items.begriffe[i].name;
-	document.body.appendChild(ptag);	
-	}	
-
+*/
+//myJson.reset();
 
 </script>
 </body>
