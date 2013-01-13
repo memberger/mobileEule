@@ -20,7 +20,7 @@
 			},
 			{
 				"id": "0105",
-				"name": "Trauben"
+				"name": "Ananas"
 			}
 		]
 	},
@@ -179,23 +179,23 @@
 		"begriffe": [
 			{
 				"id": "0801",
-				"name": "Koch/Köchin"
+				"name": "Koch"
 			},
 			{
 				"id": "0802",
-				"name": "Lehrer/Lehrerin"
+				"name": "Lehrer"
 			},
 			{
 				"id": "0803",
-				"name": "Pilot/Pilotin"
+				"name": "Pilot"
 			},
 			{
 				"id": "0804",
-				"name": "Arzt/Ärztin"
+				"name": "Arzt"
 			},
 			{
 				"id": "0805",
-				"name": "Handwerker/Handwerkerin"
+				"name": "Arbeiter"
 			}
 		]
 	}
