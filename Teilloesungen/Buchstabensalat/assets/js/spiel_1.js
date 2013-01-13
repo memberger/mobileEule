@@ -1,53 +1,26 @@
-// JSON Objekte sind global
-var Allgemein = null;
-var Begriffe = null;
-var Kategorien = null;
-// Sonstige globale Variablen
-var JSONLoaded = false; // Wenn das true ist, sind alle drei JSON-Objekte befüllt
 // Variablen für Spiel 1
-var kat = "0100"; // Aktuelle Kategorie
 var katBegriffe;
 var wort;
 var buchstaben;
 
-// Alle JSON-Objekte mit aktuellen Daten befüllen
-function getJSONData() {
-	$.getJSON("assets/Allgemein.json",function(json){
-		Allgemein = json;
-		JSONReady();
-	});
-$.getJSON("assets/Begriffe.json",function(json){
-		Begriffe = json;
-		JSONReady();
-	});
-$.getJSON("assets/Kategorien.json",function(json){
-		Kategorien = json;
-		JSONReady();
-	});
-}
+// JSON Objekte
+var myJson = new MyJson();
+var Begriffe = myJson.getBegriffe();// Alle nötigen Begriffe
+var Kategorie   = myJson.getKategorie();//Alle nötige aus Katrgorie.json
+//myJson.saveTemp();
 
-// Wird ausgeführt wenn das JSON fertig geladen hat
-// Init-Sachen die mit JSON zutun haben gehören hier hinein
-function JSONReady() {
-	if(Allgemein != null && Begriffe != null && Kategorien != null) {
-		JSONLoaded = true;
-		
-		// Initialisierung von JSON-Zeugs
-		nextWord();
-	
-		
-	}
-}
-
-// JSON Daten das erste mal holen
-getJSONData();
+// Initialisierung von JSON-Zeugs
+$(document).ready(function() {
+	nextWord();
+});
 
 
 // Funktionen für Spiel 1
 function nextWord() {
-	katBegriffe = Begriffe[kat].begriffe;
+	katBegriffe = Begriffe.begriffe;
+	kat = Kategorie.id;
 
-	wort = katBegriffe[Kategorien[kat].fortschritt];
+	wort = katBegriffe[Kategorie.fortschritt];
 	buchstaben = wort.name.split("");
 	var container = document.getElementById("buchstaben");
 	
@@ -82,7 +55,7 @@ function nextWord() {
 	$(".buchstabe").shuffle();
 	
 	document.body.style.backgroundImage = "url(assets/img/spiel/"+kat+"_hintergrund.png)"; 
-	$("#kategorieName").html(Begriffe[kat].name);
+	$("#kategorieName").html(Begriffe.name);
 	$("#kategorieBild").attr("src", "assets/img/spiel/"+kat+"_bild.png");
 	$("#begriffBild").attr("src", "assets/img/spiel/"+wort.id+"_bild.png");	
 }

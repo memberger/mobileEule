@@ -9,7 +9,7 @@
 	},
 	"0200": {
 		"id": "0200",
-		"spiel": 0,
+		"spiel": 2,
 		"fortschritt": 0,
 		"gewonnen": 0,
 		"eigeneBilder": [],
@@ -17,7 +17,7 @@
 	},
 	"0300": {
 		"id": "0300",
-		"spiel": 1,
+		"spiel": 3,
 		"fortschritt": 0,
 		"gewonnen": 0,
 		"eigeneBilder": [],
@@ -33,7 +33,7 @@
 	},
 	"0500": {
 		"id": "0500",
-		"spiel": 0,
+		"spiel": 3,
 		"fortschritt": 0,
 		"gewonnen": 0,
 		"eigeneBilder": [],
@@ -41,7 +41,7 @@
 	},
 	"0600": {
 		"id": "0600",
-		"spiel": 2,
+		"spiel": 1,
 		"fortschritt": 0,
 		"gewonnen": 0,
 		"eigeneBilder": [],
@@ -57,7 +57,7 @@
 	},
 	"0800": {
 		"id": "0800",
-		"spiel": 0,
+		"spiel": 2,
 		"fortschritt": 0,
 		"gewonnen": 0,
 		"eigeneBilder": [],
