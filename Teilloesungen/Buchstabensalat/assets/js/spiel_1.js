@@ -1,28 +1,77 @@
+// JSON Objekte sind global
+var Allgemein = null;
+var Begriffe = null;
+var Kategorien = null;
+// Sonstige globale Variablen
+var JSONLoaded = false; // Wenn das true ist, sind alle drei JSON-Objekte befüllt
 // Variablen für Spiel 1
+var kat = "0100"; // Aktuelle Kategorie
 var katBegriffe;
 var wort;
 var buchstaben;
+var dragElement;
+var richtig = 0;
+var spielFortschritt = 0;
+var rundenProSpiel = 5;
+var zIndex = 2;
 
-// JSON Objekte
-var myJson = new MyJson();
-var Begriffe = myJson.getBegriffe();// Alle nötigen Begriffe
-var Kategorie   = myJson.getKategorie();//Alle nötige aus Katrgorie.json
-//myJson.saveTemp();
+// Alle JSON-Objekte mit aktuellen Daten befüllen
+function getJSONData() {
+	$.getJSON("assets/Allgemein.json",function(json){
+		Allgemein = json;
+		JSONReady();
+	});
+$.getJSON("assets/Begriffe.json",function(json){
+		Begriffe = json;
+		JSONReady();
+	});
+$.getJSON("assets/Kategorien.json",function(json){
+		Kategorien = json;
+		JSONReady();
+	});
+}
 
-// Initialisierung von JSON-Zeugs
-$(document).ready(function() {
-	nextWord();
-});
+// Wird ausgeführt wenn das JSON fertig geladen hat
+// Init-Sachen die mit JSON zutun haben gehören hier hinein
+function JSONReady() {
+	if(Allgemein != null && Begriffe != null && Kategorien != null) {
+		JSONLoaded = true;
+		
+		// Initialisierung von JSON-Zeugs
+		nextWord();
+	
+		
+	}
+}
+
+// JSON Daten das erste mal holen
+getJSONData();
 
 
 // Funktionen für Spiel 1
 function nextWord() {
+<<<<<<< HEAD
 	katBegriffe = Begriffe.begriffe;
 	kat = Kategorie.id;
+	
+	if(Kategorie.fortschritt >= Begriffe.begriffe.length) {
+		Kategorie.fortschritt = 0;
+	} 
+=======
+	katBegriffe = Begriffe[kat].begriffe;
+>>>>>>> parent of 5e6b235... JSON-Einbindung für Spiele erstellt: Zuerst test.html aufrufen, dann weiter zum Spiel!
 
-	wort = katBegriffe[Kategorie.fortschritt];
+	wort = katBegriffe[Kategorien[kat].fortschritt];
 	buchstaben = wort.name.split("");
 	var container = document.getElementById("buchstaben");
+	
+	// Alles zurücksetzen
+	$("#buchstabenPlatzhalter").empty();
+	$("#buchstaben").empty();
+	$("#weiterButton").css("display", "none");
+	richtig = 0;
+	dragElement = null;
+	
 	
 	for(var i=0; i<buchstaben.length; i++) {
 		buchstaben[i] = buchstaben[i].toLowerCase();
@@ -31,6 +80,7 @@ function nextWord() {
 		var el = document.createElement("li");
 		document.getElementById("buchstabenPlatzhalter").appendChild(el);
 		$(el).addClass("platzhalter");
+		el.setAttribute("wert", buchstaben[i]);
 		
 		// Buchstaben einfügen
 		var div = document.createElement("div");
@@ -42,34 +92,152 @@ function nextWord() {
 		el = document.createElement("div");
 		div.appendChild(el);
 		
-		el.style.left = (div.offsetWidth-60)*Math.random()+"px";
-		el.style.top = (div.offsetHeight-60)*Math.random()+"px";
+		var left = (div.offsetWidth-60)*Math.random();
+		var top = (div.offsetHeight-60)*Math.random();
 		
-		el.style.backgroundImage = "url(assets/img/buchstaben/"+buchstaben[i]+".png)";
+		el.style.left = left+"px";
+		el.style.top = top+"px";
+		
+		el.style.backgroundImage = "url(assets/img/buchstaben/"+buchstaben[i]+".svg)";
 		$(el).addClass("buchstabe");
-
+		el.setAttribute("left", left);
+		el.setAttribute("top", top);
+		el.setAttribute("wert", buchstaben[i]);
+		
 		//$(el).attr("ondragstart", "handeDragStart(this)");
-		el.touchmove = handleDragStart;
+		el.touchmove = handleDrag;
+		el.touchend = handleDragEnd;
+		el.touchstart = handleDragStart;
+		
+		el.setAttribute("ontouchstart", "handleDragStart(event)");
+		el.setAttribute("ontouchmove", "handleDrag(event)");
+		el.setAttribute("ontouchend", "handleDragEnd(event)");
+		
 	}
 
 	$(".buchstabe").shuffle();
+	$(".buchstabeTrenner").each(function() {
+		var pos = $('.buchstabeTrenner').index(this);
+		$(this).children(".buchstabe").attr("pos", pos);
+	});
+	
 	
 	document.body.style.backgroundImage = "url(assets/img/spiel/"+kat+"_hintergrund.png)"; 
+<<<<<<< HEAD
 	$("#kategorieName").html(Begriffe.name);
+	$("#kategorieBild").attr("src", "assets/img/spiel/"+kat+"_bild.svg");
+	$("#begriffBild").attr("src", "assets/img/spiel/"+wort.id+"_bild.svg");	
+=======
+	$("#kategorieName").html(Begriffe[kat].name);
 	$("#kategorieBild").attr("src", "assets/img/spiel/"+kat+"_bild.png");
 	$("#begriffBild").attr("src", "assets/img/spiel/"+wort.id+"_bild.png");	
+>>>>>>> parent of 5e6b235... JSON-Einbindung für Spiele erstellt: Zuerst test.html aufrufen, dann weiter zum Spiel!
 }
 
 function handleDragStart(e) {
-	//e.preventDefault();
+	e.preventDefault();
+	if(e.touches.length == 1){ 
+		dragElement = e.touches[0].target;
+		zIndex++;
+		dragElement.style.zIndex = zIndex;
+	}
+}
+
+function handleDrag(e) {
+	e.preventDefault();
 	
 	if(e.touches.length == 1){ // Only deal with one finger
 		var touch = e.touches[0]; // Get the information for finger #1
 		var node = touch.target; // Find the node the drag started from
-		node.style.position = "absolute";
-		node.style.left = touch.pageX + "px";
-		node.style.top = touch.pageY + "px";
+
+		var offsetLeft = $(node).parent().offset().left + 40;
+		var offsetTop = $(node).parent().offset().top + 40;
+
+		node.style.left = (touch.pageX - offsetLeft) + "px";
+		node.style.top = (touch.pageY - offsetTop) + "px";
 	}
+}
+
+function handleDragEnd(e) {
+	e.preventDefault();
+	
+	if(dragElement != null) {
+		// Auf richtigem Ziel?
+		var touch = e.changedTouches[0];
+		var touchX = touch.clientX;
+		var touchY = touch.clientY;
+		var wert = dragElement.getAttribute("wert");
+		var target = null;
+		
+		// What target has the letter been released on?
+		var platzhalter = $(".platzhalter");
+		for(var i = 0; i < platzhalter.length; i++) {
+			var x1 = $(platzhalter[i]).offset().left;
+			var y1 = $(platzhalter[i]).offset().top;
+			var x2 = x1 + platzhalter[i].offsetWidth;
+			var y2 = y1 + platzhalter[i].offsetHeight;
+			
+			if(touchX >= x1 && touchX <= x2 && touchY >= y1 && touchY <= y2) {
+				target = platzhalter[i];
+			}
+		}
+
+		// Is it a correct target?
+		if(target != null && (target.getAttribute("wert") == wert)) {
+			dragElement.setAttribute("ontouchmove", "");
+			dragElement.setAttribute("ontouchstart", "");
+			dragElement.setAttribute("ontouchend", "");
+			target.setAttribute("wert","belegt");
+			richtig++;
+			
+			// Snap Element
+			var offsetLeft = $(dragElement).parent().offset().left;
+			var offsetTop = $(dragElement).parent().offset().top;
+			
+			var newX = $(target).offset().left - offsetLeft - 6;
+			var newY = $(target).offset().top - offsetTop - 2;
+		
+			dragElement.style.left = newX + "px";
+			dragElement.style.top =  newY + "px";
+		} else {
+			// If not in correct target, reset to initial position
+			dragElement.style.left = dragElement.getAttribute("left")+"px";
+			dragElement.style.top = dragElement.getAttribute("top")+"px";
+		}
+	
+		// Spiel vorbei?
+		if(richtig >= buchstaben.length) {
+			// Runde ist vorbei!
+			spielFortschritt++;
+			Kategorie.fortschritt++;
+			
+			if(spielFortschritt >= rundenProSpiel) {
+				// Spiel ist vorbei
+				console.log("Spiel ist vorbei!");
+				spielFertig();
+			} else {
+				// Nächste Runde
+				console.log("Fertig - Nächster Begriff!");
+				$("#weiterButton").css("display", "block");
+				$("#weiterButton").attr("href", "javascript: nextWord()");
+			}
+			
+			
+			
+			
+		}
+	}
+
+	dragElement = null;
+}
+
+function spielFertig() {
+	$("#weiterButton").css("display", "block");
+	$("#weiterButton").attr("href", "test.html");
+
+	Kategorie.gewonnen++;
+	
+	myJson.saveTemp();
 }
 
 (function($){

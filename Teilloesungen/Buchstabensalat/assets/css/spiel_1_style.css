@@ -2,6 +2,7 @@ html, body {
 	width: 100%;
 	height: 100%;
 	font-family: Arial;
+	overflow: hidden;
 }
 
 * {
@@ -54,9 +55,9 @@ a img {
 
 #buchstabenContainer {
 	position: absolute;
-	left: 30%;
+	left: 25%;
 	top: 40%;
-	width: 60%;
+	width: 65%;
 	height: 40%;
 }
 
@@ -70,8 +71,8 @@ a img {
 #buchstabenPlatzhalter > li {
 	display: inline-block;
 	margin: 0 5px;
-	height: 75px;
-	width: 60px;
+	height: 78px;
+	width: 69px;
 	
 	background: rgba(255,255,255,0.8);
 }
@@ -89,10 +90,27 @@ a img {
 	position: relative;
 }
 
+#weiterButton {
+	display: none;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 80px;
+	height: 80px;
+	margin-left: -40px;
+	margin-top: -40px;
+	z-index: 99999;
+}
+
+#weiterButton > img {
+	height: 80px;
+	width: 80px;
+}
+
 .buchstabe {
 	position: absolute;
-	height: 60px;
-	width: 60px;
+	height: 80px;
+	width: 80px;
 	background-size: 100% 100%;
 }
 
