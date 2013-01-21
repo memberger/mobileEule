@@ -1,0 +1,277 @@
+<html>
+<head>
+<meta name = "viewport" content = "width = device-width, user-scalable=no">  
+  <style>
+  body {
+	  text-align: center;
+	  background: #ddf2a7;
+  }
+  
+  #canvas {	
+	width: 900px;
+	height: 600px;
+	border-radius: 20px;
+	background: rgba(255,255,255,0.5);
+	margin-bottom: 20px;
+  }
+  
+  #farben {
+	  width: 900px;
+	  float: none;
+	  margin-left: 50px;
+  }
+  
+  .farbe {
+	  border-radius: 50%;
+	  float: left;
+	  height: 90px;
+	  width: 90px;
+	  border: 4px #000000 solid;
+  }
+  
+  #schwarz {
+	 background-color: #000;
+  }
+  
+  #gruen {
+	 background-color: #30ae3b;
+  }
+  
+  #gelb {
+	 background-color: #ffec00;
+  }
+  
+  #orange {
+	 background-color: #f46300;
+  }
+  
+  #rosa {
+	 background-color: #f22a79;
+  }
+  
+  #hellblau {
+	 background-color: #03b2e5;
+  }
+  
+  #dunkelblau {
+	 background-color: #2d398c;
+  }
+  
+  #hellgruen{
+	 background-color: #9cc41d;
+  }
+
+  #braun{
+	 background-color: #bb864f;
+  }
+ 
+  
+  #loeschen {
+	  height: 80px;
+	  width: 120px;
+	  margin: 10px;
+  }
+  
+   #speichern {
+	  height: 80px;
+	  width: 120px;
+	  margin: 10px;
+  }
+  
+  
+  </style>
+</head>
+<body>
+	
+	<canvas id="canvas" width="900" height="600"></canvas>
+	
+	<div id="farben">
+		<div class="farbe" id="schwarz"></div>
+		<div class="farbe" id="gruen"></div>
+		<div class="farbe" id="gelb"></div>
+		<div class="farbe" id="orange"></div>
+		<div class="farbe" id="rosa"></div>
+		<div class="farbe" id="hellblau"></div>
+		<div class="farbe" id="dunkelblau"></div>
+		<div class="farbe" id="hellgruen"></div>
+		<div class="farbe" id="braun"></div>
+	</div>
+	
+	<input type="button" name="loeschen" id="loeschen" value="löschen"/>
+	<input type="button" name="speichern" id="speichern" value="speichern"/>
+	
+
+<! -- Iclude MyJson Class -->
+<script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
+	
+ <script>
+  var myJson = new MyJson();
+  
+  myJson.loadTemp();
+  var kat = myJson.getKategorie();
+
+  console.log(Kategorie);
+
+
+  	var farbe = "#44aa22";
+  	
+  	
+    // requestanimationframe shim
+	(function() {
+	    var lastTime = 0;
+	    var vendors = ['ms', 'moz', 'webkit', 'o'];
+	    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+	        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+	        window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
+	                                   || window[vendors[x]+'CancelRequestAnimationFrame'];
+	    }
+	 
+	    if (!window.requestAnimationFrame)
+	        window.requestAnimationFrame = function(callback, element) {
+	            var currTime = new Date().getTime();
+	            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+	            var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+	              timeToCall);
+	            lastTime = currTime + timeToCall;
+	            return id;
+	        };
+	 
+	    if (!window.cancelAnimationFrame)
+	        window.cancelAnimationFrame = function(id) {
+	            clearTimeout(id);
+	        };
+	}());
+	
+	// Scrollen ausschalten
+	document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
+	
+	
+	(function() {
+	
+	    var canvas;
+	    var ctx;
+	    var points = [];  // array für alle punkte
+	    var mouseDown = false;
+	    
+	    var width;
+	    var height;
+	    
+	    var img;
+	    
+	    var malvorlage = "beispiel_apfel.png";
+	
+	    function init() {
+	       canvas = document.getElementById("canvas");
+	       
+	       // Groesse
+	       width = canvas.width;
+	       height = canvas.height;
+	       
+	       // event listeners Touch Canvas
+	       canvas.addEventListener("touchstart", downHandler); 
+	       canvas.addEventListener("touchmove", moveHandler); 
+	       canvas.addEventListener("touchend", upHandler);
+	       
+	       // event listener Touch Farben wählen
+	       document.getElementById("schwarz").addEventListener("touchstart", function(){setColor('#000');},false);
+	       document.getElementById("gruen").addEventListener("touchstart", function(){setColor('#30ae3b');},false);
+	       document.getElementById("gelb").addEventListener("touchstart", function(){setColor('#ffec00');},false);
+	       document.getElementById("orange").addEventListener("touchstart", function(){setColor('#f46300');},false);
+	       document.getElementById("rosa").addEventListener("touchstart", function(){setColor('#f22a79');},false);
+	       document.getElementById("hellblau").addEventListener("touchstart", function(){setColor('#03b2e5');},false);
+	       document.getElementById("dunkelblau").addEventListener("touchstart", function(){setColor('#2d398c');},false);
+	       document.getElementById("hellgruen").addEventListener("touchstart", function(){setColor('#9cc41d');},false);
+	       document.getElementById("braun").addEventListener("touchstart", function(){setColor('#bb864f');},false);
+	       
+	       // event listener Touch Buttons
+	       document.getElementById("loeschen").addEventListener("touchstart", loeschen ,false);
+	       document.getElementById("speichern").addEventListener("touchstart", speichern ,false);
+	        
+	       // set up drawing context
+	       ctx = canvas.getContext("2d");
+	       ctx.lineWidth = 25;
+	       ctx.strokeStyle = farbe;
+	       ctx.lineJoin = 'round';
+	       ctx.lineCap = 'round';
+	       
+	       //Malvorlage
+		   vorlage ();
+	
+	       // kick off draw loop
+	       draw();
+	
+	    }
+	    
+	    function vorlage () {
+		   img = new Image();
+	       img.src = malvorlage;
+	       var positionx = 450 - (img.width)/2;
+	       var positiony = 300 - (img.height)/2;
+	       ctx.drawImage(img, positionx, positiony);
+	    }
+	
+	    function downHandler(event) {
+	    	ctx.strokeStyle = farbe;
+	        points = [];
+	        mouseDown = true;
+	    }
+	
+	    function upHandler(event) {
+	        mouseDown = false;
+	    }
+	
+	    function moveHandler(event) {
+	        if(mouseDown) {
+	        	var posLeft = canvas.offsetLeft;
+	        	var posTop = canvas.offsetTop;
+	            var x = event.touches[0].clientX;
+	            var y = event.touches[0].clientY;
+	
+	            // add object to points array
+	            points[points.length] = {x: x, y: y};
+	            
+	        }
+	    }
+	
+	    function draw() {
+	        window.requestAnimationFrame(draw);
+	        
+	       // loop through
+	       ctx.beginPath();
+	       for(var i=1;i<points.length;i++) {
+	         ctx.moveTo(points[i-1].x, points[i-1].y);
+	         ctx.lineTo(points[i].x, points[i].y);   
+	       }
+	       ctx.stroke();
+	       
+	       //Malvorlage darüber legen
+	       vorlage ();
+	      
+	    }
+	    
+	    function setColor (far) {
+	  		farbe = far;
+	  	}
+	  	
+	  	function loeschen () {
+		  	canvas.width = canvas.width;
+		  	points = [];
+		  	init();
+	  	}
+	  	
+	  	function speichern () {
+		  	 var base64 = document.getElementById("canvas").toDataURL('image/png');
+	  	}
+	  	
+
+  	
+	
+	    // initialize application
+	    init();
+	
+	})();
+    
+  </script>
+
+</body>
+</html>
