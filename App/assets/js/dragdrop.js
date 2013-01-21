@@ -39,7 +39,7 @@ function nextBilder(){
 	puzzleSetzen(wort1,wort2,wort3);
 	document.body.style.backgroundImage = "url(assets/img/spiel/"+kat.id+"_hintergrund.png)"; 
 	document.getElementById("kategorieName").insertAdjacentHTML("AfterBegin", items.name);
-	document.getElementById("kategorieBild").setAttribute("src", "assets/img/spiel/"+kat.id+"_bild.png");
+	document.getElementById("kategorieBild").setAttribute("src", "assets/img/spiel/"+kat.id+"_bild.svg");
 }
 
 function puzzleSetzen(a,b,c){
@@ -47,90 +47,90 @@ var ziele = new Array();
 var r = Math.random() * 100;
 
 if(r >= 0 && r < 10){
-	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.png",0);
-	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.png",1);
-	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.png",2);
+	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.svg",0);
+	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.svg",1);
+	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.svg",2);
 
 	var quelle1 = new Quelle(a.id, a.name, 0, ziele);
 	var quelle2 = new Quelle(b.id, b.name, 1, ziele);
 	var quelle3 = new Quelle(c.id, c.name, 2, ziele);
 }
 if(r >= 10 && r < 20){
-	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.png",0);
-	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.png",1);
-	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.png",2);
+	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.svg",0);
+	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.svg",1);
+	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.svg",2);
 
 	var quelle1 = new Quelle(a.id, a.name, 2, ziele);
 	var quelle2 = new Quelle(b.id, b.name, 0, ziele);
 	var quelle3 = new Quelle(c.id, c.name, 1, ziele);
 }
 if(r >= 20 && r < 30){
-	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.png",0);
-	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.png",1);
-	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.png",2);
+	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.svg",0);
+	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.svg",1);
+	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.svg",2);
 
 	var quelle1 = new Quelle(a.id, a.name, 1, ziele);
 	var quelle2 = new Quelle(b.id, b.name, 2, ziele);
 	var quelle3 = new Quelle(c.id, c.name, 0, ziele);
 }
 if(r >= 30 && r < 40){
-	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.png",0);
-	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.png",1);
-	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.png",2);
+	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.svg",0);
+	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.svg",1);
+	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.svg",2);
 
 	var quelle1 = new Quelle(a.id, a.name, 0, ziele);
 	var quelle2 = new Quelle(b.id, b.name, 2, ziele);
 	var quelle3 = new Quelle(c.id, c.name, 1, ziele);
 }
 if(r >= 40 && r < 50){
-	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.png",1);
-	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.png",0);
-	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.png",2);
+	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.svg",1);
+	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.svg",0);
+	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.svg",2);
 
 	var quelle1 = new Quelle(a.id, a.name, 0, ziele);
 	var quelle2 = new Quelle(b.id, b.name, 1, ziele);
 	var quelle3 = new Quelle(c.id, c.name, 2, ziele);
 }
 if(r >= 50 && r < 60){
-	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.png",2);
-	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.png",0);
-	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.png",1);
+	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.svg",2);
+	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.svg",0);
+	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.svg",1);
 
 	var quelle1 = new Quelle(a.id, a.name, 0, ziele);
 	var quelle2 = new Quelle(b.id, b.name, 1, ziele);
 	var quelle3 = new Quelle(c.id, c.name, 2, ziele);
 }
 if(r >= 60 && r < 70){
-	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.png",2);
-	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.png",0);
-	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.png",1);
+	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.svg",2);
+	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.svg",0);
+	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.svg",1);
 
 	var quelle1 = new Quelle(a.id, a.name, 1, ziele);
 	var quelle2 = new Quelle(b.id, b.name, 2, ziele);
 	var quelle3 = new Quelle(c.id, c.name, 0, ziele);
 }
 if(r >= 70 && r < 80){
-	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.png",1);
-	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.png",2);
-	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.png",0);
+	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.svg",1);
+	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.svg",2);
+	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.svg",0);
 
 	var quelle1 = new Quelle(a.id, a.name, 0, ziele);
 	var quelle2 = new Quelle(b.id, b.name, 1, ziele);
 	var quelle3 = new Quelle(c.id, c.name, 2, ziele);
 }
 if(r >= 80 && r < 90){
-	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.png",1);
-	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.png",2);
-	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.png",0);
+	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.svg",1);
+	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.svg",2);
+	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.svg",0);
 
 	var quelle1 = new Quelle(a.id, a.name, 2, ziele);
 	var quelle2 = new Quelle(b.id, b.name, 0, ziele);
 	var quelle3 = new Quelle(c.id, c.name, 1, ziele);
 }
 if(r >= 90 && r <= 100){
-	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.png",2);
-	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.png",0);
-	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.png",1);
+	ziele[0] = new Ziel(a.id,"assets/img/spiel/"+a.id+"_bild.svg",2);
+	ziele[1] = new Ziel(b.id,"assets/img/spiel/"+b.id+"_bild.svg",0);
+	ziele[2] = new Ziel(c.id,"assets/img/spiel/"+c.id+"_bild.svg",1);
 
 	var quelle1 = new Quelle(a.id, a.name, 2, ziele);
 	var quelle2 = new Quelle(b.id, b.name, 1, ziele);
