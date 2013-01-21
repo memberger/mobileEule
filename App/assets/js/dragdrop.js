@@ -225,13 +225,13 @@ if(el != null){
 	
 	for(var i=0; i<this.ziele.length; i++){
 	//Touch
-	/*if(evt.changedTouches[0].clientX > this.ziele[i].div.offsetLeft && evt.changedTouches[0].clientY > this.ziele[i].div.offsetTop && 
+	if(evt.changedTouches[0].clientX > this.ziele[i].div.offsetLeft && evt.changedTouches[0].clientY > this.ziele[i].div.offsetTop && 
 		evt.changedTouches[0].clientX < (this.ziele[i].div.offsetLeft + this.ziele[i].div.offsetWidth) && evt.changedTouches[0].clientY < (this.ziele[i].div.offsetTop + this.ziele[i].div.offsetHeight) ){
-		*/ 
+		
 	//Klicken
-	if(evt.clientX > this.ziele[i].div.offsetLeft && evt.clientY > this.ziele[i].div.offsetTop && 
+	/*if(evt.clientX > this.ziele[i].div.offsetLeft && evt.clientY > this.ziele[i].div.offsetTop && 
 		evt.clientX < (this.ziele[i].div.offsetLeft + this.ziele[i].div.offsetWidth) && evt.clientY < (this.ziele[i].div.offsetTop + this.ziele[i].div.offsetHeight) ){
-		 
+		*/ 
 			if(this.type == this.ziele[i].type){
 				this.dragdrop = false;
 				this.div.style.left = this.ziele[i].div.offsetLeft + "px";
