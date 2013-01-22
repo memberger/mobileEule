@@ -20,7 +20,9 @@
             //HTML- elemente holen
             swipey.wrapper = document.getElementById("wrapper");
             swipey.slideContainer = document.getElementById("slideContainer");
-            swipey.slides = slideContainer.getElementsByTagName("li");
+            //swipey.slides = slideContainer.getElementsByTagName("li");
+            // Besser by class slecten sonst kommt man immer mit anderen li auf der Seite in konflikt
+            swipey.slides = slideContainer.getElementsByClassName("swipeSite");
 
             // hšhe und breite auf device breite/hšhe -> fullscreen
             swipey.preferredWidth = window.innerWidth;

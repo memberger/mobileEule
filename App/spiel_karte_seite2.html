@@ -54,8 +54,6 @@
 	left: 1600px;
 }
 
-/* System Button */
-
 #navBottom {
 	list-style: none;
 	position: absolute;
@@ -82,74 +80,32 @@
 	margin-top: -30px;
 }
 
-/* Swipe */
-
-body {
-	margin: 0;
-	padding: 0;
-}
-
-#wrapper
-{            
-    overflow:hidden;
-    position:relative;
-}
-
-#wrapper ul
-{
-    list-style:none;
-    margin:0;
-    padding:0; 
-    -webkit-transition: -webkit-transform 0.3s linear;
-    display:none;
-}
-
-#wrapper ul .swipeSite
-{
-   float:left; 
-  /* flackern beim ersten touch verhindern */
-  -webkit-backface-visibility: hidden;
-  -webkit-perspective: 1000;                       
-}
-
 </style>  
 
 </head>
 
 <body>
 
-<div id="wrapper">
-	<ul id="slideContainer">
-	   
-		<div id="p1" class="swipeSite">
-		    <div id="eule_worldmap"><img id="eule_worldmap_pic" src="assets/img/worldmap/eule_worldmap_example.png" height="100"/></div>
-		    
-		    <div class="landeplatz" id="lp0"></div>
-		    <div class="landeplatz" id="lp1"></div>
-		    <div class="landeplatz" id="lp2"></div>
-		    <div class="landeplatz" id="lp3"></div>
-		
-		    <img src="assets/img/hintergruende/map_ipad_mit_stationen-02.svg" id="worldmap"/>
-		    
-		    <div id="arrow_right"><a href="spiel_karte_seite2.html"><img src="assets/img/system/weiter.svg" /></a></div>
-		    
-		    <div id="navBottom">
-					<li><a href="#"><img src="assets/img/system/einstellungen.svg" /></a></li>
-					<li><a href="#"><img src="assets/img/system/hilfe.svg" /></a></li>
-			</div>
-		</div>
-		
-		<div id="p2" class="swipeSite">
-			Text Seite 2
-		</div>
+    <div id="eule_worldmap"><img id="eule_worldmap_pic" src="assets/img/worldmap/eule_worldmap_example.png" height="100"/></div>
+    
+    <div class="landeplatz" id="lp0"></div>
+    <div class="landeplatz" id="lp1"></div>
+    <div class="landeplatz" id="lp2"></div>
+    <div class="landeplatz" id="lp3"></div>
+
+    <img src="assets/img/hintergruende/map_ipad_mit_stationen-02.svg" id="worldmap"/>
+    
+    <div id="arrow_right"><a href="#"><img src="assets/img/system/weiter.svg" /></a></div>
+    
+    <ul id="navBottom">
+			<li><a href="#"><img src="assets/img/system/einstellungen.svg" /></a></li>
+			<li><a href="#"><img src="assets/img/system/hilfe.svg" /></a></li>
 	</ul>
-</div>
+
+
     
 <! -- Iclude MyJson Class -->
 <script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
-
-<! -- Swipe für nächste Seite -->
-<script type="text/javascript" src="assets/js/swipe.js"  charset="UTF-8"> </script>
  
 <! -- Kleine Library YUI (35 kB) zur erstellung des Flugpfads -->
 <script type="text/javascript" src="assets/js/yui-base-min.js"> </script>
