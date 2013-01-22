@@ -29,9 +29,9 @@
 function initEvents(){
 
 	var d = document;
-	var myEvent = localStorage.myEvent;
+	//var myEvent = localStorage.myEvent; // warum Event vom Local Storage? bei mir is kein Event im Local Storage drum funktiniert es nicht
 
-	d.getElementById("btn-weiter").addEventListener(myEvent, startSpiel);
+	d.getElementById("btn-weiter").addEventListener("click", startSpiel); // hab es jetzt auf ein normales click event geändert vorerst
 
 	
 }
