@@ -105,30 +105,30 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y){
 
   // Click
   document.getElementById("lp0").addEventListener("click", function() {
-      fly(300, 650, 0100); });
+      fly(300, 650, "0100"); });
       
   document.getElementById("lp1").addEventListener("click", function() {
-      fly(880, 700, 0200); });
+      fly(880, 700, "0200"); });
   
   document.getElementById("lp2").addEventListener("click", function() {
-      fly(1270, 600, 0300); });
+      fly(1270, 600, "0300"); });
       
   document.getElementById("lp3").addEventListener("click", function() {
-      fly(1750, 350, 0400); });
+      fly(1750, 350, "0400"); });
       
       
   // Touch
    document.getElementById("lp0").addEventListener("touchstart", function() {
-      fly(300, 650, 0100); });
+      fly(300, 650, "0100"); });
       
   document.getElementById("lp1").addEventListener("touchstart", function() {
-      fly(880, 700, 0200); });
+      fly(880, 700, "0200"); });
   
   document.getElementById("lp2").addEventListener("touchstart", function() {
-      fly(1270, 600, 0300); });
+      fly(1270, 600, "0300"); });
       
   document.getElementById("lp3").addEventListener("touchstart", function() {
-      fly(1750, 350, 0400); });
+      fly(1750, 350, "0400"); });
                
     
     // Fliegen
@@ -201,7 +201,6 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y){
     
     function setKategorie (catId) {
 	    myJson.createTemp(catId);
-	    myJson.saveTemp();
 	    setTimeout(function(){window.location.assign("spiel_wissen.html")},2000);
     }
     
