@@ -165,12 +165,12 @@ function down(evt){
 	//Falls keine Element gefunden wird passiert nichts
 	
 		//Klicken
-		dx = element.offsetLeft - evt.clientX;
-		dy = element.offsetTop - evt.clientY;
+	//	dx = element.offsetLeft - evt.clientX;
+	//	dy = element.offsetTop - evt.clientY;
 	
 	//Touch	
-	//	dx = element.offsetLeft - evt.touches[0].clientX;
-	//	dy = element.offsetTop - evt.touches[0].clientY;
+		dx = element.offsetLeft - evt.touches[0].clientX;
+		dy = element.offsetTop - evt.touches[0].clientY;
 		
 		el = element;
 		//el.style.cursor = "move"; //Damit wird die Form des Mauszeigers verändert
@@ -193,12 +193,12 @@ function move(evt){
 	//Die gedrückte Stelle des Elements wird auf die Mausposition gesetzt
 	
 	//Touch
-	//el.style.left = evt.touches[0].clientX + dx + "px";
-	//el.style.top = evt.touches[0].clientY + dy + "px";
+	el.style.left = evt.touches[0].clientX + dx + "px";
+	el.style.top = evt.touches[0].clientY + dy + "px";
 	
 	//Klicken
-	el.style.left = evt.clientX + dx + "px";
-	el.style.top = evt.clientY + dy + "px";
+	//el.style.left = evt.clientX + dx + "px";
+	//el.style.top = evt.clientY + dy + "px";
 	
 
 	}
