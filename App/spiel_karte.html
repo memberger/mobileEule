@@ -21,37 +21,35 @@
 	z-index: 20;
 	top: 290;
 	left: 0px;
-	
 }
 
 	  
 .landeplatz {
 	position: absolute;
 	background: transparent;
-	width: 300px;
-	height: 400px;
+	width: 200px;
+	height: 200px;
 	z-index:10;
-
 }
 
 #lp0 {
-	top: 400px;
-	left: 200px;
+	top: 200px;
+	left: 70px;
 }
 
 #lp1 {
-	top: 400px;
-	left: 780px;
+	top: 200px;
+	left: 360px;
 }
 
 #lp2 {
-	top: 400px;
-	left: 1170px;
+	top: 180px;
+	left: 570px;
 }
 
 #lp3 {
 	top: 100px;
-	left: 1600px;
+	left: 790px;
 }
 
 /* System Button */
@@ -129,9 +127,9 @@ body {
 		    <div class="landeplatz" id="lp2"></div>
 		    <div class="landeplatz" id="lp3"></div>
 		
-		    <img src="assets/img/hintergruende/map_ipad_mit_stationen-02.svg" id="worldmap"/>
+		    <img src="assets/img/hintergruende/map_ipad_mit_stationen-02.svg" id="worldmap" width="1024"/>
 		    
-		    <div id="arrow_right"><a href="spiel_karte_seite2.html"><img src="assets/img/system/weiter.svg" /></a></div>
+		    <div id="arrow_right"><a href="#"><img src="assets/img/system/weiter.svg" /></a></div>
 		    
 		    <div id="navBottom">
 					<li><a href="#"><img src="assets/img/system/einstellungen.svg" /></a></li>
@@ -140,7 +138,13 @@ body {
 		</div>
 		
 		<div id="p2" class="swipeSite">
-			Text Seite 2
+		
+			<img src="assets/img/hintergruende/map_ipad_mit_stationen-03.svg" id="worldmap" width="1024"/>
+			
+				<div id="navBottom">
+					<li><a href="#"><img src="assets/img/system/einstellungen.svg" /></a></li>
+					<li><a href="#"><img src="assets/img/system/hilfe.svg" /></a></li>
+				</div>
 		</div>
 	</ul>
 </div>
@@ -177,36 +181,36 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y){
         [0, 0] 
     ];
     
-  // Event Hanlder    
+  // Event Hanlder
 
   // Click
   document.getElementById("lp0").addEventListener("click", function() {
-      fly(300, 650, "0100"); });
+      fly(120, 270, "0100"); });
       
   document.getElementById("lp1").addEventListener("click", function() {
-      fly(880, 700, "0200"); });
+      fly(410, 300, "0200"); });
   
   document.getElementById("lp2").addEventListener("click", function() {
-      fly(1270, 600, "0300"); });
+      fly(620, 280, "0300"); });
       
   document.getElementById("lp3").addEventListener("click", function() {
-      fly(1750, 350, "0400"); });
+      fly(840, 120, "0400"); });
       
       
   // Touch
-   document.getElementById("lp0").addEventListener("touchstart", function() {
-      fly(300, 650, "0100"); });
+  document.getElementById("lp0").addEventListener("touchstart", function() {
+      fly(120, 270, "0100"); });
       
   document.getElementById("lp1").addEventListener("touchstart", function() {
-      fly(880, 700, "0200"); });
+      fly(410, 300, "0200"); });
   
   document.getElementById("lp2").addEventListener("touchstart", function() {
-      fly(1270, 600, "0300"); });
+      fly(620, 280, "0300"); });
       
   document.getElementById("lp3").addEventListener("touchstart", function() {
-      fly(1750, 350, "0400"); });
-               
-    
+      fly(840, 120, "0400"); });
+
+
     // Fliegen
     var isflying = false;
     
