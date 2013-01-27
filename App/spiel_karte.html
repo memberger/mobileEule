@@ -19,8 +19,8 @@
 #eule_worldmap {
 	position: absolute;
 	z-index: 20;
-	top: 290;
-	left: 0px;
+	top: 10px;
+	left: -5px;
 }
 
 	  
@@ -52,6 +52,26 @@
 	left: 790px;
 }
 
+#lp4 {
+top: 50px;
+left: 100px;
+}
+
+#lp5 {
+top: 400px;
+left: 160px;
+}
+
+#lp6 {
+top: 200px;
+left: 400px;
+}
+
+#lp7 {
+top: 150px;
+left: 720px;
+}
+
 /* System Button */
 
 #navBottom {
@@ -76,6 +96,15 @@
 	height: 60px;
 	width: 60px;
 	right: 10px;
+	top: 50%;
+	margin-top: -30px;
+}
+
+#arrow_left img{
+	position: absolute;
+	height: 60px;
+	width: 60px;
+	left: 10px;
 	top: 50%;
 	margin-top: -30px;
 }
@@ -117,10 +146,12 @@ body {
 <body>
 
 <div id="wrapper">
+
 	<ul id="slideContainer">
-	   
+	   	<div id="eule_worldmap"><img id="eule_worldmap_pic" src="assets/img/eule/eule_karte.svg" height="120"/></div>
+	   	
 		<div id="p1" class="swipeSite">
-		    <div id="eule_worldmap"><img id="eule_worldmap_pic" src="assets/img/worldmap/eule_worldmap_example.png" height="100"/></div>
+		    
 		    
 		    <div class="landeplatz" id="lp0"></div>
 		    <div class="landeplatz" id="lp1"></div>
@@ -138,8 +169,15 @@ body {
 		</div>
 		
 		<div id="p2" class="swipeSite">
-		
-			<img src="assets/img/hintergruende/map_ipad_mit_stationen-03.svg" id="worldmap" width="1024"/>
+			
+			<div class="landeplatz" id="lp4"></div>
+		    <div class="landeplatz" id="lp5"></div>
+		    <div class="landeplatz" id="lp6"></div>
+		    <div class="landeplatz" id="lp7"></div>
+		    
+			<img src="assets/img/hintergruende/map_ipad_mit_stationen-03.svg" id="worldmap2" width="1024"/>
+			
+			<div id="arrow_left"><a href="#"><img src="assets/img/system/zurueck.svg" /></a></div>
 			
 				<div id="navBottom">
 					<li><a href="#"><img src="assets/img/system/einstellungen.svg" /></a></li>
@@ -157,8 +195,10 @@ body {
 <! -- Iclude MyJson Class -->
 <script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
 
+
 <! -- Swipe für nächste Seite -->
 <script type="text/javascript" src="assets/js/swipe.js"  charset="UTF-8"> </script>
+
  
 <! -- Kleine Library YUI (35 kB) zur erstellung des Flugpfads -->
 <script type="text/javascript" src="assets/js/yui-base-min.js"> </script>
@@ -166,17 +206,23 @@ body {
    
 <script>
 
+document.addEventListener("touchstart", function(e){
+	e.preventDefault();
+});
+
 var myJson = new MyJson();
 myJson.loadAll();
+var isflying = false;
+var swiping = false;
 
-YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y){
+YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
 
     var mygraphic = new Y.Graphic(),
         origin = Y.one('#worldmap'), // The XY values for the animation are based on the upper-left corner of this element
         eule_worldmapA = Y.one('#eule_worldmap'); // The animated element
         
-    var eule_worldmap_fliegend = "assets/img/worldmap/eule_worldmap_example_fliegend.png";
-    var eule_worldmap_sitzend = "assets/img/worldmap/eule_worldmap_example.png";
+    var eule_worldmap_fliegend = "assets/img/eule/eule_fliegend.svg";
+    var eule_worldmap_sitzend = "assets/img/eule/eule_ohneAst.svg";
                 
     // Array of XY points, zu Beginn
     arrDot = [ 
@@ -214,20 +260,33 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y){
       
   document.getElementById("lp3").addEventListener("touchstart", function() {
       fly(840, 120, "0400"); });
+      
+  document.getElementById("lp4").addEventListener("touchstart", function() {
+      fly(1100, 70, "0500"); });
+      
+  document.getElementById("lp5").addEventListener("touchstart", function() {
+      fly(1200, 450, "0600"); });
+      
+  document.getElementById("lp6").addEventListener("touchstart", function() {
+      fly(1450, 250, "0700"); });
+
+  document.getElementById("lp7").addEventListener("touchstart", function() {
+      fly(1750, 200, "0800"); });
 
 
     // Fliegen
-    var isflying = false;
     
     function fly(x, y, catID) {
-	     if (!isflying) {
-        	isflying  = true;
-        	changeEule();
-		    updateEndpoint(x, y);
-		    startAnim(function(){updateStartpoint(); changeEule(); setKategorie(catID);});
-	        //setTimeout(startAnim, 100);
-	        //setTimeout(updateStartpoint, 2500);
-	        //setTimeout(changeEule, 2510);
+    	if(!swiping) {
+		     if (!isflying) {
+	        	isflying  = true;
+	        	changeEule();
+			    updateEndpoint(x, y);
+			    startAnim(function(){updateStartpoint(); setKategorie(catID); changeEule();});
+		        //setTimeout(startAnim, 100);
+		        //setTimeout(updateStartpoint, 2500);
+		        //setTimeout(changeEule, 2510);
+	        }
         }
     }
         
@@ -270,6 +329,7 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y){
 
     //Sets the anim curve values with the XY values from the array
     var startAnim = function(callback){
+    
         var oX = origin.getX(),
             oY = origin.getY();
         
@@ -282,18 +342,20 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y){
         setTimeout(callback, 2600);
     };
     
-    // Kategorie bestimmen
     
+    // Kategorie bestimmen
     function setKategorie (catId) {
 	    myJson.createTemp(catId);
 	    setTimeout(function(){window.location.assign("spiel_wissen.html")},1000);
     }
     
-       
-
+  
 
 });
 
+
+
 </script>
+
 </body>
 </html>
