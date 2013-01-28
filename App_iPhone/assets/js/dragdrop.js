@@ -144,7 +144,8 @@ if(r >= 90 && r <= 100){
 //Falls das der Fall is werden dx und dy berechnet
 function down(evt){
 	//Mit dieser Anweisung wird das Standardverhalten vom Browser unterdrückt
-
+	//console.log(this);
+	if(this.dragdrop == true){
 	if (evt.preventDefault) {
             evt.preventDefault(); // The W3C DOM way
         } else {
@@ -175,7 +176,7 @@ function down(evt){
 		el = element;
 		//el.style.cursor = "move"; //Damit wird die Form des Mauszeigers verändert
 		element.parentNode.appendChild(element);
-	
+	}
 }
 
 //Diese Funktion wird auferufen wenn die Maus über ein Element geschoben wird
@@ -235,7 +236,7 @@ if(el != null){
 			if(this.type == this.ziele[i].type){
 				this.dragdrop = false;
 				this.div.style.left = this.ziele[i].div.offsetLeft + "px";
-				this.div.style.top =  this.ziele[i].div.offsetHeight + this.div.offsetHeight/6 + "px";
+				this.div.style.top =  this.ziele[i].div.offsetHeight + this.ziele[i].div.offsetHeight - this.div.offsetHeight/2.5 + "px";
 				richtigeBegriffe++;
 				if(richtigeBegriffe == 3){
 					puzzleSpielGeschafft();

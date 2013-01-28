@@ -23,17 +23,19 @@
 </head>
 
 <body>
-<button id="zurueck-karte">Spiel beenden zurück zur Karte</button>
 
 <h1 id="kategorieName"></h1>
-		<div id="kategorieBildContainer"><img id="kategorieBild" src=""/></div>
-		
-		<ul id="navBottom">
-			<li><a href="#"><img src="assets/img/system/karte.svg" /></a></li>
-			<li><a href="#"><img src="assets/img/system/einstellungen.svg" /></a></li>
-			<li><a href="#"><img src="assets/img/system/hilfe.svg" /></a></li>
-		</ul>
 
+<img id="kategorieBild" src=""/>
+		
+
+<img src="assets/img/eule.svg" id="eule"/>
+<img src="assets/img/system/hilfe.svg" class="system" id="help"/>
+<img src="assets/img/system/karte.svg" class="system" id="map"/>
+<img src="assets/img/system/home.svg" class="system" id="home"/>
+
+<img src="assets/img/system/hackerl.svg" id="hackerl"/>
+<img src="assets/img/system/weiter.svg" id="pfeil"/>
 
 <script type="text/javascript">
 
@@ -44,7 +46,8 @@ function initEvents(){
 	var d = document;
 	var myEvent = localStorage.myEvent;
 	
-	d.getElementById("zurueck-karte").addEventListener(myEvent,function(){ window.location = 'spiel_karte.html'});
+	d.getElementById("map").addEventListener(myEvent,function(){ window.location = 'spiel_karte.html'});
+	d.getElementById("pfeil").addEventListener(myEvent,function(){  window.location = 'spiel_belohnung.html'});
 	//d.getElementById("spiel-fertig").addEventListener(myEvent,spielFertig);
 	
 }
@@ -53,8 +56,9 @@ function initEvents(){
 function spielFertig(){
  kat.fortschritt = 0;
  kat.gewonnen = 350;
- myJson.saveTemp();
- window.location = 'spiel_belohnung.html';
+ myJson.saveTemp(); 
+ document.getElementByID("pfeil").style.display = "block";
+ document.getElementByID("hackerl").style.display = "block";
 }
 
 initEvents();
