@@ -8,49 +8,44 @@
 
 
 <link rel="stylesheet" href="assets/css/eule.css" />
+<link rel="stylesheet" href="assets/css/foto.css" />
 
-
-<style>
-
-    .foto{
-        
-        display : block;
-        width:80%;
-        height:auto;
-        margin-top:2em;
-        
-    }
-    
-</style>
     
 </head>
   
 <body>
-<h1>Hier kann ein Foto aufgenommen werden</h1>
 
-<button ontouchend="window.location='spiel_belohnung.html'">Fertig und Zurück</button>
+		<div id="header">
+			<h1 id="kategorieName"></h1>
+			<img src="assets/img/eule.svg" id="euleBild" />
+			<div id="kategorieBildContainer"><img id="kategorieBild" src=""/></div>
 
- 
-    <button id="btn-bild-aufnehmen">Ein Bild Aufnehmen</button>
-    <button id="btn-load-bilder">Bilder der Kategorie laden</button><br>
+		</div>
 
-    <img style="display:none;width:600px;height:auto;" id="image" src="" />
+
+    <img id="image" src="" />
+
+    <img src="assets/img/system/hackerl.svg" alt="" id="pic-ok" />
+    <img src="assets/img/system/papierkorb.svg" alt="" id="pic-loeschen" />
+
+	<ul id="navBottom">
+		<li><a href="spiel_karte.html"><img src="assets/img/system/karte.svg" /></a></li>
+		<li><a href="#"><img src="assets/img/system/einstellungen.svg" /></a></li>
+		<li><a href="#"><img src="assets/img/system/hilfe.svg" /></a></li>
+	</ul>
   
 
     <script type="text/javascript" src="assets/js/eule.js"  charset="UTF-8"> </script>
     <script type="text/javascript" src="cordova-2.2.0.js"   charset="UTF-8"> </script>
     <script type="text/javascript" src="assets/js/Classes/MyPicture.js"  charset="UTF-8"> </script>
     <script type="text/javascript" src="assets/js/Classes/MyFileSystem.js"  charset="UTF-8"> </script>
+    <script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
     <script type="text/javascript" src="assets/js/foto.js"  charset="UTF-8"> </script>
 
 
-</body>
-    
 
+	</body>
 </html>
-
-
-
 
 
 
