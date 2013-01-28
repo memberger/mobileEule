@@ -144,7 +144,7 @@ if(r >= 90 && r <= 100){
 //Falls das der Fall is werden dx und dy berechnet
 function down(evt){
 	//Mit dieser Anweisung wird das Standardverhalten vom Browser unterdrückt
-	if(this.dragdrop){
+
 	if (evt.preventDefault) {
             evt.preventDefault(); // The W3C DOM way
         } else {
@@ -175,7 +175,7 @@ function down(evt){
 		el = element;
 		//el.style.cursor = "move"; //Damit wird die Form des Mauszeigers verändert
 		element.parentNode.appendChild(element);
-	}
+	
 }
 
 //Diese Funktion wird auferufen wenn die Maus über ein Element geschoben wird
