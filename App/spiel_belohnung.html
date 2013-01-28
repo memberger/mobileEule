@@ -1,32 +1,55 @@
-<!DOCTYPE html> <!-- html 5 -->
+
+<!DOCTYPE html>
 <html>
-<head>
-<title>Eule-Spiel- Die Belohnung</title>
-<meta charset="utf-8" />
-<meta name = "viewport" content = "width = device-width, maximum-scale = 1, minimum-scale = 1, user-scalable = no">
-<meta name = "apple-mobile-web-app-capable" content="yes">
+	<head>
+		<title>Belohnung</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name = "viewport" content = "width = device-width, maximum-scale = 1, minimum-scale = 1, user-scalable = no">
+		<meta name = "apple-mobile-web-app-capable" content="yes">
+
+		<link rel="stylesheet" href="assets/css/belohnung.css" />
+		
+	</head>
+	<body>
+
+<!--
+
+		<button ontouchend="window.location='spiel_foto.html'">Ein tolles Bild aufnehmen</button>
+
+		<button ontouchend="window.location='spiel_zeichnung.html'">Etwas malen</button>
+
+		<button ontouchend="window.location='spiel_karte.html'">Fertig und zurück zur Karte</button>
+
+-->
+
+		
+		<div id="header">
+			<h1 id="kategorieName"></h1>
+			<img src="assets/img/eule.svg" id="euleBild" />
+			<div id="kategorieBildContainer"><img id="kategorieBild" src=""/></div>
+
+		</div>
 
 
-<link rel="stylesheet" href="assets/css/eule.css" />
-<script type="text/javascript" src="assets/js/eule.js"  charset="UTF-8"> </script>
+		<img src="assets/img/system/foto.svg" alt="" id="img-bild-aufnehmen" />
 
+		<img src="assets/img/system/malen.svg" alt="" id="img-bild-malen" />
 
-</head>
+		
 
-<body>
-<h1>Spiel geschafft - jetzt gibt's eine Belohnung</h1>
+	
+		
+		
+		
 
-<button ontouchend="window.location='spiel_foto.html'">Ein tolles Bild aufnehmen</button>
-
-<button ontouchend="window.location='spiel_zeichnung.html'">Etwas malen</button>
-
-<button ontouchend="window.location='spiel_karte.html'">Fertig und zurück zur Karte</button>
-
-
-
-
-
-
-
-
-</body>
+		
+		<ul id="navBottom">
+			<li><a href="spiel_karte.html"><img src="assets/img/system/karte.svg" /></a></li>
+			<li><a href="#"><img src="assets/img/system/einstellungen.svg" /></a></li>
+			<li><a href="#"><img src="assets/img/system/hilfe.svg" /></a></li>
+		</ul>
+		
+		<script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
+		<script type="text/javascript" src="assets/js/belohnung.js"></script>
+	</body>
+</html>
