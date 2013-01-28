@@ -1,0 +1,294 @@
+<!DOCTYPE html> <!-- html 5 -->
+<html>
+<head>
+<title>Worldmap</title>
+<meta charset="utf-8" />
+
+
+<meta name = "viewport" content = "width = device-width, maximum-scale = 1, minimum-scale = 1, user-scalable = no">
+<meta name = "apple-mobile-web-app-capable" content="yes">
+
+<style>
+#worldmap {
+	position: absolute;
+	z-index: -100;	
+	top: 0;
+	left: 0;
+}
+
+#eule_worldmap {
+	position: absolute;
+	z-index: 20;
+	top: 290;
+	left: 0px;
+}
+
+	  
+.landeplatz {
+	position: absolute;
+	background: transparent;
+	width: 200px;
+	height: 200px;
+	z-index:10;
+}
+
+#lp0 {
+	top: 200px;
+	left: 70px;
+}
+
+#lp1 {
+	top: 200px;
+	left: 360px;
+}
+
+#lp2 {
+	top: 180px;
+	left: 570px;
+}
+
+#lp3 {
+	top: 100px;
+	left: 790px;
+}
+
+/* System Button */
+
+#navBottom {
+	list-style: none;
+	position: absolute;
+	bottom: 3%;
+	right: 10px;
+}
+
+#navBottom > li {
+	display: inline-block;
+	margin: 0 5px;
+}
+
+#navBottom > li > a > img {
+	height: 60px;
+	width: 60px;
+}
+
+#arrow_right img{
+	position: absolute;
+	height: 60px;
+	width: 60px;
+	right: 10px;
+	top: 50%;
+	margin-top: -30px;
+}
+
+/* Swipe */
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#wrapper
+{            
+    overflow:hidden;
+    position:relative;
+}
+
+#wrapper ul
+{
+    list-style:none;
+    margin:0;
+    padding:0; 
+    -webkit-transition: -webkit-transform 0.3s linear;
+    display:none;
+}
+
+#wrapper ul .swipeSite
+{
+   float:left; 
+  /* flackern beim ersten touch verhindern */
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;                       
+}
+
+</style>  
+
+</head>
+
+<body>
+
+<div id="wrapper">
+	<ul id="slideContainer">
+	   
+		<div id="p1" class="swipeSite">
+		    <div id="eule_worldmap"><img id="eule_worldmap_pic" src="assets/img/worldmap/eule_worldmap_example.png" height="100"/></div>
+		    
+		    <div class="landeplatz" id="lp0"></div>
+		    <div class="landeplatz" id="lp1"></div>
+		    <div class="landeplatz" id="lp2"></div>
+		    <div class="landeplatz" id="lp3"></div>
+		
+		    <img src="assets/img/hintergruende/map_ipad_mit_stationen-02.svg" id="worldmap" width="1024"/>
+		    
+		    <div id="arrow_right"><a href="#"><img src="assets/img/system/weiter.svg" /></a></div>
+		    
+		    <div id="navBottom">
+					<li><a href="#"><img src="assets/img/system/einstellungen.svg" /></a></li>
+					<li><a href="#"><img src="assets/img/system/hilfe.svg" /></a></li>
+			</div>
+		</div>
+		
+		<div id="p2" class="swipeSite">
+		
+			<img src="assets/img/hintergruende/map_ipad_mit_stationen-03.svg" id="worldmap" width="1024"/>
+			
+				<div id="navBottom">
+					<li><a href="#"><img src="assets/img/system/einstellungen.svg" /></a></li>
+					<li><a href="#"><img src="assets/img/system/hilfe.svg" /></a></li>
+				</div>
+		</div>
+	</ul>
+</div>
+    
+<! -- Iclude MyJson Class -->
+<script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
+
+<! -- Swipe für nächste Seite -->
+<script type="text/javascript" src="assets/js/swipe.js"  charset="UTF-8"> </script>
+ 
+<! -- Kleine Library YUI (35 kB) zur erstellung des Flugpfads -->
+<script type="text/javascript" src="assets/js/yui-base-min.js"> </script>
+ 
+   
+<script>
+
+var myJson = new MyJson();
+myJson.loadAll();
+
+YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y){
+
+    var mygraphic = new Y.Graphic(),
+        origin = Y.one('#worldmap'), // The XY values for the animation are based on the upper-left corner of this element
+        eule_worldmapA = Y.one('#eule_worldmap'); // The animated element
+        
+    var eule_worldmap_fliegend = "assets/img/worldmap/eule_worldmap_example_fliegend.png";
+    var eule_worldmap_sitzend = "assets/img/worldmap/eule_worldmap_example.png";
+                
+    // Array of XY points, zu Beginn
+    arrDot = [ 
+        [0, 220], 
+        [400, 20], 
+        [400, 20], 
+        [0, 0] 
+    ];
+    
+  // Event Hanlder
+
+  // Click
+  document.getElementById("lp0").addEventListener("click", function() {
+      fly(120, 270, "0100"); });
+      
+  document.getElementById("lp1").addEventListener("click", function() {
+      fly(410, 300, "0200"); });
+  
+  document.getElementById("lp2").addEventListener("click", function() {
+      fly(620, 280, "0300"); });
+      
+  document.getElementById("lp3").addEventListener("click", function() {
+      fly(840, 120, "0400"); });
+      
+      
+  // Touch
+  document.getElementById("lp0").addEventListener("touchstart", function() {
+      fly(120, 270, "0100"); });
+      
+  document.getElementById("lp1").addEventListener("touchstart", function() {
+      fly(410, 300, "0200"); });
+  
+  document.getElementById("lp2").addEventListener("touchstart", function() {
+      fly(620, 280, "0300"); });
+      
+  document.getElementById("lp3").addEventListener("touchstart", function() {
+      fly(840, 120, "0400"); });
+
+
+    // Fliegen
+    var isflying = false;
+    
+    function fly(x, y, catID) {
+	     if (!isflying) {
+        	isflying  = true;
+        	changeEule();
+		    updateEndpoint(x, y);
+		    startAnim(function(){updateStartpoint(); changeEule(); setKategorie(catID);});
+	        //setTimeout(startAnim, 100);
+	        //setTimeout(updateStartpoint, 2500);
+	        //setTimeout(changeEule, 2510);
+        }
+    }
+        
+    function changeEule() {
+    	if (isflying) {
+    		document.getElementById("eule_worldmap_pic").setAttribute("src", eule_worldmap_fliegend);
+    	}
+    	else {
+	    	document.getElementById("eule_worldmap_pic").setAttribute("src", eule_worldmap_sitzend);
+    	}
+    }
+    
+    function updateStartpoint(){
+	    Y.Anim.stop();
+	    arrDot[0][0] = Y.one('#eule_worldmap').getStyle('left');
+	    arrDot[0][1] = Y.one('#eule_worldmap').getStyle('top');
+        isflying = false;
+        //alert("updateStartpoint Ende");
+    }
+    
+    var lastx3 = 200;
+    
+    function updateEndpoint(x3, y3) {
+    	var newExtrempunkt = (lastx3 + x3)/2;
+	   	arrDot[1][0] = newExtrempunkt;
+	    arrDot[2][0] = newExtrempunkt;
+	    arrDot[3][0] = x3;
+	    arrDot[3][1] = y3;
+	    lastx3 = x3;
+    }
+  
+
+    // Create the animation instance
+    var anim = new Y.Anim({
+        node: eule_worldmapA,
+        duration: 2.5,
+        easing: Y.Easing.easeOut
+    });
+    
+
+    //Sets the anim curve values with the XY values from the array
+    var startAnim = function(callback){
+        var oX = origin.getX(),
+            oY = origin.getY();
+        
+    anim.set('to', {
+        curve: [ [(arrDot[1][0] + oX), (arrDot[1][1] + oY)], [ (arrDot[2][0] + oX), (arrDot[2][1] + oY) ],
+        [ (arrDot[3][0] + oX), (arrDot[3][1] + oY) ]]
+        });
+        anim.run();
+        
+        setTimeout(callback, 2600);
+    };
+    
+    // Kategorie bestimmen
+    
+    function setKategorie (catId) {
+	    myJson.createTemp(catId);
+	    setTimeout(function(){window.location.assign("spiel_wissen.html")},2000);
+    }
+    
+       
+
+
+});
+
+</script>
+</body>
+</html>
