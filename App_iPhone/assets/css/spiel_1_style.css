@@ -16,11 +16,12 @@ a img {
 
 #kategorieBildContainer {
 	position: absolute;
-	right: 10px;
+	left: 10px;
 	height: 30%;
 	width: 20%;
 	top: 0px;
 	text-align: center;
+	display: none;
 }
 
 #kategorieBild {
@@ -28,10 +29,18 @@ a img {
 	max-width: 100%;
 }
 
+#euleBild {
+	max-height: 30%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none;
+}
+
 #kategorieName {
 	position: absolute;
 	right: 10px;
-	top: 30%;
+	top: 2%;
 	width: 20%;
 	
 	font-size: 40px;
@@ -41,9 +50,9 @@ a img {
 
 #begriffBildContainer {
 	position: absolute;
-	top: 30%;
-	height: 60%;
-	left: 10px;
+	top: 0;
+	height: 25%;
+	left: 0;
 	z-index: -1;
 	text-align: center;
 }
@@ -55,10 +64,10 @@ a img {
 
 #buchstabenContainer {
 	position: absolute;
-	left: 25%;
-	top: 40%;
-	width: 65%;
-	height: 40%;
+	left: 1%;
+	top: 24%;
+	width: 98%;
+	height: 49%;
 }
 
 #buchstabenPlatzhalter {
@@ -74,6 +83,10 @@ a img {
 	height: 78px;
 	width: 69px;
 	
+	height: 60px;
+	width: 45px;
+	
+	border-radius: 10px;
 	background: rgba(255,255,255,0.8);
 }
 
@@ -81,7 +94,6 @@ a img {
 	display: inline-block;
 	position: relative;
 	height: 100%;
-	--max-height: 1px;
 }
 
 #buchstaben {
@@ -94,23 +106,23 @@ a img {
 	display: none;
 	position: absolute;
 	left: 50%;
-	top: 50%;
-	width: 80px;
-	height: 80px;
+	bottom: 0%;
+	width: 55px;
+	height: 55px;
 	margin-left: -40px;
 	margin-top: -40px;
 	z-index: 99999;
 }
 
 #weiterButton > img {
-	height: 80px;
-	width: 80px;
+	height: 70px;
+	width: 70px;
 }
 
 .buchstabe {
 	position: absolute;
-	height: 80px;
-	width: 80px;
+	height: 55px;
+	width: 55px;
 	background-size: 100% 100%;
 }
 
@@ -123,7 +135,7 @@ a img {
 
 #navBottom > li {
 	display: inline-block;
-	margin: 0 5px;
+	margin: 0;
 }
 
 #navBottom > li > a > img {

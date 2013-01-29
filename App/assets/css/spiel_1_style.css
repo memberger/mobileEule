@@ -28,6 +28,13 @@ a img {
 	max-width: 100%;
 }
 
+#euleBild {
+	max-height: 30%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
 #kategorieName {
 	position: absolute;
 	right: 10px;
@@ -41,8 +48,8 @@ a img {
 
 #begriffBildContainer {
 	position: absolute;
-	top: 30%;
-	height: 60%;
+	top: 35%;
+	height: 40%;
 	left: 10px;
 	z-index: -1;
 	text-align: center;
@@ -73,7 +80,7 @@ a img {
 	margin: 0 5px;
 	height: 78px;
 	width: 69px;
-	
+	border-radius: 10px;
 	background: rgba(255,255,255,0.8);
 }
 
