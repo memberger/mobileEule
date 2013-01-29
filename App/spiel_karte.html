@@ -74,39 +74,30 @@ left: 720px;
 
 /* System Button */
 
-#navBottom {
-	list-style: none;
-	position: absolute;
-	bottom: 3%;
-	right: 10px;
-}
-
-#navBottom > li {
-	display: inline-block;
-	margin: 0 5px;
-}
 
 #navBottom > li > a > img {
-	height: 60px;
-	width: 60px;
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	left: 875px;
+	top: 650px;
+	list-style: none;
 }
 
 #arrow_right img{
 	position: absolute;
-	height: 60px;
-	width: 60px;
-	right: 10px;
-	top: 50%;
-	margin-top: -30px;
+	height: 100px;
+	width: 100px;
+	left: 875px;
+	top: 335px;
 }
 
 #arrow_left img{
 	position: absolute;
-	height: 60px;
-	width: 60px;
-	left: 10px;
-	top: 50%;
-	margin-top: -30px;
+	height: 100px;
+	width: 100px;
+	left: 50px;
+	top: 335px;
 }
 
 /* Swipe */
@@ -163,8 +154,7 @@ body {
 		    <div id="arrow_right"><a href="#"><img src="assets/img/system/weiter.svg" /></a></div>
 		    
 		    <div id="navBottom">
-					<li><a href="#"><img src="assets/img/system/einstellungen.svg" /></a></li>
-					<li><a href="#"><img src="assets/img/system/hilfe.svg" /></a></li>
+					<li><a href="index.html"><img src="assets/img/system/home.svg" /></a></li>
 			</div>
 		</div>
 		
@@ -180,8 +170,7 @@ body {
 			<div id="arrow_left"><a href="#"><img src="assets/img/system/zurueck.svg" /></a></div>
 			
 				<div id="navBottom">
-					<li><a href="#"><img src="assets/img/system/einstellungen.svg" /></a></li>
-					<li><a href="#"><img src="assets/img/system/hilfe.svg" /></a></li>
+					<li><a href="index.html"><img src="assets/img/system/home.svg" /></a></li>
 				</div>
 		</div>
 	</ul>
@@ -283,9 +272,6 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
 	        	changeEule();
 			    updateEndpoint(x, y);
 			    startAnim(function(){updateStartpoint(); setKategorie(catID); changeEule();});
-		        //setTimeout(startAnim, 100);
-		        //setTimeout(updateStartpoint, 2500);
-		        //setTimeout(changeEule, 2510);
 	        }
         }
     }
