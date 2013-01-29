@@ -95,12 +95,12 @@ var puzzlebild = document.createElement("img");
 	puzzlebild.setAttribute("src", "assets/img/puzzle/01-01.png");
 	puzzlebild.setAttribute("height", "250px");
 	puzzlebild.setAttribute("width", "250px");
-	puzzlebild.style.filter = "Alpha(opacity=90)"; /* Internet Explorer */
-	puzzlebild.style.opacity = 0.9; /* Safari, Opera */
-	puzzlebild.style.MozOpacity = 0.9; /* Firefox */
+	
 
 this.div.appendChild(puzzlebild);
-
+puzzlebild.style.filter = "Alpha(opacity=90)"; /* Internet Explorer */
+	puzzlebild.style.opacity = 0.9; /* Safari, Opera */
+	puzzlebild.style.MozOpacity = 0.9; /* Firefox */
 var bild = document.createElement("img");
 	bild.setAttribute("src", urlcontent);
 	bild.setAttribute("height", "160px");

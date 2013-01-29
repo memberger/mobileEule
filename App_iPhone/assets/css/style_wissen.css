@@ -1,0 +1,142 @@
+html, body {
+	width: 1024px;
+	height: 768px;
+	font-family: Arial;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a img {
+	border: 0;
+}
+
+#kategorieBild {
+	position: absolute;
+	height: 225px;
+	width: 225px;
+	top: 20px;
+	left: 780px;
+}
+div.container{
+	position: absolute;
+	height: 225px;
+	width: 225px;
+	filter: Alpha(opacity=80);
+    opacity: 0.8;
+    moz-opacity: 0.8;
+	background-color: white;
+	border-bottom-left-radius: 25px 25px;
+    border-bottom-right-radius: 25px 25px;
+    border-top-left-radius: 25px 25px;
+    border-top-right-radius: 25px 25px;
+}
+img.system{
+	height: 75px;
+	width: 75px;
+}
+img.begriffbild{
+	position: absolute;
+	height: 150px;
+	width: 150px;
+	z-index: 2;
+}
+p.text{
+	position: absolute;
+	font-weight: bold;
+	font-size: 30pt;
+	z-index: 3;
+}
+#help{
+	position: absolute;
+	top: 675px;
+	left: 775px;
+}
+#map{
+	position: absolute;
+	top: 675px;
+	left: 850px;
+}
+#home{
+	position: absolute;
+	top: 675px;
+	left: 925px;
+}
+#eule{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 250px;
+	width: 250px;
+}
+#pfeil{
+	position: absolute;
+	top: 535px;
+	left: 875px;
+	height: 125px;
+	width: 125px;
+	z-index: 3;
+}
+#img1{
+	left: 185px;
+	top: 255px;
+}
+#img2{
+	left: 437.5px;
+	top: 255px;
+}
+#img3{
+	left: 687.5px;
+	top: 255px;
+}
+#img4{
+	left: 307.5px;
+	top: 505px;
+}
+#img5{
+	left: 565px;
+	top: 505px;
+}
+#con1{
+	left: 147.5px;
+	top: 235px;
+}
+#con2{
+	left: 400px;
+	top: 235px;
+}
+#con3{
+	left: 650px;
+	top: 235px;
+}
+#con4{
+	left: 270px;
+	top: 485px;
+}
+#con5{
+	left: 527.5px;
+	top: 485px;
+}
+
+#txt1{
+	left: 147.5px;
+	top: 390px;
+}
+#txt2{
+	left: 400px;
+	top: 390px;
+}
+#txt3{
+	left: 650px;
+	top: 390px;
+}
+#txt4{
+	left: 270px;
+	top: 640px;
+}
+#txt5{
+	left: 527.5px;
+	top: 640px;
+}

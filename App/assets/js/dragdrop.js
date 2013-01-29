@@ -38,7 +38,6 @@ function nextBilder(){
 	
 	puzzleSetzen(wort1,wort2,wort3);
 	document.body.style.backgroundImage = "url(assets/img/spiel/"+kat.id+"_hintergrund.png)"; 
-	document.getElementById("kategorieName").insertAdjacentHTML("AfterBegin", items.name);
 	document.getElementById("kategorieBild").setAttribute("src", "assets/img/spiel/"+kat.id+"_bild.svg");
 }
 
