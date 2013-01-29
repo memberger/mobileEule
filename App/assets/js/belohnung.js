@@ -12,12 +12,30 @@ window.addEventListener("load",function(){
 	d.getElementById("kategorieName").textContent = Begriffe.name;
 	d.getElementById("kategorieBild").setAttribute("src", "assets/img/spiel/"+kat+"_bild.svg");
 
-	d.getElementById("img-bild-aufnehmen").addEventListener(event,function(){ window.location = "spiel_foto.html" }, false);
-	d.getElementById("img-bild-malen").addEventListener(event,function(){ window.location = "spiel_zeichnung.html" }, false);
+	if(Kategorie.foto == false){
+		
+		d.getElementById("img-bild-aufnehmen").addEventListener(event,function(){ window.location = "spiel_foto.html" }, false);
+
+	}
+	else{
+		
+		d.getElementById("img-bild-aufnehmen").style.opacity = "0.5";
+
+	}
+
+	if(Kategorie.bild == false){
+		
+		d.getElementById("img-bild-malen").addEventListener(event,function(){ window.location = "spiel_zeichnung.html" }, false);
+
+	}
+	else{
+		
+		d.getElementById("img-bild-malen").style.opacity = "0.5";
+
+	}
+
+	d.getElementById("fertig").addEventListener(event,function(){ window.location = "spiel_karte.html"}, false);
 	
-
-
-
 },false);
 
 

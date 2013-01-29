@@ -355,8 +355,13 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
     function setKategorie (catId) {
 	    myJson.createTemp(catId);
 		disableFlying = true;
-		if(kategorieListe[catId].gewonnen != 0) setTimeout(function(){window.location.assign("spiel_nochmal.html")},1000);
-	    else setTimeout(function(){window.location.assign("spiel_wissen.html")},1000);
+
+		var Kategorie   = myJson.getKategorie();//Alle nötige aus Katrgorie.json
+		Kategorie["bild"] = false;
+		Kategorie["foto"] = false;
+		myJson.saveTemp();
+		if(kategorieListe[catId].gewonnen != 0) setTimeout(function(){window.location.assign("spiel_nochmal.html")},500);
+	    else setTimeout(function(){window.location.assign("spiel_wissen.html")},500);
     }
     
 	// Fertige Kategorien kennzeichnen

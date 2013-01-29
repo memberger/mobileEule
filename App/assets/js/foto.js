@@ -58,6 +58,8 @@ d.getElementById("pic-loeschen").addEventListener("touchend",function(){
 d.getElementById("pic-ok").addEventListener("touchend",function(){
 
 	my.saveFoto();
+	Kategorie.foto = true;
+	myJson.saveTemp();
 	window.location = "spiel_belohnung.html";
 
 },false);
