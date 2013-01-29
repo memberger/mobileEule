@@ -66,7 +66,7 @@ d.getElementById("pic-ok").addEventListener("touchend",function(){
 
 
 
-my.init(0,"fotos","image");
+my.init(Kategorie.id,"fotos","image");
 my.takeFoto();
     
 }
