@@ -9,26 +9,58 @@
 <style>
   body {
 	  text-align: center;
-	  background: #ddf2a7;
+	  padding: 0;
+	  margin: 0;
   }
   
-  #canvas {	
+  #wrapper {
+	  background: #ddf2a7;
+	  height: 768px;
+	  width: 1024px;
+	  background-repeat: repeat;
+  }
+  
+  #eule {
+	  position: absolute;
+	  top:0;
+	  left:0;
+  }
+  
+  #kategoriePic {
+	  position: absolute;
+	  top: 20;
+	  left: 780px;
+  }
+  
+  #malIcon {
+	  position: absolute;
+	  left: 110px;
+	  top: 190px;
+	  z-index: 10;
+  }
+  
+  #canvas {
+  	position: absolute;
 	border-radius: 20px;
-	background: rgba(255,255,255,0.5);
-	margin-bottom: 20px;
+	background: rgba(255,255,255,0.7);
+	top: 220px;
+	left: 50%;
+	margin-left: -350px;
   }
   
   #farben {
+  	position: absolute;
 	  width: 900px;
 	  float: none;
-	  margin-left: 50px;
+	  left: 10px;
+	  top: 660px;
   }
   
   .farbe {
 	  border-radius: 50%;
 	  float: left;
-	  height: 90px;
-	  width: 90px;
+	  height: 75px;
+	  width: 75px;
 	  border: 4px #000000 solid;
   }
   
@@ -76,32 +108,62 @@
   }
   
    #speichern {
-	  height: 80px;
-	  width: 120px;
+	  height: 50px;
+	  width: 100px;
 	  margin: 10px;
   }
   
-  
+  #navBottom > li{
+	position: absolute;
+	list-style: none;
+}
+
+#navBottom > li > a > img {
+		height: 100px;
+		width: 100px;
+}
+
+#navBottom li:nth-child(1) {
+	left: 775px;
+	top: 650px;
+}
+
+#navBottom li:nth-child(2) {
+	left: 875px;
+	top: 650px;
+}
+
   </style>
 </head>
 <body>
-	
-	<canvas id="canvas" width="600" height="400"></canvas>
-	
-	<div id="farben">
-		<div class="farbe" id="schwarz"></div>
-		<div class="farbe" id="gruen"></div>
-		<div class="farbe" id="gelb"></div>
-		<div class="farbe" id="orange"></div>
-		<div class="farbe" id="rosa"></div>
-		<div class="farbe" id="hellblau"></div>
-		<div class="farbe" id="dunkelblau"></div>
-		<div class="farbe" id="hellgruen"></div>
-		<div class="farbe" id="braun"></div>
-	</div>
-	
-	<input type="button" name="loeschen" id="loeschen" value="löschen"/>
-	<input type="button" name="speichern" id="speichern" value="speichern"/>
+	<div id="wrapper">
+		
+		<img id="eule" src="assets/img/eule.svg" height="250"/>
+		<img id="kategoriePic" src="" height="225"/>
+		
+		<img id="malIcon" src="assets/img/system/malen.svg" height="100"/>
+		
+		<canvas id="canvas" width="750" height="420"></canvas>
+		
+		<div id="farben">
+			<div class="farbe" id="schwarz"></div>
+			<div class="farbe" id="gruen"></div>
+			<div class="farbe" id="gelb"></div>
+			<div class="farbe" id="orange"></div>
+			<div class="farbe" id="rosa"></div>
+			<div class="farbe" id="hellblau"></div>
+			<div class="farbe" id="dunkelblau"></div>
+			<div class="farbe" id="hellgruen"></div>
+			<div class="farbe" id="braun"></div>
+		</div>
+		
+		<input type="button" name="loeschen" id="loeschen" value="löschen"/>
+		<input type="button" name="speichern" id="speichern" value="speichern"/>
+		
+		<div id="navBottom">
+			<li><a href="spiel_karte.html"><img src="assets/img/system/karte.svg" /></a></li>
+			<li><a href="index.html"><img src="assets/img/system/home.svg" /></a></li>
+		</div>
 	
 
 <! -- Iclude MyJson Class -->
@@ -217,9 +279,9 @@
 	    function vorlage () {
 		   img = new Image();
 	       img.src = malvorlage;
-	       var positionx = 300 - (400 * img.width / img.height) / 2;
-	       var positiony = 200 - (400) / 2;
-	       ctx.drawImage(img, positionx, positiony, 400 * img.width / img.height, 400 );
+	       var positionx = 375 - (450 * img.width / img.height) / 2;
+	       var positiony = 210 - (450) / 2;
+	       ctx.drawImage(img, positionx, positiony, 450 * img.width / img.height, 450 );
 	    }
 	
 	    function downHandler(event) {
@@ -236,8 +298,8 @@
 	        if(mouseDown) {
 	        	var posLeft = canvas.offsetLeft;
 	        	var posTop = canvas.offsetTop;
-	            var x = event.touches[0].clientX-50;
-	            var y = event.touches[0].clientY;
+	            var x = event.touches[0].clientX-170;
+	            var y = event.touches[0].clientY-220;
 	
 	            // add object to points array
 	            points[points.length] = {x: x, y: y};
@@ -272,7 +334,8 @@
 	  	}
 	  	
 	  	function speichern () {
-		  	 base64 = document.getElementById("canvas").toDataURL('image/png');
+	  		 // speichern in die variable bugt noch da webkit toDataURL von svg nicht unterstützt
+		  	 //base64 = document.getElementById("canvas").toDataURL('image/png');
 		  	 window.location.assign("spiel_belohnung.html")
 	  	}
 	  	
@@ -283,8 +346,18 @@
 	    init();
 	
 	})();
+	
+	// Hintergrund laut Kategorie setzten
+	var wrapper = document.getElementById("wrapper");
+	wrapper.style.backgroundImage = "url('assets/img/spiel/0" + katId + "_hintergrund.png')";
+	
+	// Kategoriebild laut Kategorie setzten
+	var kategorie = "assets/img/spiel/0" + katId + "_bild.svg";
+	
+	var image = document.getElementById("kategoriePic");
+	image.setAttribute("src", kategorie)
     
   </script>
-
+	</div>
 </body>
 </html>
