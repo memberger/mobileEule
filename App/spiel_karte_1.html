@@ -130,15 +130,6 @@ body {
   -webkit-perspective: 1000;                       
 }
 
-.kategorieDone {
-	display: block;
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 48px;
-	width: 48px;
-}
-
 </style>  
 
 </head>
@@ -194,7 +185,7 @@ body {
 <script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
 
 
-<! -- Swipe fï¿½r nï¿½chste Seite -->
+<! -- Swipe für nächste Seite -->
 <script type="text/javascript" src="assets/js/swipe.js"  charset="UTF-8"> </script>
 
  
@@ -212,18 +203,6 @@ var myJson = new MyJson();
 myJson.loadAll();
 var isflying = false;
 var swiping = false;
-var disableFlying = false; // Disable Flying after Endpoint is reached
-var kategoriePos = {
-	'0100': [120,270],
-	'0200': [410,300],
-	'0300': [620,280],
-	'0400': [840,120],
-	'0500': [1100,70],
-	'0600': [1200,450],
-	'0700': [1450,250],
-	'0800': [1750,200]
-};
-var kategorieListe = myJson.kat;
 
 YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
 
@@ -287,7 +266,6 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
     // Fliegen
     
     function fly(x, y, catID) {
-		if(disableFlying) return;
     	if(!swiping) {
 		     if (!isflying) {
 	        	isflying  = true;
@@ -354,25 +332,12 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
     // Kategorie bestimmen
     function setKategorie (catId) {
 	    myJson.createTemp(catId);
-		disableFlying = true;
-		if(kategorieListe[catId].gewonnen != 0) setTimeout(function(){window.location.assign("spiel_nochmal.html")},1000);
-	    else setTimeout(function(){window.location.assign("spiel_wissen.html")},1000);
+	    setTimeout(function(){window.location.assign("spiel_wissen.html")},1000);
     }
     
-	// Fertige Kategorien kennzeichnen
-	for(var i in kategorieListe) {
-		if(kategorieListe[i].gewonnen != 0) {
-			var el = document.createElement("img");
-			el.style.left = kategoriePos[kategorieListe[i].id][0]+"px";
-			el.style.top = kategoriePos[kategorieListe[i].id][1]+"px";
-			el.setAttribute("class", "kategorieDone");
-			el.setAttribute("src", "assets/img/system/hackerl.svg");
-			document.getElementById("slideContainer").appendChild(el);
-		}
-	}
+  
 
 });
-
 
 
 
