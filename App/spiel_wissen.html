@@ -21,6 +21,12 @@
 
 <body>
 
+<audio id="audio" >
+
+	<source src="assets/sounds/0101.mp3" type="audio/mpeg"></source>
+
+</audio>
+
 
 <img id="kategorieBild" src=""/>
 <img src="assets/img/eule.svg" id="eule"/>
@@ -52,6 +58,10 @@ var myJson = new MyJson();
 var items = myJson.getBegriffe();// Alle nötigen Begriffe
 var kat   = myJson.getKategorie();//Alle nötige aus Katrgorie.json
 
+var audio = document.getElementById("audio");
+audio.removeAttribute("controls");
+
+
 /*Event Listener by Michael Emberger*/
 function initEvents(){
 
@@ -60,21 +70,21 @@ function initEvents(){
 
 	d.getElementById("pfeil").addEventListener(myEvent, startSpiel); // hab es jetzt auf ein normales click event geändert vorerst
 	d.getElementById("map").addEventListener(myEvent,function(){ window.location = 'spiel_karte.html'});
-	d.getElementById("con1").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[0].name);});
-	d.getElementById("con2").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[1].name);});
-	d.getElementById("con3").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[2].name);});
-	d.getElementById("con4").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[3].name);});
-	d.getElementById("con5").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[4].name);});
-	d.getElementById("img1").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[0].name);});
-	d.getElementById("img2").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[1].name);});
-	d.getElementById("img3").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[2].name);});
-	d.getElementById("img4").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[3].name);});
-	d.getElementById("img5").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[4].name);});
-	d.getElementById("txt1").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[0].name);});
-	d.getElementById("txt2").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[1].name);});
-	d.getElementById("txt3").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[2].name);});
-	d.getElementById("txt4").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[3].name);});
-	d.getElementById("txt5").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[4].name);});
+	d.getElementById("con1").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[0].id);});
+	d.getElementById("con2").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[1].id);});
+	d.getElementById("con3").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[2].id);});
+	d.getElementById("con4").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[3].id);});
+	d.getElementById("con5").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[4].id);});
+	d.getElementById("img1").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[0].id);});
+	d.getElementById("img2").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[1].id);});
+	d.getElementById("img3").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[2].id);});
+	d.getElementById("img4").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[3].id);});
+	d.getElementById("img5").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[4].id);});
+	d.getElementById("txt1").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[0].id);});
+	d.getElementById("txt2").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[1].id);});
+	d.getElementById("txt3").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[2].id);});
+	d.getElementById("txt4").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[3].id);});
+	d.getElementById("txt5").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[4].id);});
 }
 
 function initBilder(){
@@ -112,7 +122,10 @@ function initBilder(){
 }
 
 function soundAbspielen(begriff){
-	alert(begriff);
+	audio.pause();
+	audio.setAttribute("src", "assets/sounds/"+begriff+".mp3");
+	audio.play();
+	
 }
 
 
