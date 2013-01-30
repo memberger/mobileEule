@@ -17,7 +17,7 @@
 <script type="text/javascript" src="assets/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="assets/js/dragdrop.js"></script>
 <script type="text/javascript" src="assets/js/classes_puzzle.js"></script>
-<script type="text/javascript" src="assets/js/eule.js"  charset="UTF-8"> </script>
+<script type="text/javascript" src="assets/js/hilfe.js"  charset="UTF-8"> </script>
 
 
 </head>
@@ -46,7 +46,7 @@ function initEvents(){
 	
 	d.getElementById("map").addEventListener(myEvent,function(){ window.location = 'spiel_karte.html'});
 	d.getElementById("pfeil").addEventListener(myEvent,function(){  window.location = 'spiel_belohnung.html'});
-	d.getElementById("help").addEventListener(myEvent,function(){  window.location = 'hilfe.html'});
+	d.getElementById("help").addEventListener(myEvent,function(){  showHilfe();});
 	d.getElementById("home").addEventListener(myEvent,function(){  window.location = 'spiel_karte.html'});
 	//d.getElementById("spiel-fertig").addEventListener(myEvent,spielFertig);
 	
