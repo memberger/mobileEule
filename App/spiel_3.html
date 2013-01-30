@@ -46,6 +46,8 @@ function initEvents(){
 	
 	d.getElementById("map").addEventListener(myEvent,function(){ window.location = 'spiel_karte.html'});
 	d.getElementById("pfeil").addEventListener(myEvent,function(){  window.location = 'spiel_belohnung.html'});
+	d.getElementById("help").addEventListener(myEvent,function(){  window.location = 'hilfe.html'});
+	d.getElementById("home").addEventListener(myEvent,function(){  window.location = 'spiel_karte.html'});
 	//d.getElementById("spiel-fertig").addEventListener(myEvent,spielFertig);
 	
 }
@@ -55,8 +57,8 @@ function spielFertig(){
  kat.fortschritt = 0;
  kat.gewonnen = 350;
  myJson.saveTemp(); 
- document.getElementByID("pfeil").style.display = "block";
- document.getElementByID("hackerl").style.display = "block";
+ document.getElementById("pfeil").style.display = "block";
+ document.getElementById("hackerl").style.display = "block";
 }
 
 initEvents();
