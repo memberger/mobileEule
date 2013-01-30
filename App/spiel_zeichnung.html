@@ -34,34 +34,37 @@
   
   #malIcon {
 	  position: absolute;
-	  left: 110px;
-	  top: 190px;
+	  left: 92px;
+	  top: 197px;
 	  z-index: 10;
+	  height: 125px;
+	  width: 125px;
   }
   
   #canvas {
   	position: absolute;
-	border-radius: 20px;
-	background: rgba(255,255,255,0.7);
-	top: 220px;
+	border-radius: 25px;
+	background: rgba(246,246,246,0.8);
+	top: 250px;
 	left: 50%;
-	margin-left: -350px;
+	margin-left: -375px;
   }
   
   #farben {
   	position: absolute;
 	  width: 900px;
 	  float: none;
-	  left: 10px;
-	  top: 660px;
+	  left: 50px;
+	  top: 680px;
   }
   
   .farbe {
 	  border-radius: 50%;
 	  float: left;
-	  height: 75px;
-	  width: 75px;
-	  border: 4px #000000 solid;
+	  height: 62px;
+	  width: 62px;
+	  border: 3px #000000 solid;
+	  margin-right: 10px;
   }
   
   #schwarz {
@@ -101,16 +104,12 @@
   }
  
   
-  #loeschen {
-	  height: 80px;
-	  width: 120px;
-	  margin: 10px;
-  }
-  
    #speichern {
-	  height: 50px;
-	  width: 100px;
-	  margin: 10px;
+	  height: 125px;
+	  width: 125px;
+	  position: absolute;
+	  top: 535px;
+	  left: 875px;
   }
   
   #navBottom > li{
@@ -119,18 +118,28 @@
 }
 
 #navBottom > li > a > img {
-		height: 100px;
-		width: 100px;
+		height: 75px;
+		width: 75px;
+}
+
+#navBottom > li > img {
+		height: 75px;
+		width: 75px;
 }
 
 #navBottom li:nth-child(1) {
 	left: 775px;
-	top: 650px;
+	top: 675px;
 }
 
 #navBottom li:nth-child(2) {
-	left: 875px;
-	top: 650px;
+	left: 850px;
+	top: 675px;
+}
+
+#navBottom li:nth-child(3) {
+	left: 925px;
+	top: 675px;
 }
 
   </style>
@@ -143,7 +152,7 @@
 		
 		<img id="malIcon" src="assets/img/system/malen.svg" height="100"/>
 		
-		<canvas id="canvas" width="750" height="420"></canvas>
+		<canvas id="canvas" width="750" height="424"></canvas>
 		
 		<div id="farben">
 			<div class="farbe" id="schwarz"></div>
@@ -157,10 +166,10 @@
 			<div class="farbe" id="braun"></div>
 		</div>
 		
-		<input type="button" name="loeschen" id="loeschen" value="löschen"/>
-		<input type="button" name="speichern" id="speichern" value="speichern"/>
+		<img id="speichern" src="assets/img/system/weiter.svg" />
 		
 		<div id="navBottom">
+			<li><img id="loeschen" src="assets/img/system/papierkorb.svg" /></li>
 			<li><a href="spiel_karte.html"><img src="assets/img/system/karte.svg" /></a></li>
 			<li><a href="index.html"><img src="assets/img/system/home.svg" /></a></li>
 		</div>
@@ -232,7 +241,7 @@
 	    
 	    var malvorlagennummer = katId + randomNumber;
 	    	    
-	    var malvorlage = "assets/img/malvorlage/0"+malvorlagennummer+"_vorlage.svg";
+	    var malvorlage = "assets/img/malvorlage/0"+malvorlagennummer+"_vorlage.png";
 	
 	    function init() {
 	       canvas = document.getElementById("canvas");
@@ -259,7 +268,7 @@
 	       
 	       // event listener Touch Buttons
 	       document.getElementById("loeschen").addEventListener("touchstart", loeschen ,false);
-	       document.getElementById("speichern").addEventListener("touchstart", speichern ,false);
+	       document.getElementById("speichern").addEventListener("touchstart", getBase64 ,false);
 	        
 	       // set up drawing context
 	       ctx = canvas.getContext("2d");
@@ -279,9 +288,9 @@
 	    function vorlage () {
 		   img = new Image();
 	       img.src = malvorlage;
-	       var positionx = 375 - (450 * img.width / img.height) / 2;
-	       var positiony = 210 - (450) / 2;
-	       ctx.drawImage(img, positionx, positiony, 450 * img.width / img.height, 450 );
+	       var positionx = 375 - (420 * img.width / img.height) / 2;
+	       var positiony = 212 - (420) / 2;
+	       ctx.drawImage(img, positionx, positiony, 420 * img.width / img.height, 420 );
 	    }
 	
 	    function downHandler(event) {
@@ -333,10 +342,15 @@
 		  	init();
 	  	}
 	  	
-	  	function speichern () {
-	  		 // speichern in die variable bugt noch da webkit toDataURL von svg nicht unterstützt
-		  	 //base64 = document.getElementById("canvas").toDataURL('image/png');
+	  	function getBase64 () {
+		  	 base64 = document.getElementById("canvas").toDataURL('image/png');
+		  	 speichern (base64);
+		  	 //console.log(base64);
 		  	 window.location.assign("spiel_belohnung.html")
+	  	}
+	  	
+	  	function speichern (base64) {
+		  	
 	  	}
 	  	
 
