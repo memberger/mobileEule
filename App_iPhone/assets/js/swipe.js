@@ -59,85 +59,104 @@
             swipey.wrapper.addEventListener("touchstart", swipey.startHandler, false);
             swipey.wrapper.addEventListener("touchmove", swipey.moveHandler, false);
             swipey.wrapper.addEventListener("touchend", swipey.endHandler, false);
+            var pfeil = document.getElementById("arrow_right");
+            pfeil.addEventListener("touchstart",  swipey.moveLeft, false);
+             var pfeil = document.getElementById("arrow_left");
+            pfeil.addEventListener("touchstart",  swipey.moveRight, false);
+
         },
 
 
         startHandler: function(event) {
+        	if (!isflying) {
                         
-            swipey.startX = event.touches[0].pageX;
-           
-            swipey.timer = setInterval(function() { swipey.timerCounter++; }, 10);
-            swipey.isTouchStart = true;
-            event.preventDefault();
+	            swipey.startX = event.touches[0].pageX;
+	           
+	            swipey.timer = setInterval(function() { swipey.timerCounter++; }, 10);
+	            swipey.isTouchStart = true;
+	            event.preventDefault();
+            }
         },
        
         moveHandler: function(event) {
-            if (swipey.isTouchStart) {
-                swipey.distanceX = event.touches[0].pageX - swipey.startX;
-                // die <li> elemente mit finger bewegen
-                swipey.slideContainer.style.webkitTransform = "translate3d(" + (swipey.distanceX + swipey.currentDistance) + "px, 0,0)";
+        	if (!isflying) {
+	            if (swipey.isTouchStart) {
+	                swipey.distanceX = event.touches[0].pageX - swipey.startX;
+	                // die <li> elemente mit finger bewegen
+	                swipey.slideContainer.style.webkitTransform = "translate3d(" + (swipey.distanceX + swipey.currentDistance) + "px, 0,0)";
+	            }
             }
+  
         },
      
         endHandler: function(event) {
-            clearInterval(swipey.timer); 
-
-            // erkennen ob rechts oder links
-            if (swipey.distanceX > 0) {
-                swipey.direction = "right";
+        	if (!isflying) {
+	            clearInterval(swipey.timer); 
+	
+	            // erkennen ob rechts oder links
+	            if (swipey.distanceX > 0) {
+	                swipey.direction = "right";
+	            }
+	            if (swipey.distanceX < 0) {
+	                swipey.direction = "left";
+	            }
+	
+	            
+	            // falls wir uns am linken bzw. rechten rand der <ul> befinden -> da gibts nix mehr => comeBack()
+	            if ((swipey.direction == "right" && swipey.currentDistance == 0) || (swipey.direction == "left" && swipey.currentDistance == -(swipey.maxDistance - swipey.preferredWidth))) {
+	                swipey.comeBack();
+	            }
+	
+	            // hier können wir uns dann noch überlegen ob wir das für iphone / ipad individuell machen
+	
+	            // wenn 100px innerhalb einer von 0,6 sekunden zurückgelegt wurden
+	            else if (swipey.timerCounter < 60 && swipey.distanceX > 100) {
+	                swipey.moveRight();
+	            }
+	            else if (swipey.timerCounter < 60 && swipey.distanceX < -100) {
+	                swipey.moveLeft();
+	            }
+	            
+	            // wenn mehr als 1/3 der Bildschirmbreite zurückgelegt wurde
+	            
+	            else if (swipey.distanceX <= -(swipey.preferredWidth / 3)) { 
+	                swipey.moveLeft();
+	            }
+	            else if (swipey.distanceX >= (swipey.preferredWidth / 3)) { 
+	                swipey.moveRight();
+	            }
+	
+	            // wenn nichts der fall dann wieder zurück
+	            else {
+	                swipey.comeBack();
+	            }
+	
+	            swipey.timerCounter = 0;
+	            swipey.isTouchStart = false; 
+	            swipey.distanceX = 0; 
+	
+	            // fertig der nächste touch kann kommen
             }
-            if (swipey.distanceX < 0) {
-                swipey.direction = "left";
-            }
-
-            
-            // falls wir uns am linken bzw. rechten rand der <ul> befinden -> da gibts nix mehr => comeBack()
-            if ((swipey.direction == "right" && swipey.currentDistance == 0) || (swipey.direction == "left" && swipey.currentDistance == -(swipey.maxDistance - swipey.preferredWidth))) {
-                swipey.comeBack();
-            }
-
-            // hier können wir uns dann noch überlegen ob wir das für iphone / ipad individuell machen
-
-            // wenn 100px innerhalb einer von 0,6 sekunden zurückgelegt wurden
-            else if (swipey.timerCounter < 60 && swipey.distanceX > 100) {
-                swipey.moveRight();
-            }
-            else if (swipey.timerCounter < 60 && swipey.distanceX < -100) {
-                swipey.moveLeft();
-            }
-            
-            // wenn mehr als 1/3 der Bildschirmbreite zurückgelegt wurde
-            
-            else if (swipey.distanceX <= -(swipey.preferredWidth / 3)) { 
-                swipey.moveLeft();
-            }
-            else if (swipey.distanceX >= (swipey.preferredWidth / 3)) { 
-                swipey.moveRight();
-            }
-
-            // wenn nichts der fall dann wieder zurück
-            else {
-                swipey.comeBack();
-            }
-
-            swipey.timerCounter = 0;
-            swipey.isTouchStart = false; 
-            swipey.distanceX = 0; 
-
-            // fertig der nächste touch kann kommen
-       
         },
         // hier können wir uns auch wieder übrlegen ob wir zeit für ipad und iphone individuell machen
         // vielleicht geibt es noch feinere translate3d
         moveLeft: function() {
-            swipey.currentDistance += -swipey.preferredWidth;
-            swipey.slideContainer.style.webkitTransitionDuration = 400 + "ms";
-            swipey.slideContainer.style.webkitTransform = "translate3d(" + swipey.currentDistance + "px, 0,0)";
+        	if (!isflying) {
+        		swiping = true;
+	            swipey.currentDistance += -swipey.preferredWidth;
+	            swipey.slideContainer.style.webkitTransitionDuration = 400 + "ms";
+	            swipey.slideContainer.style.webkitTransform = "translate3d(" + swipey.currentDistance + "px, 0,0)";
+	            setTimeout(function(){swiping = false}, 400);
+            }
         },
         moveRight: function() {
-            swipey.currentDistance += swipey.preferredWidth;
-            swipey.slideContainer.style.webkitTransitionDuration = 400 + "ms";
-            swipey.slideContainer.style.webkitTransform = "translate3d(" + swipey.currentDistance + "px, 0,0)";
+        	if (!isflying) {
+        		swiping = true;
+	            swipey.currentDistance += swipey.preferredWidth;
+	            swipey.slideContainer.style.webkitTransitionDuration = 400 + "ms";
+	            swipey.slideContainer.style.webkitTransform = "translate3d(" + swipey.currentDistance + "px, 0,0)";
+	            setTimeout(function(){swiping = false}, 400);
+            }
         },
         comeBack: function() {
             swipey.slideContainer.style.webkitTransitionDuration = 250 + "ms";

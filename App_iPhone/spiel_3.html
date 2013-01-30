@@ -17,7 +17,7 @@
 <script type="text/javascript" src="assets/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="assets/js/dragdrop.js"></script>
 <script type="text/javascript" src="assets/js/classes_puzzle.js"></script>
-<script type="text/javascript" src="assets/js/eule.js"  charset="UTF-8"> </script>
+<script type="text/javascript" src="assets/js/hilfe.js"  charset="UTF-8"> </script>
 
 
 </head>
@@ -28,9 +28,9 @@
 		
 
 <img src="assets/img/eule.svg" id="eule"/>
-<img src="assets/img/system/hilfe.svg" class="system" id="help"/>
-<img src="assets/img/system/karte.svg" class="system" id="map"/>
-<img src="assets/img/system/home.svg" class="system" id="home"/>
+<img src="assets/img/system/karte.svg" class="system" id="help"/>
+<img src="assets/img/system/einstellungen.svg" class="system" id="map"/>
+<img src="assets/img/system/hilfe.svg" class="system" id="home"/>
 
 <img src="assets/img/system/hackerl.svg" id="hackerl"/>
 <img src="assets/img/system/weiter.svg" id="pfeil"/>
@@ -44,8 +44,10 @@ function initEvents(){
 	var d = document;
 	var myEvent = localStorage.myEvent;
 	
-	d.getElementById("map").addEventListener(myEvent,function(){ window.location = 'spiel_karte.html'});
+	//d.getElementById("map").addEventListener(myEvent,function(){ window.location = 'spiel_karte.html'});
 	d.getElementById("pfeil").addEventListener(myEvent,function(){  window.location = 'spiel_belohnung.html'});
+	d.getElementById("home").addEventListener(myEvent,function(){  showHilfe();});
+	d.getElementById("help").addEventListener(myEvent,function(){  kat.fortschritt = 0;window.location = 'spiel_karte.html';});
 	//d.getElementById("spiel-fertig").addEventListener(myEvent,spielFertig);
 	
 }
@@ -55,8 +57,8 @@ function spielFertig(){
  kat.fortschritt = 0;
  kat.gewonnen = 350;
  myJson.saveTemp(); 
- document.getElementByID("pfeil").style.display = "block";
- document.getElementByID("hackerl").style.display = "block";
+ document.getElementById("pfeil").style.display = "block";
+ document.getElementById("hackerl").style.display = "block";
 }
 
 initEvents();

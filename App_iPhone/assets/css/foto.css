@@ -1,0 +1,117 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	font-family: Arial;
+	overflow: hidden;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a img {
+	border: 0;
+}
+
+#euleBild{
+
+	position: absolute;
+	height: 250px;
+	width : 250px;
+	top: 0px;
+	left:0px;
+
+}
+
+#kategorieBildContainer {
+	position: absolute;
+	left: 780px;
+	height: 225px;
+	width: 225px;
+	top: 20px;
+	text-align: center;
+}
+
+#kategorieBild {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+#kategorieName {
+	display: none;
+	position: absolute;
+	left: 780px;
+	top: 240px;
+	width: 250px;
+	
+	font-size: 40px;
+	line-height: 40px;
+	
+}
+
+
+#image-border{
+position: absolute;
+border-radius: 50px;
+top:250px;
+left:137px;
+width: 750px;
+height: 425px;
+background-color:rgba(246,246,246,0.8);
+
+}
+
+#image{
+    position: absolute;    
+    display : none;
+    width:500px;
+    height: 333px;
+    top:46px;
+    left: 125px;
+    /*height: auto;*/
+    
+    
+        
+}
+
+#pic-ok{
+
+	position: absolute;
+	top: 630px;
+	right: 560px;
+	width: 100px;
+	height: 100px;
+
+
+}
+
+#pic-loeschen{
+
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	top: 630px;
+	left: 560px;
+
+
+
+
+}
+
+#navBottom {
+	list-style: none;
+	position: absolute;
+	bottom: 3%;
+	right: 10px;
+}
+
+#navBottom > li {
+	display: inline-block;
+	margin: 0 5px;
+}
+
+#navBottom > li > a > img {
+	height: 60px;
+	width: 60px;
+}
