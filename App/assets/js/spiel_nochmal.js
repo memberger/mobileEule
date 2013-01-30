@@ -17,5 +17,9 @@ d.getElementById("kategorieBild").setAttribute("src", "assets/img/spiel/"+kat+"_
 
 d.getElementById("btn-nochmal-spielen").addEventListener(event,function(){ window.location = "spiel_wissen.html" },false);
 d.getElementById("btn-foto").addEventListener(event,function(){ window.location = "foto_anzeigen.html" },false);
+d.getElementById("btn-bilder").addEventListener(event,function(){ window.location = "zeichnung_anzeigen.html" },false);
+
+
+
 
 },false);

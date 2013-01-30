@@ -29,6 +29,12 @@ MyPicture.prototype.takePicture = function(){
 	}
 
 }
+
+MyPicture.prototype.getZeichnung = function(base64String){
+
+	this.picture = base64String;
+
+}
 MyPicture.prototype.getBase64 = function(){
 
 	var data = "data:image/jpeg;base64,"+this.picture;
