@@ -141,8 +141,6 @@ function fsReady(){
 function onDeviceReady() {
 
 
-
-
 var d = document;
 var kat = Kategorie.id;
 var event = localStorage.myEvent;
@@ -158,7 +156,7 @@ d.getElementById("fertig").addEventListener(event, function(){ window.location =
 
 
 
-showPics.init(Kategorie.id,"fotos","image");
+showPics.init(Kategorie.id,"zeichnungen","image");
 showPics.refreshFileSystem();
 
 
