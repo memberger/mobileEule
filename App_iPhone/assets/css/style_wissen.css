@@ -1,6 +1,6 @@
 html, body {
-	width: 1024px;
-	height: 768px;
+	width: 960px;
+	height: 640px;
 	font-family: Arial;
 }
 
@@ -9,21 +9,23 @@ html, body {
 	padding: 0;
 }
 
+#kategorieText{
+	position: absolute;
+	font-weight: bold;
+	font-size: 32pt;
+	z-index: 3;
+	text-align: center;
+	right: 1%;
+}
+
 a img {
 	border: 0;
 }
 
-#kategorieBild {
-	position: absolute;
-	height: 225px;
-	width: 225px;
-	top: 20px;
-	left: 780px;
-}
 div.container{
 	position: absolute;
-	height: 225px;
-	width: 225px;
+	height: 187.5px;
+	width: 187.5px;
 	filter: Alpha(opacity=80);
     opacity: 0.8;
     moz-opacity: 0.8;
@@ -34,109 +36,104 @@ div.container{
     border-top-right-radius: 25px 25px;
 }
 img.system{
-	height: 75px;
-	width: 75px;
+	height: 62.5px;
+	width: 62.5px;
 }
 img.begriffbild{
 	position: absolute;
-	height: 150px;
-	width: 150px;
+	height: 125px;
+	width: 125px;
 	z-index: 2;
 }
 p.text{
 	position: absolute;
 	font-weight: bold;
-	font-size: 30pt;
+	font-size: 25pt;
 	z-index: 3;
 }
 #help{
 	position: absolute;
-	top: 675px;
-	left: 775px;
+	bottom: 3%;
+	right: 170px;
 }
 #map{
 	position: absolute;
-	top: 675px;
-	left: 850px;
+	bottom: 3%;
+	right: 90px;
 }
 #home{
 	position: absolute;
-	top: 675px;
-	left: 925px;
+	bottom: 3%;
+	right: 10px;
 }
-#eule{
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	height: 250px;
-	width: 250px;
-}
+
 #pfeil{
 	position: absolute;
-	top: 535px;
-	left: 875px;
-	height: 125px;
-	width: 125px;
+	bottom: 25%;
+	right: 100px;
+	height: 104px;
+	width: 104px;
 	z-index: 3;
 }
 #img1{
-	left: 185px;
-	top: 255px;
+	left: 109px;
+	top: 100px;
 }
 #img2{
-	left: 437.5px;
-	top: 255px;
+	left: 346px;
+	top: 100px;
 }
 #img3{
-	left: 687.5px;
-	top: 255px;
+	left: 580px;
+	top: 100px;
 }
 #img4{
-	left: 307.5px;
-	top: 505px;
+	left: 224px;
+	top: 360px;
 }
 #img5{
-	left: 565px;
-	top: 505px;
+	left: 465.5px;
+	top: 360px;
 }
+
 #con1{
-	left: 147.5px;
-	top: 235px;
+	left: 78px;
+	top: 90px;
 }
 #con2{
-	left: 400px;
-	top: 235px;
+	left: 315px;
+	top: 90px;
 }
 #con3{
-	left: 650px;
-	top: 235px;
+	left: 549px;
+	top: 90px;
 }
 #con4{
-	left: 270px;
-	top: 485px;
+	left: 193px;
+	top: 350px;
 }
 #con5{
-	left: 527.5px;
-	top: 485px;
+	left: 434.5px;
+	top: 350px;
 }
 
 #txt1{
-	left: 147.5px;
-	top: 390px;
+	left: 78px;
+	top: 220px;
 }
 #txt2{
-	left: 400px;
-	top: 390px;
+	left: 315px;
+	top: 220px;
 }
 #txt3{
-	left: 650px;
-	top: 390px;
+	left: 549px;
+	top: 220px;
 }
 #txt4{
-	left: 270px;
-	top: 640px;
+	left: 193px;
+	top: 480px;
 }
 #txt5{
-	left: 527.5px;
-	top: 640px;
+	left: 434.5px;
+	top: 480px;
 }

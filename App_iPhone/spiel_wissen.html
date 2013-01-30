@@ -14,7 +14,7 @@
 
 <script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
 <script type="text/javascript" src="assets/js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="assets/js/eule.js"  charset="UTF-8"> </script>
+<script type="text/javascript" src="assets/js/hilfe.js"  charset="UTF-8"> </script>
 
 
 </head>
@@ -27,13 +27,11 @@
 
 </audio>
 
-
-<img id="kategorieBild" src=""/>
-<img src="assets/img/eule.svg" id="eule"/>
-<img src="assets/img/system/hilfe.svg" class="system" id="help"/>
-<img src="assets/img/system/karte.svg" class="system" id="map"/>
-<img src="assets/img/system/home.svg" class="system" id="home"/>
+<img src="assets/img/system/karte.svg" class="system" id="help"/>
+<img src="assets/img/system/einstellungen.svg" class="system" id="map"/>
+<img src="assets/img/system/hilfe.svg" class="system" id="home"/>
 <img src="assets/img/system/weiter.svg" id="pfeil"/>
+<h1 id="kategorieText"></h1>
 
 <div id="con1" class="container"></div>
 <img src="" id="img1" class="begriffbild"/>
@@ -69,7 +67,8 @@ function initEvents(){
 	var myEvent = localStorage.myEvent; // warum Event vom Local Storage? bei mir is kein Event im Local Storage drum funktiniert es nicht
 
 	d.getElementById("pfeil").addEventListener(myEvent, startSpiel); // hab es jetzt auf ein normales click event geändert vorerst
-	d.getElementById("map").addEventListener(myEvent,function(){ window.location = 'spiel_karte.html'});
+	d.getElementById("home").addEventListener(myEvent,function(){  showHilfe();});
+	d.getElementById("help").addEventListener(myEvent,function(){ window.location = 'spiel_karte.html';});
 	d.getElementById("con1").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[0].id);});
 	d.getElementById("con2").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[1].id);});
 	d.getElementById("con3").addEventListener(myEvent,function(){ soundAbspielen(items.begriffe[2].id);});
@@ -88,8 +87,8 @@ function initEvents(){
 }
 
 function initBilder(){
-	document.body.style.backgroundImage = "url(assets/img/spiel/"+kat.id+"_hintergrund.png)"; 
-	document.getElementById("kategorieBild").setAttribute("src", "assets/img/spiel/"+kat.id+"_bild.svg");
+	document.body.style.backgroundImage = "url(assets/img/spiel/"+kat.id+"_hintergrund.png)";
+	document.getElementById("kategorieText").appendChild(document.createTextNode(items.name));
 
 	document.getElementById("img1").setAttribute("src", "assets/img/spiel/"+items.begriffe[0].id+"_bild.svg");
 	document.getElementById("img2").setAttribute("src", "assets/img/spiel/"+items.begriffe[1].id+"_bild.svg");
@@ -125,7 +124,6 @@ function soundAbspielen(begriff){
 	audio.pause();
 	audio.setAttribute("src", "assets/sounds/"+begriff+".mp3");
 	audio.play();
-	
 }
 
 
