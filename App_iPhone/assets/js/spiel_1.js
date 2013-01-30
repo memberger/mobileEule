@@ -195,7 +195,7 @@ function handleDragEnd(e) {
 
 function spielFertig() {
 	$("#weiterButton").css("display", "block");
-	$("#weiterButton").attr("href", "test.html");
+	$("#weiterButton").attr("href", "spiel_belohnung.html");
 
 	Kategorie.gewonnen++;
 	
