@@ -68,7 +68,7 @@ updateView : function(){
 
  if(showPics.fs.dirData.length == 0){
 
-	 alert("kein Foto gespeichert");
+	
 	 img.style.display = "none";
 	 btnNext.style.display = "none";
 	 btnPrev.style.display = "none";

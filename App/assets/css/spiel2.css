@@ -29,10 +29,10 @@ body{
 
 #kategorieBildContainer {
 	position: absolute;
-	right: 10px;
-	height: 30%;
-	width: 20%;
-	top: 0px;
+	left: 780px;
+	height: 225px;
+	width: 225px;
+	top: 20px;
 	text-align: center;
 }
 
@@ -40,6 +40,18 @@ body{
 	max-height: 100%;
 	max-width: 100%;
 }
+
+#euleBild{
+
+	position: absolute;
+	height: 250px;
+	width : 250px;
+	top: 0px;
+	left:0px;
+
+}
+
+
 
 #kategorieName {
 	position: absolute;
@@ -90,4 +102,9 @@ a.singleAnswer{
 
 #spiel-fertig{
 	display: none;
+	position: absolute;
+	width:100px;
+	height: 100px;
+	top: 550px;
+	left: 455px;
 }
