@@ -17,24 +17,20 @@
 
 
 
-
-
 </head>
 
 <body>
 
-<img src="assets/img/index_hilfe/bg.svg" id="worldmap" width="1024"/>
+<img src="assets/img/index_hilfe/hilfe_3.svg" id="hilfe_big" width="1024"/>
 		    
 
 
 
-<img width="75px" id="hilfe" src="assets/img/index_hilfe/hilfe.svg" />
+<a href="hilfe2.html"><img width="75" id="left" src="assets/img/index_hilfe/arrow_left.svg" /></a>
 
 
-<img width="170px" id="btn-spielStarten" src="assets/img/index_hilfe/start.svg" />
+<a href="hilfe4.html"><img width="75" id="right" src="assets/img/index_hilfe/arrow_right.svg" /></a>
 
-
-<img width="75px" id="btn-spracheWaehlen" src="assets/img/index_hilfe/settings.svg" />
 
 
 <script type="text/javascript" src="assets/js/modernizr.custom.js"  charset="UTF-8"> </script>
@@ -58,9 +54,8 @@ function initEvents(){
 	var d = document;
 	var myEvent = localStorage.myEvent;
 	
-	d.getElementById('hilfe').addEventListener(myEvent, function(){ window.location='hilfe.html' }, false);
-	d.getElementById('btn-spielStarten').addEventListener(myEvent, function(){ window.location='spiel_karte.html' }, false);
-	d.getElementById('btn-spracheWaehlen').addEventListener(myEvent, function(){ window.location='sprache.html' }, false);
+	d.getElementById('btn-spielStarten').addEventListener(myEvent, function(){ window.location='spiel_karte.html' });
+	d.getElementById('btn-spracheWaehlen').addEventListener(myEvent, function(){ window.location='sprache.html' });
 
 }
 
