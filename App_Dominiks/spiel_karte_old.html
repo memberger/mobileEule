@@ -1,0 +1,86 @@
+<!DOCTYPE html> <!-- html 5 -->
+<html>
+<head>
+<title>Eule</title>
+<meta charset="utf-8" />
+
+
+<meta name = "viewport" content = "width = device-width, maximum-scale = 1, minimum-scale = 1, user-scalable = no">
+<meta name = "apple-mobile-web-app-capable" content="yes">
+
+
+<link rel="stylesheet" href="assets/css/eule.css" />
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <ul id="slideContainer">                   
+
+            <li id="p1">
+	            <button class = "spiel" kat = "0100">Spiel1</button>
+	            <button class = "spiel" kat = "0200">Spiel2</button>
+	            <button class = "spiel" kat = "0300">Spiel3</button>
+
+            </li>  
+ 
+            <li id="p2">
+	            <button class = "spiel" kat = "0500">Spiel5</button>
+	            <button class = "spiel" kat = "0600">Spiel6</button>
+	            <button class = "spiel" kat = "0700">Spiel7</button>
+	            <button class = "spiel" kat = "0800">Spiel8</button>
+            </li> 
+
+            <li id="p3">
+            </li> 
+            <li id="p4">
+            </li> 
+            <li id="p5">
+            </li> 
+	       
+        </ul>       
+    </div>  
+</body>
+<script type="text/javascript" src="assets/js/swipe.js"  charset="UTF-8"> </script>
+<script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
+<script type="text/javascript">
+
+
+
+/*Event Listener by Michael Emberger*/
+function initEvents(){
+
+	var d = document;
+	var myEvent = localStorage.myEvent;
+	var alleSpiele = d.getElementsByClassName('spiel');
+
+	for( var i=0,len=alleSpiele.length; i < len; i++ ){
+		
+		alleSpiele[i].addEventListener(myEvent,spielClicked,false);
+
+	}
+	
+}
+
+
+var spielClicked = function(evt){
+
+	var el = evt.target;
+	var kat = el.getAttribute("kat");
+
+	myJson.createTemp(kat);	
+
+	window.location = 'spiel_wissen.html';
+
+}
+
+var myJson = new MyJson();
+myJson.loadAll();
+
+initEvents();
+
+
+
+
+</script>
+</html>

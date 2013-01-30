@@ -1,0 +1,55 @@
+#indexmap {
+	position: absolute;
+	z-index: -100;	
+	top: 0;
+	left: 0;
+}	
+	
+#hilfe {
+	position: absolute;
+	top:650px;
+	left:730px;
+	
+}
+
+
+#btn-spielStarten {
+	position: absolute;
+	top:200px;
+	left:550px;
+	
+}
+
+#btn-spracheWaehlen {
+	position: absolute;
+	top:650px;
+	left:860px;
+	
+}
+
+#hilfe_big {
+	position: absolute;
+	z-index: -100;	
+	top: 0px;
+	left: 0px;
+}
+
+#left {
+	position: absolute;
+	top:300px;
+	left:10px;
+	
+}
+
+#right {
+	position: absolute;
+	top:300px;
+	left:860px;
+	
+}
+
+#sprache {position:absolute; top:0px; left:0px;}
+
+#btn-zuruckIndex {position: absolute;
+	top:300px;
+	left:10px;}

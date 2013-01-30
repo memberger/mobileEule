@@ -1,0 +1,77 @@
+<!DOCTYPE html> <!-- html 5 -->
+<html>
+<head>
+<title>Eule-Spiel-1</title>
+<meta charset="utf-8" />
+<meta name = "viewport" content = "width = device-width, maximum-scale = 1, minimum-scale = 1, user-scalable = no">
+<meta name = "apple-mobile-web-app-capable" content="yes">
+
+
+<link rel="stylesheet" href="assets/css/eule.css" />
+<script type="text/javascript" src="assets/js/eule.js"  charset="UTF-8"> </script>
+
+
+</head>
+
+<body>
+<h1>Spiel 1 - Das Spiel</h1>
+
+<button id="zurueck-karte">Spiel beenden zurück zur Karte</button>
+
+
+<button id="spiel-fertig">Spiel erfolgreich weiter zu "Belohnung"</button>
+
+
+
+
+<script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
+<script type="text/javascript">
+
+
+/*Event Listener by Michael Emberger*/
+function initEvents(){
+
+	var d = document;
+	var myEvent = localStorage.myEvent;
+	
+	d.getElementById("zurueck-karte").addEventListener(myEvent,function(){ window.location = 'spiel_karte.html'});
+	d.getElementById("spiel-fertig").addEventListener(myEvent,spielFertig);
+	
+}
+
+
+var spielFertig = function(){
+
+ window.location = 'spiel_belohnung.html';
+
+
+}
+
+initEvents();
+
+var myJson = new MyJson();
+
+var items = myJson.getBegriffe();// Alle nötigen Begriffe
+var kat   = myJson.getKategorie();//Alle nötige aus Katrgorie.json
+
+kat.gewonnen = 350; //  gewonnen verändern
+
+
+myJson.saveTemp();// save Temp muss aufgerufen werden damit alle änderungen in kat gespeichert werden! es reicht
+// wenn sie kurz bevor die seite verlassen wird aufgerufen wird -> einmal aufrufen wenn spiel beendet!
+
+//da aktuell alles JSONstrings im Lokal Storage gespeichert werden und daher bei einem neuen Seitenaufruf nicht zurück gesetzt werden
+//hat myJson noch die Methode reset(); Diese resetet alle betroffenen items im localStorage und lädt die original JSON files erneut!
+//Diese function sollten wenn nötig nur in der Konsole aufgerufen werden, da sie sonst ws probleme machen kann ( ist eher zum entwickeln gedacht )
+//myJson.reset()
+
+for(var i = 0, len = items.begriffe.length; i < len; i++){
+	
+	var ptag = document.createElement("p");
+	ptag.textContent = items.begriffe[i].name;
+	document.body.appendChild(ptag);	
+	}	
+
+
+</script>
+</body>

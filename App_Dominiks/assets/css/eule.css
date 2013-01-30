@@ -1,0 +1,62 @@
+body
+{                        
+    margin:0;
+    padding:0;
+}
+
+
+
+#wrapper
+{            
+    overflow:hidden;
+    position:relative;
+    background-color: #dfdfdf;
+
+}
+
+#wrapper ul
+{
+    list-style:none;
+    margin:0;
+    padding:0; 
+    -webkit-transition: -webkit-transform 0.3s linear;
+    display:none;
+}
+
+#wrapper ul li
+{
+   float:left; 
+  /* flackern beim ersten touch verhindern */
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;                       
+}
+
+
+
+#p1{ background-color: #dd7219;}
+#p2{ background-color: #dddd19;}
+#p3{ background-color: #33dd19;}
+#p4{ background-color: #19c9dd;}
+#p5{ background-color: #3319dd;}
+	           
+.btn-karte-spiel-beenden{
+	position: absolute;
+	bottom: 10%;
+	right:  10%;
+	
+	
+}
+
+
+/* Design für prototype wenn es ernst wird entfernen! */
+
+button{
+	margin: 3%;
+
+}
+
+h1{
+font-size: 1.5em;
+margin: 3%;
+}
+
