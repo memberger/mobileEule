@@ -19,8 +19,7 @@
 #eule_worldmap {
 	position: absolute;
 	z-index: 20;
-	top: 10px;
-	left: -5px;
+	display: none;
 }
 
 	  
@@ -210,6 +209,11 @@ document.addEventListener("touchstart", function(e){
 
 var myJson = new MyJson();
 myJson.loadAll();
+//myJson.loadTemp();
+if(localStorage['tempJson']){
+var kat = myJson.getKategorie();
+var katId = kat.id;
+}
 var isflying = false;
 var swiping = false;
 var disableFlying = false; // Disable Flying after Endpoint is reached
@@ -219,8 +223,8 @@ var kategoriePos = {
 	'0300': [620,280],
 	'0400': [840,120],
 	'0500': [1100,70],
-	'0600': [1200,450],
-	'0700': [1450,250],
+	'0600': [1450,250],
+	'0700': [1200,450],
 	'0800': [1750,200]
 };
 var kategorieListe = myJson.kat;
@@ -235,12 +239,64 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
     var eule_worldmap_sitzend = "assets/img/eule/eule_ohneAst.svg";
                 
     // Array of XY points, zu Beginn
-    arrDot = [ 
-        [0, 220], 
-        [400, 20], 
-        [400, 20], 
-        [0, 0] 
+	arrDot = [ 
+	    [-5, 10], 
+	    [400, 20], 
+	    [400, 20], 
+	    [0, 0] 
     ];
+        
+    if(katId) {
+    
+    console.log(katId);
+    
+	switch (katId)
+	{
+	case '0100':
+	  arrDot[0][0] = 120;
+	  arrDot[0][1] = 270;
+	  break;
+	case '0200':
+	  arrDot[0][0] = 410;
+	  arrDot[0][1] = 300;
+	  break;
+	case '0300':
+	  arrDot[0][0] = 620;
+	  arrDot[0][1] = 280;
+	  break;
+	case '0400':
+	  arrDot[0][0] = 840;
+	  arrDot[0][1] = 120;
+	  break;
+	case '0500':
+	  arrDot[0][0] = 1100;
+	  arrDot[0][1] = 70;
+	  break;
+	case '0600':
+	  arrDot[0][0] = 1450;
+	  arrDot[0][1] = 250;
+	  break;
+	case '0700':
+	  arrDot[0][0] = 1200;
+	  arrDot[0][1] = 450;
+	  break;
+	case '0800':
+	  arrDot[0][0] = 1750;
+	  arrDot[0][1] = 200;
+	  break;
+	}
+
+	console.log(arrDot[0][0]);
+	}
+	
+	document.getElementById("eule_worldmap").style.left = arrDot[0][0] + "px";
+	document.getElementById("eule_worldmap").style.top = arrDot[0][1] + "px";
+	if(katId) {
+		document.getElementById("eule_worldmap_pic").setAttribute("src", eule_worldmap_sitzend);
+	}
+	document.getElementById("eule_worldmap").style.display = "block";
+	
+
     
   // Event Hanlder  
       
@@ -259,12 +315,12 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
       
   document.getElementById("lp4").addEventListener("touchstart", function() {
       fly(1100, 70, "0500"); });
+  
+    document.getElementById("lp6").addEventListener("touchstart", function() {
+      fly(1450, 250, "0600"); });
       
   document.getElementById("lp5").addEventListener("touchstart", function() {
       fly(1200, 450, "0700"); });
-      
-  document.getElementById("lp6").addEventListener("touchstart", function() {
-      fly(1450, 250, "0600"); });
 
   document.getElementById("lp7").addEventListener("touchstart", function() {
       fly(1750, 200, "0800"); });
@@ -346,8 +402,11 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
 		Kategorie["bild"] = false;
 		Kategorie["foto"] = false;
 		myJson.saveTemp();
-		if(kategorieListe[catId].gewonnen != 0) setTimeout(function(){window.location.assign("spiel_nochmal.html")},500);
-	    else setTimeout(function(){window.location.assign("spiel_wissen.html")},500);
+		
+		if(kategorieListe[catId].gewonnen != 0) 
+			setTimeout(function(){window.location.assign("spiel_nochmal.html")},500);
+	    else 
+	    	setTimeout(function(){window.location.assign("spiel_wissen.html")},500);
     }
     
 	// Fertige Kategorien kennzeichnen
@@ -363,8 +422,6 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
 	}
 
 });
-
-
 
 
 </script>
