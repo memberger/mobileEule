@@ -5,6 +5,8 @@ var Kategorie   = myJson.getKategorie();//Alle n?tige aus Katrgorie.json
 
 window.addEventListener("load", function(){
 
+
+
 var d = document;
 var kat = Kategorie.id;
 var event = localStorage.myEvent;

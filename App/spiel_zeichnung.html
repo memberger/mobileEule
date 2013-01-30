@@ -176,7 +176,11 @@
 	
 
 <! -- Iclude MyJson Class -->
-<script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
+    <script type="text/javascript" src="cordova-2.2.0.js"   charset="UTF-8"> </script>
+    <script type="text/javascript" src="assets/js/Classes/MyPicture.js"  charset="UTF-8"> </script>
+    <script type="text/javascript" src="assets/js/Classes/MyFileSystem.js"  charset="UTF-8"> </script>
+    <script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
+	<script type="text/javascript" src="assets/js/hilfe.js"></script>
 	
  <script>
   var myJson = new MyJson();
@@ -346,11 +350,23 @@
 		  	 base64 = document.getElementById("canvas").toDataURL('image/png');
 		  	 speichern (base64);
 		  	 //console.log(base64);
-		  	 window.location.assign("spiel_belohnung.html")
+		  	 //window.location.assign("spiel_belohnung.html")
 	  	}
 	  	
 	  	function speichern (base64) {
 		  	
+	  		var pic = base64.substr(22);
+	  		Kategorie.bild = true;
+	  		myJson.saveTemp();
+
+	  		my.pic.getZeichnung(pic);
+
+	  		my.fs.saveZeichnung(my.pic);
+
+	  		
+	  		window.location = "spiel_belohnung.html";
+
+
 	  	}
 	  	
 
@@ -369,7 +385,47 @@
 	var kategorie = "assets/img/spiel/0" + katId + "_bild.svg";
 	
 	var image = document.getElementById("kategoriePic");
-	image.setAttribute("src", kategorie)
+	image.setAttribute("src", kategorie);
+
+var myJson = new MyJson();
+var Begriffe = myJson.getBegriffe();// Alle n?tigen Begriffe
+var Kategorie   = myJson.getKategorie();//Alle n?tige aus Katrgorie.json
+
+var my = {
+categorie : null,
+type : null,
+imgElement : null,
+pic : null,
+fs : null,
+init : function(categorie, type, imgelement){
+this.categorie = categorie;
+this.type = type;
+this.imgElement = imgelement;
+this.pic = new MyPicture(this.categorie, this.imgElement);
+this.fs  = new MyFileSystem(this.categorie, this.type); 
+},
+
+loadAndShowFoto : function(index){
+	my.fs.getFoto(index, this.pic);
+}
+}
+
+
+
+document.addEventListener("deviceready",onDeviceReady,false);
+
+
+function onDeviceReady() {
+
+
+var d = document;
+var kat = Kategorie.id;
+var event = localStorage.myEvent;
+	
+
+my.init(Kategorie.id,"zeichnungen","image");
+    
+}
     
   </script>
 	</div>
