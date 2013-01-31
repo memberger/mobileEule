@@ -164,7 +164,7 @@ body {
 		    <div id="arrow_right"><a href="#"><img src="assets/img/system/weiter.svg" /></a></div>
 		    
 		    <div id="navBottom">
-					<li><a href="index.html"><img src="assets/img/system/home.svg" /></a></li>
+					<li ontouchend="window.location='index.html'"><a href="index.html"><img src="assets/img/system/home.svg" /></a></li>
 			</div>
 		</div>
 		
@@ -175,7 +175,7 @@ body {
 		    <div class="landeplatz" id="lp6"></div>
 		    <div class="landeplatz" id="lp7"></div>
 		    
-			<img src="assets/img/hintergruende/map_iphone_mit_stationen-03.svg" id="worldmap2" width="100%"/>
+			<img src="assets/img/hintergruende/map_iphone_mit_stationen-03.svg" id="worldmap2" height="300/>
 			
 			<div id="arrow_left"><a href="#"><img src="assets/img/system/zurueck.svg" /></a></div>
 			
@@ -288,12 +288,21 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
 	  arrDot[0][1] = 17;
 	  break;
 	}
+	
+	var arrDot2 = [ 
+	    [1, 1], 
+	    [30, 2], 
+	    [30, 2], 
+	    [0, 0] 
+    ];
 
-	console.log(arrDot[0][0]);
+		arrDot2[0][0] = window.innerWidth * 2 * ((arrDot[0][0]) / 100);
+        arrDot2[0][1] = window.innerHeight * ((arrDot[0][1]) / 100);
+        
 	}
 	
-	document.getElementById("eule_worldmap").style.left = arrDot[0][0] + "%";
-	document.getElementById("eule_worldmap").style.top = arrDot[0][1] + "%";
+	document.getElementById("eule_worldmap").style.left = arrDot2[0][0] + "px";
+	document.getElementById("eule_worldmap").style.top = arrDot2[0][1] + "px";
 	if(katId) {
 		document.getElementById("eule_worldmap_pic").setAttribute("src", eule_worldmap_sitzend);
 	}
@@ -385,12 +394,12 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
         var oX = origin.getX(),
             oY = origin.getY();
         
-        var arrDot2 = [ 
+        /*var arrDot2 = [ 
 	    [1, 1], 
 	    [30, 2], 
 	    [30, 2], 
 	    [0, 0] 
-    ];
+    ];*/
         //prozent in pixel wert umwandeln
         arrDot2[1][0] = window.innerWidth * 2 * ((arrDot[1][0]) / 100);
         arrDot2[1][1] = window.innerHeight * ((arrDot[1][1]) / 100);
