@@ -250,45 +250,43 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
     ];
         
     if(katId) {
-    
-    console.log(katId);
 
-	switch (katId)
-	{
-	case '0100':
-	  arrDot[0][0] = 6;
-	  arrDot[0][1] = 35;
-	  break;
-	case '0200':
-	  arrDot[0][0] = 16;
-	  arrDot[0][1] = 43;
-	  break;
-	case '0300':
-	  arrDot[0][0] = 26;
-	  arrDot[0][1] = 40;
-	  break;
-	case '0400':
-	  arrDot[0][0] = 35;
-	  arrDot[0][1] = 15;
-	  break;
-	case '0500':
-	  arrDot[0][0] = 58;
-	  arrDot[0][1] = 5;
-	  break;
-	case '0600':
-	  arrDot[0][0] = 70;
-	  arrDot[0][1] = 30;
-	  break;
-	case '0700':
-	  arrDot[0][0] = 60;
-	  arrDot[0][1] = 60;
-	  break;
-	case '0800':
-	  arrDot[0][0] = 80;
-	  arrDot[0][1] = 17;
-	  break;
-	}
-	
+		switch (katId)
+		{
+		case '0100':
+		  arrDot[0][0] = 6;
+		  arrDot[0][1] = 35;
+		  break;
+		case '0200':
+		  arrDot[0][0] = 16;
+		  arrDot[0][1] = 43;
+		  break;
+		case '0300':
+		  arrDot[0][0] = 26;
+		  arrDot[0][1] = 40;
+		  break;
+		case '0400':
+		  arrDot[0][0] = 35;
+		  arrDot[0][1] = 15;
+		  break;
+		case '0500':
+		  arrDot[0][0] = 58;
+		  arrDot[0][1] = 5;
+		  break;
+		case '0600':
+		  arrDot[0][0] = 70;
+		  arrDot[0][1] = 30;
+		  break;
+		case '0700':
+		  arrDot[0][0] = 60;
+		  arrDot[0][1] = 60;
+		  break;
+		case '0800':
+		  arrDot[0][0] = 80;
+		  arrDot[0][1] = 17;
+		  break;
+		}
+		
 	}
 	
 	var arrDot2 = [ 
@@ -440,8 +438,8 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
 	for(var i in kategorieListe) {
 		if(kategorieListe[i].gewonnen != 0) {
 			var el = document.createElement("img");
-			el.style.left = kategoriePos[kategorieListe[i].id][0]+"%";
-			el.style.top = kategoriePos[kategorieListe[i].id][1]+"%";
+			el.style.left = window.innerWidth * 2 * (kategoriePos[kategorieListe[i].id][0]) + "px";
+			el.style.top = window.innerHeight * (kategoriePos[kategorieListe[i].id][1]) + "px";
 			el.setAttribute("class", "kategorieDone");
 			el.setAttribute("src", "assets/img/system/hackerl.svg");
 			document.getElementById("slideContainer").appendChild(el);
