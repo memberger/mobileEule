@@ -24,19 +24,19 @@ a img {
 }
 
 img.system{
-	height: 31px;
-	width: 31px;
+	height: 55px;
+	width: 55px;
 }
 
 #help{
 	position: absolute;
 	bottom: 10px;
-	right: 85px;
+	right: 145px;
 }
 #map{
 	position: absolute;
 	bottom: 10px;
-	right: 45px;
+	right: 75px;
 }
 #home{
 	position: absolute;
@@ -45,13 +45,14 @@ img.system{
 }
 
 
+
 #pfeil{
 	position: absolute;
 	top: 175px;
 	right: 20px;
 	height: 62.5px;
 	width: 62.5px;
-	display: none;
+	/*display: none;*/
 	z-index: 3;
 }
 #hackerl{
@@ -60,6 +61,6 @@ img.system{
 	left: 10px;
 	height: 62.5px;
 	width: 62.5px;
-	display: none;
+	/*display: none;*/
 	z-index: 3;
 }
