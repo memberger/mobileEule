@@ -1,6 +1,6 @@
 html, body {
-	width: 960px;
-	height: 640px;
+	width: 100%;
+	height: 100%;
 	font-family: Arial;
 }
 
@@ -12,11 +12,11 @@ html, body {
 #kategorieText{
 	position: absolute;
 	font-weight: bold;
-	font-size: 32pt;
+	font-size: 16pt;
 	z-index: 3;
 	text-align: center;
-	right: 30px;
-	top: 20px;
+	right: 20px;
+	top: 15px;
 }
 
 a img {
@@ -25,8 +25,8 @@ a img {
 
 div.container{
 	position: absolute;
-	height: 187.5px;
-	width: 187.5px;
+	height: 94px;
+	width: 	94px;
 	filter: Alpha(opacity=80);
     opacity: 0.8;
     moz-opacity: 0.8;
@@ -37,104 +37,104 @@ div.container{
     border-top-right-radius: 25px 25px;
 }
 img.system{
-	height: 62.5px;
-	width: 62.5px;
+	height: 55px;
+	width: 55px;
 }
 img.begriffbild{
 	position: absolute;
-	height: 125px;
-	width: 125px;
+	height: 68px;
+	width: 68px;
 	z-index: 2;
 }
 p.text{
 	position: absolute;
 	font-weight: bold;
-	font-size: 25pt;
+	font-size: 10pt;
 	z-index: 3;
 }
 #help{
 	position: absolute;
-	bottom: 20px;
-	right: 170px;
+	bottom: 10px;
+	right: 145px;
 }
 #map{
 	position: absolute;
-	bottom: 20px;
-	right: 90px;
+	bottom: 10px;
+	right: 75px;
 }
 #home{
 	position: absolute;
-	bottom: 20px;
-	right: 10px;
+	bottom: 10px;
+	right: 5px;
 }
 
 #pfeil{
 	position: absolute;
-	bottom: 150px;
-	right: 100px;
-	height: 104px;
-	width: 104px;
+	bottom: 75px;
+	right: 80px;
+	height: 80px;
+	width: 80px;
 	z-index: 3;
 }
 #img1{
-	left: 109px;
-	top: 100px;
+	left: 52px;
+	top: 50px;
 }
 #img2{
-	left: 346px;
-	top: 100px;
+	left: 171px;
+	top: 50px;
 }
 #img3{
-	left: 580px;
-	top: 100px;
+	left: 288px;
+	top: 50px;
 }
 #img4{
-	left: 224px;
-	top: 360px;
+	left: 110px;
+	top: 180px;
 }
 #img5{
-	left: 465.5px;
-	top: 360px;
+	left: 231px;
+	top: 180px;
 }
 
 #con1{
-	left: 78px;
-	top: 90px;
+	left: 39px;
+	top: 45px;
 }
 #con2{
-	left: 315px;
-	top: 90px;
+	left: 158px;
+	top: 45px;
 }
 #con3{
-	left: 549px;
-	top: 90px;
+	left: 275px;
+	top: 45px;
 }
 #con4{
-	left: 193px;
-	top: 350px;
+	left: 97px;
+	top: 175px;
 }
 #con5{
-	left: 434.5px;
-	top: 350px;
+	left: 217px;
+	top: 175px;
 }
 
 #txt1{
-	left: 78px;
-	top: 220px;
+	left: 12px;
+	top: 117px;
 }
 #txt2{
-	left: 315px;
-	top: 220px;
+	left: 133px;
+	top: 117px;
 }
 #txt3{
-	left: 549px;
-	top: 220px;
+	left: 243px;
+	top: 117px;
 }
 #txt4{
-	left: 193px;
-	top: 480px;
+	left: 72px;
+	top: 247px;
 }
 #txt5{
-	left: 434.5px;
-	top: 480px;
+	left: 205px;
+	top: 247px;
 }
