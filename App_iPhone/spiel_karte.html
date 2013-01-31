@@ -299,6 +299,7 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
 		arrDot2[0][0] = window.innerWidth * 2 * ((arrDot[0][0]) / 100);
         arrDot2[0][1] = window.innerHeight * ((arrDot[0][1]) / 100);
         
+        
 	
 	document.getElementById("eule_worldmap").style.left = arrDot2[0][0] + "px";
 	document.getElementById("eule_worldmap").style.top = arrDot2[0][1] + "px";
@@ -438,8 +439,9 @@ YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
 	for(var i in kategorieListe) {
 		if(kategorieListe[i].gewonnen != 0) {
 			var el = document.createElement("img");
-			el.style.left = window.innerWidth * 2 * (kategoriePos[kategorieListe[i].id][0]) + "px";
-			el.style.top = window.innerHeight * (kategoriePos[kategorieListe[i].id][1]) + "px";
+			el.style.left = (window.innerWidth * 2 * (kategoriePos[kategorieListe[i].id][0]) / 100 -15) + "px";
+			el.style.top = (window.innerHeight * (kategoriePos[kategorieListe[i].id][1]) / 100 + 30) + "px";
+			console.log(window.innerWidth * 2);
 			el.setAttribute("class", "kategorieDone");
 			el.setAttribute("src", "assets/img/system/hackerl.svg");
 			document.getElementById("slideContainer").appendChild(el);
