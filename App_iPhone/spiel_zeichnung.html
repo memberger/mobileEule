@@ -14,9 +14,9 @@
   }
   
   #wrapper {
-  	height: 300px;;
-  	width: 900px;
 	  background: #ddf2a7;
+	  height: 768px;
+	  width: 1024px;
 	  background-repeat: repeat;
   }
   
@@ -28,42 +28,43 @@
   
   #kategoriePic {
 	  position: absolute;
-	  top: 5px;
-	  right: 5px;
+	  top: 20;
+	  left: 780px;
   }
   
   #malIcon {
 	  position: absolute;
-	  left: 5px;
-	  top: -5px;
+	  left: 92px;
+	  top: 197px;
 	  z-index: 10;
-	  height: 60px;
-	  width: 60px;
+	  height: 125px;
+	  width: 125px;
   }
   
   #canvas {
   	position: absolute;
 	border-radius: 25px;
 	background: rgba(246,246,246,0.8);
-	top: 5px;
-	left: 30px
+	top: 250px;
+	left: 50%;
+	margin-left: -375px;
   }
   
   #farben {
   	position: absolute;
-	  width: 600px;
+	  width: 900px;
 	  float: none;
-	  left: 5px;
-	  bottom: 5px;
+	  left: 50px;
+	  top: 680px;
   }
   
   .farbe {
 	  border-radius: 50%;
 	  float: left;
-	  height: 30px;
-	  width: 30px;
-	  border: 2px #000000 solid;
-	  margin-right: 3px;
+	  height: 62px;
+	  width: 62px;
+	  border: 3px #000000 solid;
+	  margin-right: 10px;
   }
   
   #schwarz {
@@ -102,13 +103,14 @@
 	 background-color: #bb864f;
   }
  
- #speichern {
- 	position: absolute;
-	 height: 60px;
-	 width: 60px;
-	 top: 160px;
-	 left: 360px;
- }
+  
+   #speichern {
+	  height: 125px;
+	  width: 125px;
+	  position: absolute;
+	  top: 535px;
+	  left: 875px;
+  }
   
   #navBottom > li{
 	position: absolute;
@@ -116,40 +118,41 @@
 }
 
 #navBottom > li > a > img {
-		height: 60px;
-		width: 60px;
+		height: 75px;
+		width: 75px;
 }
 
 #navBottom > li > img {
-		height: 60px;
-		width: 60px;
+		height: 75px;
+		width: 75px;
 }
 
 #navBottom li:nth-child(1) {
-	right: 5px;
-	bottom: 125px;
+	left: 775px;
+	top: 675px;
 }
 
 #navBottom li:nth-child(2) {
-	right: 5px;
-	bottom: 65px;
+	left: 850px;
+	top: 675px;
 }
 
 #navBottom li:nth-child(3) {
-	right: 5px;
-	bottom: 5px;
+	left: 925px;
+	top: 675px;
 }
 
   </style>
 </head>
 <body>
 	<div id="wrapper">
-
-		<img id="kategoriePic" src="" height="60"/>
 		
-		<img id="malIcon" src="assets/img/system/malen.svg" height="60"/>
+		<img id="eule" src="assets/img/eule.svg" height="250"/>
+		<img id="kategoriePic" src="" height="225"/>
 		
-		<canvas id="canvas" width="360" height="200"></canvas>
+		<img id="malIcon" src="assets/img/system/malen.svg" height="100"/>
+		
+		<canvas id="canvas" width="750" height="424"></canvas>
 		
 		<div id="farben">
 			<div class="farbe" id="schwarz"></div>
@@ -273,7 +276,7 @@
 	        
 	       // set up drawing context
 	       ctx = canvas.getContext("2d");
-	       ctx.lineWidth = 15;
+	       ctx.lineWidth = 25;
 	       ctx.strokeStyle = farbe;
 	       ctx.lineJoin = 'round';
 	       ctx.lineCap = 'round';
@@ -289,9 +292,9 @@
 	    function vorlage () {
 		   img = new Image();
 	       img.src = malvorlage;
-	       var positionx = 200 - (190 * img.width / img.height) / 2;
-	       var positiony = 100 - (190) / 2;
-	       ctx.drawImage(img, positionx, positiony, 190 * img.width / img.height, 190 );
+	       var positionx = 375 - (420 * img.width / img.height) / 2;
+	       var positiony = 212 - (420) / 2;
+	       ctx.drawImage(img, positionx, positiony, 420 * img.width / img.height, 420 );
 	    }
 	
 	    function downHandler(event) {
@@ -308,8 +311,8 @@
 	        if(mouseDown) {
 	        	var posLeft = canvas.offsetLeft;
 	        	var posTop = canvas.offsetTop;
-	            var x = event.touches[0].clientX-40;
-	            var y = event.touches[0].clientY;
+	            var x = event.touches[0].clientX-140;
+	            var y = event.touches[0].clientY-250;
 	
 	            // add object to points array
 	            points[points.length] = {x: x, y: y};

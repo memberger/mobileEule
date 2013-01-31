@@ -17,8 +17,6 @@ if(localStorage.tempJson != undefined){
 }
 
 
-
-
 function showHilfe(){	
 
 	var url = window.location.pathname;
