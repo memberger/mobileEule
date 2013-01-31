@@ -38,7 +38,7 @@ function nextBilder(){
 	
 	puzzleSetzen(wort1,wort2,wort3);
 	document.body.style.backgroundImage = "url(assets/img/spiel/"+kat.id+"_hintergrund.png)"; 
-	document.getElementById("kategorieBild").setAttribute("src", "assets/img/spiel/"+kat.id+"_bild.svg");
+	document.getElementById("kategorieText").appendChild(document.createTextNode(items.name));
 }
 
 function puzzleSetzen(a,b,c){
