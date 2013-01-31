@@ -14,7 +14,7 @@ MyPicture.prototype.takePicture = function(){
 	var pictureSource=navigator.camera.PictureSourceType;
     var destinationType=navigator.camera.DestinationType;
 
-	navigator.camera.getPicture(onPhotoDataSuccess, fail, { quality: 20, destinationType: destinationType.DATA_URL });
+	navigator.camera.getPicture(onPhotoDataSuccess, fail, { quality: 40, destinationType: destinationType.DATA_URL });
 
    function onPhotoDataSuccess(imageData){
 	    that.picture = imageData;
@@ -27,6 +27,12 @@ MyPicture.prototype.takePicture = function(){
 		console.log(evt.target.error.code);
 		
 	}
+
+}
+
+MyPicture.prototype.getZeichnung = function(base64String){
+
+	this.picture = base64String;
 
 }
 MyPicture.prototype.getBase64 = function(){

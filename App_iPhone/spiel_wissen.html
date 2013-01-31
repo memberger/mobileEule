@@ -26,11 +26,13 @@
 
 </audio>
 
+
+<img id="kategorieBild" src=""/>
+<img src="assets/img/eule.svg" id="eule"/>
 <img src="assets/img/system/karte.svg" class="system" id="help"/>
 <img src="assets/img/system/einstellungen.svg" class="system" id="map"/>
 <img src="assets/img/system/hilfe.svg" class="system" id="home"/>
 <img src="assets/img/system/weiter.svg" id="pfeil"/>
-<h1 id="kategorieText"></h1>
 
 <div id="con1" class="container"></div>
 <img src="" id="img1" class="begriffbild"/>
@@ -86,8 +88,8 @@ function initEvents(){
 }
 
 function initBilder(){
-	document.body.style.backgroundImage = "url(assets/img/spiel/"+kat.id+"_hintergrund.png)";
-	document.getElementById("kategorieText").appendChild(document.createTextNode(items.name));
+	document.body.style.backgroundImage = "url(assets/img/spiel/"+kat.id+"_hintergrund.png)"; 
+	document.getElementById("kategorieBild").setAttribute("src", "assets/img/spiel/"+kat.id+"_bild.svg");
 
 	document.getElementById("img1").setAttribute("src", "assets/img/spiel/"+items.begriffe[0].id+"_bild.svg");
 	document.getElementById("img2").setAttribute("src", "assets/img/spiel/"+items.begriffe[1].id+"_bild.svg");

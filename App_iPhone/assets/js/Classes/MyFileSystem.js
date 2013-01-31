@@ -63,18 +63,38 @@ MyFileSystem.prototype.saveFoto = function(myPicture){
 	}
 		
 
+}
+
+MyFileSystem.prototype.saveZeichnung = function(myPicture){
+
+	var that = this;
+	var ts = new Date().getTime();
+	this.directory.getFile("zeichnung"+ts+".txt",{create: true, exclusive: false}, gotFileEntry, that.fail);	
+		
+	function gotFileEntry(fileEntry){
+		console.log("FILE ENTRY");
+		fileEntry.createWriter(gotFileWriter, that.fail);
+		
+	}
+
+	function gotFileWriter(writer){
+		writer.write(myPicture.picture);
+		writer.onwrite = function(){
+			that.readTargetDir();
+
+			console.log("schreiben erfolgreich");
+
+		}
+
+		writer.onerror = that.fail;
+		
+	}
+	
+
+
 }	
 		
 
-
-
-
-MyFileSystem.prototype.saveZeichnung = function(myZeichnung){
-
-
-
-
-}
 
 MyFileSystem.prototype.getFoto = function(index, myPicture){
 

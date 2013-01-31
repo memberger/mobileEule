@@ -17,18 +17,18 @@ a img {
 #euleBild{
 
 	position: absolute;
-	height: 100px;
-	width : 100px;
-	bottom: 20px;
-	left:10px;
+	height: 250px;
+	width : 250px;
+	top: 0px;
+	left:0px;
 }
 
 #kategorieBildContainer {
 	position: absolute;
-	right: 10px;
-	height: 100px;
-	width: 100px;
-	top: 10px;
+	left: 780px;
+	height: 225px;
+	width: 225px;
+	top: 20px;
 	text-align: center;
 }
 
@@ -52,10 +52,10 @@ a img {
 #img-bild-aufnehmen{
 
 position: absolute;
-width: 100px;
-height: 100px;
-top: 30px;
-right :325px;
+width: 250px;
+top: 250px;
+right :55%;
+
 
 
 
@@ -65,20 +65,19 @@ right :325px;
 #img-bild-malen{
 
 position: absolute;
-width: 100px;
-height: 100px;
-top: 30px;
-left:204px;
+width: 250px;
+top: 250px;
+left:55%;
 
 }
 
 #fertig{
 
-position: absolute;
-width:  100px;
-height: 100px;
-top: 120px;
-left :130px;
+	position: absolute;
+	top: 500px;
+	left:452px;
+	width: 120px;
+	height: 120px;
 
 }
 
