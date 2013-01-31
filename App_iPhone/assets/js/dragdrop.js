@@ -235,7 +235,7 @@ if(el != null){
 			if(this.type == this.ziele[i].type){
 				this.dragdrop = false;
 				this.div.style.left = this.ziele[i].div.offsetLeft + "px";
-				this.div.style.top =  this.ziele[i].div.offsetHeight + this.ziele[i].div.offsetHeight - this.div.offsetHeight/2.5 + "px";
+				this.div.style.top =  this.ziele[i].div.offsetHeight + 3 + "px";
 				richtigeBegriffe++;
 				if(richtigeBegriffe == 3){
 					puzzleSpielGeschafft();

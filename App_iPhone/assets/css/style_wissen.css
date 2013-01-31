@@ -71,7 +71,7 @@ p.text{
 #pfeil{
 	position: absolute;
 	bottom: 75px;
-	right: 80px;
+	right: 40px;
 	height: 80px;
 	width: 80px;
 	z-index: 3;
@@ -90,11 +90,11 @@ p.text{
 }
 #img4{
 	left: 110px;
-	top: 180px;
+	top: 155px;
 }
 #img5{
 	left: 231px;
-	top: 180px;
+	top: 155px;
 }
 
 #con1{
@@ -111,11 +111,11 @@ p.text{
 }
 #con4{
 	left: 97px;
-	top: 175px;
+	top: 150px;
 }
 #con5{
 	left: 217px;
-	top: 175px;
+	top: 150px;
 }
 
 #txt1{
@@ -132,9 +132,9 @@ p.text{
 }
 #txt4{
 	left: 72px;
-	top: 247px;
+	top: 222px;
 }
 #txt5{
 	left: 205px;
-	top: 247px;
+	top: 222px;
 }
