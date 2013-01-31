@@ -149,7 +149,7 @@
 		
 		<img id="malIcon" src="assets/img/system/malen.svg" height="60"/>
 		
-		<canvas id="canvas" width="360" height="200"></canvas>
+		<canvas id="canvas" width="360" height="250"></canvas>
 		
 		<div id="farben">
 			<div class="farbe" id="schwarz"></div>
@@ -289,9 +289,9 @@
 	    function vorlage () {
 		   img = new Image();
 	       img.src = malvorlage;
-	       var positionx = 200 - (190 * img.width / img.height) / 2;
-	       var positiony = 100 - (190) / 2;
-	       ctx.drawImage(img, positionx, positiony, 190 * img.width / img.height, 190 );
+	       var positionx = 200 - (230 * img.width / img.height) / 2;
+	       var positiony = 125 - (230) / 2;
+	       ctx.drawImage(img, positionx, positiony, 230 * img.width / img.height, 230 );
 	    }
 	
 	    function downHandler(event) {
