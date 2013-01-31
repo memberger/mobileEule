@@ -5,14 +5,14 @@ this.type = typ;
  var position = reihenfolge;
 this.dragdrop = true;
 this.div=document.createElement("div");
-this.div.style.top= "400px";
-this.div.style.left= 30 + ( (265 + 12.5) * reihenfolge)+"px";
+this.div.style.top= "200px";
+this.div.style.left= 15 + ( (132.5 + 12.5) * reihenfolge)+"px";
 
 this.startTop = this.div.style.top;
 this.startLeft = this.div.style.left;
 
-this.div.style.width="250px";
-this.div.style.height="125px";
+this.div.style.width="125px";
+this.div.style.height="62.5px";
 this.div.style.position="absolute";
 	//div.style.backgroundColor = "red";
 
@@ -32,8 +32,8 @@ this.div.addEventListener("mouseup",up.bind(this),false);
 	this.ziele = array;
 	var bild = document.createElement("img");
 	bild.setAttribute("src", "assets/img/puzzle/01-02.png");
-	bild.setAttribute("height", "125px");
-	bild.setAttribute("width", "250px");
+	bild.setAttribute("height", "62.5px");
+	bild.setAttribute("width", "125px");
 	bild.style.filter = "Alpha(opacity=90)"; /* Internet Explorer */
 	bild.style.opacity = 0.9; /* Safari, Opera */
 	bild.style.MozOpacity = 0.9; /* Firefox */
@@ -57,7 +57,7 @@ this.div.appendChild(puzzleText);
 	puzzleText.style.position = "absolute";
 	puzzleText.style.left = "36%";
 	puzzleText.style.top = "50%";
-	puzzleText.style.fontSize = "25pt";
+	puzzleText.style.fontSize = "12pt";
 	/*
 	puzzleText.addEventListener("mousedown",down.bind(this),false);
 	puzzleText.addEventListener("mousemove",move,false);
@@ -85,16 +85,16 @@ this.type = typ;
  var position = reihenfolge;
  
 this.div=document.createElement("div");
-this.div.style.top= "90px";
-this.div.style.left= 30 + ( (265 + 12.5) * reihenfolge)+"px";
-this.div.style.width="250px";
-this.div.style.height="250px";
+this.div.style.top= "45px";
+this.div.style.left= 15 + ( (132.5 + 12.5) * reihenfolge)+"px";
+this.div.style.width="125px";
+this.div.style.height="125px";
 this.div.style.position="absolute";
 
 var puzzlebild = document.createElement("img");
 	puzzlebild.setAttribute("src", "assets/img/puzzle/01-01.png");
-	puzzlebild.setAttribute("height", "250px");
-	puzzlebild.setAttribute("width", "250px");
+	puzzlebild.setAttribute("height", "125px");
+	puzzlebild.setAttribute("width", "125px");
 	
 
 this.div.appendChild(puzzlebild);
@@ -103,8 +103,8 @@ puzzlebild.style.filter = "Alpha(opacity=90)"; /* Internet Explorer */
 	puzzlebild.style.MozOpacity = 0.9; /* Firefox */
 var bild = document.createElement("img");
 	bild.setAttribute("src", urlcontent);
-	bild.setAttribute("height", "160px");
-	bild.setAttribute("width", "160px");
+	bild.setAttribute("height", "80px");
+	bild.setAttribute("width", "80px");
 	bild.style.left = "20%";
 	bild.style.top = "15%";
 	bild.style.position="absolute";
