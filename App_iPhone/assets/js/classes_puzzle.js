@@ -5,7 +5,7 @@ this.type = typ;
  var position = reihenfolge;
 this.dragdrop = true;
 this.div=document.createElement("div");
-this.div.style.top= "200px";
+this.div.style.top= "180px";
 this.div.style.left= 15 + ( (132.5 + 12.5) * reihenfolge)+"px";
 
 this.startTop = this.div.style.top;
@@ -85,7 +85,7 @@ this.type = typ;
  var position = reihenfolge;
  
 this.div=document.createElement("div");
-this.div.style.top= "45px";
+this.div.style.top= "35px";
 this.div.style.left= 15 + ( (132.5 + 12.5) * reihenfolge)+"px";
 this.div.style.width="125px";
 this.div.style.height="125px";
