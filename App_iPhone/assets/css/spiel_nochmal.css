@@ -17,19 +17,19 @@ a img {
 #euleBild{
 
 	position: absolute;
-	height: 100px;
-	width : 100px;
-	top: 10px;
-	left:10px;
+	height: 250px;
+	width : 250px;
+	top: 0px;
+	left:0px;
 
 }
 
 #kategorieBildContainer {
 	position: absolute;
-	right: 10px;
-	height: 100px;
-	width: 100px;
-	top: 10px;
+	left: 780px;
+	height: 225px;
+	width: 225px;
+	top: 20px;
 	text-align: center;
 }
 
@@ -53,10 +53,10 @@ a img {
 #btn-nochmal-spielen{
 
 position: absolute;
-width:  100px;
-height: 100px;
-top: 30px;
-left :190px;
+width: 200px;
+height: 200px;
+top: 150px;
+left :412px;
 
 
 }
@@ -65,9 +65,9 @@ left :190px;
 #btn-foto{
 
 position: absolute;
-width: 100px;
-height: 100px;
-top: 120px;
+width: 250px;
+height: 250px;
+top: 350px;
 right :55%;
 
 
@@ -79,9 +79,9 @@ right :55%;
 #btn-bilder{
 
 position: absolute;
-width: 100px;
-height: 100px;
-top: 120px;
+width: 250px;
+height: 250px;
+top: 350px;
 left:55%;
 
 }

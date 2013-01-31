@@ -4,63 +4,71 @@
 		"spiel": 1,
 		"fortschritt": 0,
 		"gewonnen": 0,
-		"eigeneBilder": [],
-		"eigeneZeichnungen": []
+		"bild":false,
+		"foto":false
+
 	},
 	"0200": {
 		"id": "0200",
 		"spiel": 2,
 		"fortschritt": 0,
 		"gewonnen": 0,
-		"eigeneBilder": [],
-		"eigeneZeichnungen": []
+		"bild":false,
+		"foto":false
+
 	},
 	"0300": {
 		"id": "0300",
 		"spiel": 3,
 		"fortschritt": 0,
 		"gewonnen": 0,
-		"eigeneBilder": [],
-		"eigeneZeichnungen": []
+		"bild":false,
+		"foto":false
+
 	},
 	"0400": {
 		"id": "0400",
 		"spiel": 2,
 		"fortschritt": 0,
 		"gewonnen": 0,
-		"eigeneBilder": [],
-		"eigeneZeichnungen": []
+		"bild":false,
+		"foto":false
+
 	},
 	"0500": {
 		"id": "0500",
 		"spiel": 3,
 		"fortschritt": 0,
 		"gewonnen": 0,
-		"eigeneBilder": [],
-		"eigeneZeichnungen": []
+		"bild":false,
+		"foto":false
+
 	},
 	"0600": {
 		"id": "0600",
 		"spiel": 1,
 		"fortschritt": 0,
 		"gewonnen": 0,
-		"eigeneBilder": [],
-		"eigeneZeichnungen": []
+		"bild":false,
+		"foto":false
+
 	},
 	"0700": {
 		"id": "0700",
 		"spiel": 1,
 		"fortschritt": 0,
 		"gewonnen": 0,
-		"eigeneBilder": [],
-		"eigeneZeichnungen": []
+		"bild":false,
+		"foto":false
+
 	},
 	"0800": {
 		"id": "0800",
 		"spiel": 2,
 		"fortschritt": 0,
 		"gewonnen": 0,
-		"eigeneBilder": [],
-		"eigeneZeichnungen": []
+		"bild":false,
+		"foto":false
+
 	}
 }

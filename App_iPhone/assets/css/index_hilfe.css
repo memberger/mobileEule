@@ -7,8 +7,8 @@
 	
 #hilfe {
 	position: absolute;
-	top:550px;
-	left:850px;
+	top:670px;
+	left:930px;
 	width:75px;
 	
 }
@@ -45,7 +45,7 @@
 #right {
 	position: absolute;
 	top:300px;
-	left:830px;
+	left:860px;
 	
 }
 
@@ -58,6 +58,6 @@
 #close_hilfe {
 	position: absolute;
 	top:10px;
-	left:840px;
+	left:860px;
 	
 }
