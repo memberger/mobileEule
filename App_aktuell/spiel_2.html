@@ -1,0 +1,42 @@
+<!DOCTYPE html> <!-- html 5 -->
+<html>
+<head>
+<title>Eule-Spiel-2</title>
+<meta charset="utf-8" />
+<meta name = "viewport" content = "width = device-width, maximum-scale = 1, minimum-scale = 1, user-scalable = no">
+<meta name = "apple-mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="assets/css/spiel2.css" />
+
+</head>
+<body>
+<div id="logo"><img src="" class="logoBild" /></div>
+<!-- in welcher Kategorie wird gespielt -->
+<h1 id="kategorieName"></h1>
+<div id="kategorieBildContainer"><img src="" id="kategorieBild" /></div>
+
+<img id="euleBild" src="assets/img/eule/eule.svg" alt="Eule" />
+
+<!-- nun das eigentliche Spiel -->
+<div id="begriffBildContainer"><img src="" id="begriffBild" /></div>
+<ul id="antworten"></ul>
+
+<!-- Buttons -->
+<!--
+<button id="zurueck-karte">Spiel beenden zurück zur Karte</button>
+<button id="spiel-fertig">Spiel erfolgreich weiter zu "Belohnung"</button>
+-->
+<a id="spiel-fertig" href="test.html"><img src="assets/img/system/hackerl.svg" /></a>
+
+<ul id="navBottom">
+	<li><a href="#"><img src="assets/img/system/karte.svg" /></a></li>
+	<li><a href="#"><img src="assets/img/system/einstellungen.svg" /></a></li>
+	<li><a href="#"><img src="assets/img/system/hilfe.svg"  ontouchend ="showHilfe()"/></a></li>
+</ul>
+
+
+<script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
+<script type="text/javascript" src="assets/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="assets/js/spiel2.js"></script>
+<script type="text/javascript" src="assets/js/hilfe.js"></script>
+</body>

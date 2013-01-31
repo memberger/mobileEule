@@ -1,0 +1,447 @@
+<!DOCTYPE html> <!-- html 5 -->
+<html>
+<head>
+<title>Worldmap</title>
+<meta charset="utf-8" />
+
+
+<meta name = "viewport" content = "width = device-width, maximum-scale = 1, minimum-scale = 1, user-scalable = no">
+<meta name = "apple-mobile-web-app-capable" content="yes">
+
+<style>
+#worldmap {
+	position: absolute;
+	z-index: -100;	
+	top: 0;
+	left: 0;
+}
+
+#eule_worldmap {
+	position: absolute;
+	z-index: 20;
+	display: none;
+}
+
+	  
+.landeplatz {
+	position: absolute;
+	background: transparent;
+	width: 100px;
+	height: 100px;
+	z-index:10;
+}
+
+#lp0 {
+	top: 45%;
+	left: 12%;
+}
+
+#lp1 {
+	top: 38%;
+	left: 33%;
+}
+
+#lp2 {
+	top: 38%;
+	left: 52%;
+}
+
+#lp3 {
+	top: 20%;
+	left: 70%;
+}
+
+#lp4 {
+	top: 10%;
+	left: 12%;
+}
+
+#lp5 {
+	top: 24%;
+	left: 40%;
+}
+
+#lp6 {
+	top: 60%;
+	left: 20%;
+}
+
+#lp7 {
+	top: 22%;
+	left: 65%;
+}
+
+/* System Button */
+
+
+#navBottom > li > a > img {
+	position: absolute;
+	height: 60px;
+	width: 60px;
+	right: 10px;
+	bottom: 5px;
+	list-style: none;
+}
+
+#arrow_right img{
+	position: absolute;
+	height: 60px;
+	width: 60px;
+	right: 5px;
+	top: 50%;
+	margin-top: -30px;
+}
+
+#arrow_left img{
+	position: absolute;
+	height: 60px;
+	width: 60px;
+	left: 5px;
+	top: 50%;
+	margin-top: -30px;
+}
+
+/* Swipe */
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#wrapper
+{            
+    overflow:hidden;
+    position:relative;
+}
+
+#wrapper ul
+{
+    list-style:none;
+    margin:0;
+    padding:0; 
+    -webkit-transition: -webkit-transform 0.3s linear;
+    display:none;
+}
+
+#wrapper ul .swipeSite
+{
+   float:left; 
+  /* flackern beim ersten touch verhindern */
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;                       
+}
+
+.kategorieDone {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 48px;
+	width: 48px;
+}
+
+</style>  
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+	<ul id="slideContainer">
+	   	<div id="eule_worldmap"><img id="eule_worldmap_pic" src="assets/img/eule/eule_karte.svg" height="60"/></div>
+	   	
+		<div id="p1" class="swipeSite">
+		    
+		    
+		    <div class="landeplatz" id="lp0"></div>
+		    <div class="landeplatz" id="lp1"></div>
+		    <div class="landeplatz" id="lp2"></div>
+		    <div class="landeplatz" id="lp3"></div>
+		
+		    <img src="assets/img/hintergruende/map_iphone_mit_stationen-02.svg" id="worldmap" width="100%"/>
+		    
+		    <div id="arrow_right"><a href="#"><img src="assets/img/system/weiter.svg" /></a></div>
+		    
+		    <div id="navBottom">
+					<li><a href="index.html"><img src="assets/img/system/home.svg" /></a></li>
+			</div>
+		</div>
+		
+		<div id="p2" class="swipeSite">
+			
+			<div class="landeplatz" id="lp4"></div>
+		    <div class="landeplatz" id="lp5"></div>
+		    <div class="landeplatz" id="lp6"></div>
+		    <div class="landeplatz" id="lp7"></div>
+		    
+			<img src="assets/img/hintergruende/map_iphone_mit_stationen-03.svg" id="worldmap2" width="100%"/>
+			
+			<div id="arrow_left"><a href="#"><img src="assets/img/system/zurueck.svg" /></a></div>
+			
+				<div id="navBottom">
+					<li><a href="index.html"><img src="assets/img/system/home.svg" /></a></li>
+				</div>
+		</div>
+	</ul>
+</div>
+
+
+<!-- PhoneGap -->
+<script type="text/javascript" src="cordova-2.2.0.js"   charset="UTF-8"> </script>
+
+    
+<! -- Iclude MyJson Class -->
+<script type="text/javascript" src="assets/js/Classes/MyJson.js"  charset="UTF-8"> </script>
+
+
+<! -- Swipe f�r n�chste Seite -->
+<script type="text/javascript" src="assets/js/swipe.js"  charset="UTF-8"> </script>
+
+ 
+<! -- Kleine Library YUI (35 kB) zur erstellung des Flugpfads -->
+<script type="text/javascript" src="assets/js/yui-base-min.js"> </script>
+ 
+   
+<script>
+//localStorage.removeItem("tempJson");
+
+/*document.addEventListener("touchstart", function(e){
+	e.preventDefault();
+});*/
+
+var myJson = new MyJson();
+myJson.loadAll();
+//myJson.loadTemp();
+if(localStorage['tempJson']){
+var kat = myJson.getKategorie();
+var katId = kat.id;
+}
+var isflying = false;
+var swiping = false;
+var disableFlying = false; // Disable Flying after Endpoint is reached
+var kategoriePos = {
+	'0100': [6,35],
+	'0200': [16,43],
+	'0300': [26,40],
+	'0400': [35,15],
+	'0500': [58,5],
+	'0600': [70,30],
+	'0700': [60,60],
+	'0800': [80,17]
+};
+var kategorieListe = myJson.kat;
+
+YUI().use('anim', 'dd-drag', 'graphics', 'cssbutton', function(Y) {
+
+    var mygraphic = new Y.Graphic(),
+        origin = Y.one('#worldmap'), // The XY values for the animation are based on the upper-left corner of this element
+        eule_worldmapA = Y.one('#eule_worldmap'); // The animated element
+        
+    var eule_worldmap_fliegend = "assets/img/eule/eule_fliegend.svg";
+    var eule_worldmap_sitzend = "assets/img/eule/eule_ohneAst.svg";
+                
+    // Array of XY points, zu Beginn
+	arrDot = [ 
+	    [1, 1], 
+	    [30, 2], 
+	    [30, 2], 
+	    [0, 0] 
+    ];
+        
+    if(katId) {
+    
+    console.log(katId);
+
+	switch (katId)
+	{
+	case '0100':
+	  arrDot[0][0] = 6;
+	  arrDot[0][1] = 35;
+	  break;
+	case '0200':
+	  arrDot[0][0] = 16;
+	  arrDot[0][1] = 43;
+	  break;
+	case '0300':
+	  arrDot[0][0] = 26;
+	  arrDot[0][1] = 40;
+	  break;
+	case '0400':
+	  arrDot[0][0] = 35;
+	  arrDot[0][1] = 15;
+	  break;
+	case '0500':
+	  arrDot[0][0] = 58;
+	  arrDot[0][1] = 5;
+	  break;
+	case '0600':
+	  arrDot[0][0] = 70;
+	  arrDot[0][1] = 30;
+	  break;
+	case '0700':
+	  arrDot[0][0] = 60;
+	  arrDot[0][1] = 60;
+	  break;
+	case '0800':
+	  arrDot[0][0] = 80;
+	  arrDot[0][1] = 17;
+	  break;
+	}
+
+	console.log(arrDot[0][0]);
+	}
+	
+	document.getElementById("eule_worldmap").style.left = arrDot[0][0] + "%";
+	document.getElementById("eule_worldmap").style.top = arrDot[0][1] + "%";
+	if(katId) {
+		document.getElementById("eule_worldmap_pic").setAttribute("src", eule_worldmap_sitzend);
+	}
+	document.getElementById("eule_worldmap").style.display = "block";
+	
+
+    
+  // Event Hanlder  
+      
+  // Touch
+  document.getElementById("lp0").addEventListener("touchstart", function() {
+      fly(6, 35, "0100"); });
+      
+  document.getElementById("lp1").addEventListener("touchstart", function() {
+      fly(16, 43, "0200"); });
+  
+  document.getElementById("lp2").addEventListener("touchstart", function() {
+      fly(26, 40, "0300"); });
+      
+  document.getElementById("lp3").addEventListener("touchstart", function() {
+      fly(35, 15, "0400"); });
+      
+  document.getElementById("lp4").addEventListener("touchstart", function() {
+      fly(58, 5, "0500"); });
+  
+    document.getElementById("lp5").addEventListener("touchstart", function() {
+      fly(70, 30, "0600"); });
+      
+  document.getElementById("lp6").addEventListener("touchstart", function() {
+      fly(60, 60, "0700"); });
+
+  document.getElementById("lp7").addEventListener("touchstart", function() {
+      fly(80, 17, "0800"); });
+
+
+    // Fliegen
+    
+    function fly(x, y, catID) {
+		if(disableFlying) return;
+    	if(!swiping) {
+		     if (!isflying) {
+	        	isflying  = true;
+	        	changeEule();
+			    updateEndpoint(x, y);
+			    startAnim(function(){updateStartpoint(); setKategorie(catID); changeEule();});
+	        }
+        }
+    }
+        
+    function changeEule() {
+    	if (isflying) {
+    		document.getElementById("eule_worldmap_pic").setAttribute("src", eule_worldmap_fliegend);
+    	}
+    	else {
+	    	document.getElementById("eule_worldmap_pic").setAttribute("src", eule_worldmap_sitzend);
+    	}
+    }
+    
+    function updateStartpoint(){
+	    Y.Anim.stop();
+	    arrDot[0][0] = Y.one('#eule_worldmap').getStyle('left');
+	    arrDot[0][1] = Y.one('#eule_worldmap').getStyle('top');
+        isflying = false;
+    }
+    
+    var lastx3 = 30;
+    
+    function updateEndpoint(x3, y3) {
+    	var newExtrempunkt = (lastx3 + x3)/2;
+	   	arrDot[1][0] = newExtrempunkt;
+	    arrDot[2][0] = newExtrempunkt;
+	    arrDot[3][0] = x3;
+	    arrDot[3][1] = y3;
+	    lastx3 = x3;
+    }
+  
+
+    // Create the animation instance
+    var anim = new Y.Anim({
+        node: eule_worldmapA,
+        duration: 2.5,
+        easing: Y.Easing.easeOut
+    });
+    
+
+    //Sets the anim curve values with the XY values from the array
+    var startAnim = function(callback){
+    
+        var oX = origin.getX(),
+            oY = origin.getY();
+        
+        var arrDot2 = [ 
+	    [1, 1], 
+	    [30, 2], 
+	    [30, 2], 
+	    [0, 0] 
+    ];
+        //prozent in pixel wert umwandeln
+        arrDot2[1][0] = window.innerWidth * 2 * ((arrDot[1][0]) / 100);
+        arrDot2[1][1] = window.innerHeight * ((arrDot[1][1]) / 100);
+        arrDot2[2][0] = window.innerWidth * 2 * ((arrDot[2][0]) / 100);
+        arrDot2[2][1] = window.innerHeight * ((arrDot[2][1]) / 100);
+        arrDot2[3][0] = window.innerWidth * 2 * ((arrDot[3][0]) / 100);
+        arrDot2[3][1] = window.innerHeight * ((arrDot[3][1]) / 100);
+        
+        
+    anim.set('to', {
+        curve: [ [(arrDot2[1][0] + oX), (arrDot2[1][1] + oY)], [ (arrDot2[2][0] + oX), (arrDot2[2][1] + oY) ],
+        [ (arrDot2[3][0] + oX), (arrDot2[3][1] + oY) ]]
+        });
+        anim.run();
+        
+        setTimeout(callback, 2600);
+    };
+    
+    
+    // Kategorie bestimmen
+    function setKategorie (catId) {
+	    myJson.createTemp(catId);
+		disableFlying = true;
+
+		var Kategorie   = myJson.getKategorie();//Alle nötige aus Katrgorie.json
+		Kategorie["bild"] = false;
+		Kategorie["foto"] = false;
+		myJson.saveTemp();
+		
+		/*if(kategorieListe[catId].gewonnen != 0) 
+			setTimeout(function(){window.location.assign("spiel_nochmal.html")},500);
+	    else 
+	    	setTimeout(function(){window.location.assign("spiel_wissen.html")},500);*/
+    }
+    
+	// Fertige Kategorien kennzeichnen
+	for(var i in kategorieListe) {
+		if(kategorieListe[i].gewonnen != 0) {
+			var el = document.createElement("img");
+			el.style.left = kategoriePos[kategorieListe[i].id][0]+"%";
+			el.style.top = kategoriePos[kategorieListe[i].id][1]+"%";
+			el.setAttribute("class", "kategorieDone");
+			el.setAttribute("src", "assets/img/system/hackerl.svg");
+			document.getElementById("slideContainer").appendChild(el);
+		}
+	}
+
+});
+
+
+</script>
+
+</body>
+</html>

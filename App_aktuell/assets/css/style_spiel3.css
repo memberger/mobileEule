@@ -1,0 +1,65 @@
+html, body {
+	width: 960px;
+	height: 640px;
+	font-family: Arial;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a img {
+	border: 0;
+}
+
+#kategorieText{
+	position: absolute;
+	font-weight: bold;
+	font-size: 32pt;
+	z-index: 3;
+	text-align: center;
+	right: 30px;
+	top: 20px;
+}
+
+img.system{
+	height: 62.5px;
+	width: 62.5px;
+}
+
+#help{
+	position: absolute;
+	bottom: 20px;
+	right: 170px;
+}
+#map{
+	position: absolute;
+	bottom: 20px;
+	right: 90px;
+}
+#home{
+	position: absolute;
+	bottom: 20px;
+	right: 10px;
+}
+
+
+#pfeil{
+	position: absolute;
+	top: 350px;
+	right: 40px;
+	height: 125px;
+	width: 125px;
+	display: none;
+	z-index: 3;
+}
+#hackerl{
+	position: absolute;
+	top: 350px;
+	left: 20px;
+	height: 125px;
+	width: 125px;
+	display: none;
+	z-index: 3;
+}

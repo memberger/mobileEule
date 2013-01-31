@@ -1,4 +1,5 @@
-window.addEventListener("load",function(){
+
+function updateBackground(){
 
 if(localStorage.tempJson != undefined){
 
@@ -13,9 +14,7 @@ if(localStorage.tempJson != undefined){
 	document.body.style.backgroundImage = "url(assets/img/spiel/0100_hintergrund.png)";
 }
 
-},false);
-
-
+}
 
 
 function showHilfe(){	
