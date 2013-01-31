@@ -52,7 +52,7 @@ img.system{
 	right: 20px;
 	height: 62.5px;
 	width: 62.5px;
-	/*display: none;*/
+	display: none;
 	z-index: 3;
 }
 #hackerl{
@@ -61,6 +61,6 @@ img.system{
 	left: 10px;
 	height: 62.5px;
 	width: 62.5px;
-	/*display: none;*/
+	display: none;
 	z-index: 3;
 }
