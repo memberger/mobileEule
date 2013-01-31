@@ -10,6 +10,13 @@ var Kategorie   = myJson.getKategorie();//Alle nötige aus Katrgorie.json
 //myJson.saveTemp();
 
 $(document).ready(function() {
+	$("#karte").click(function(evt){
+		evt.preventDefault();
+		kat.fortschritt = 0;
+		window.location = 'spiel_karte.html';
+	});
+	
+	
 	katBegriff = Begriffe.begriffe;
 	for(var i in katBegriff){
 		katBegriff[i].verfuegbar = "true";
@@ -20,14 +27,13 @@ $(document).ready(function() {
 
 
 function nextWord(){
+	$("#richtig").hide();
 	$("#antworten").empty();
 	
 	kat = Kategorie.id;
 	$(document.body).css("background-image","url(assets/img/spiel/"+kat+"_hintergrund.png)");
 	shuffle(katBegriff);
 	
-	
-	$("#kategorieName").text(Begriffe.name);
     $("#kategorieBild").attr("src","assets/img/spiel/"+Kategorie.id+"_bild.svg");
     
 
@@ -55,8 +61,8 @@ function nextWord(){
     for (var i in katBegriff){
 	    if(katBegriff[i].id == bildID){
 		    katBegriff[i].choosen = "true";
-		    console.log("bild ID: "+bildID);
-		    console.log(katBegriff[i].id);
+		    //console.log("bild ID: "+bildID);
+		    //console.log(katBegriff[i].id);
 		    helper.push(katBegriff[i]);
 	    } else {
 	    	helper.push(katBegriff[i]);
@@ -93,12 +99,14 @@ function checkAnswer(evt){
 	var clicked = $(this).attr('id')
 	// das richtige Bild angeklicked
 	if(clicked == answer){
-			console.log("richtig");
+			//console.log("richtig");
 			spielFortschritt++;
-			console.log("spielFortschritt: "+spielFortschritt);
+			//console.log("spielFortschritt: "+spielFortschritt);
 			// alle Runden gespielt
 			if(spielFortschritt >= rundenProSpiel){
 				
+				$(this).css("background","green");
+				$(this).css("border-radius","15px");
 				Kategorie.gewonnen++;
 				console.log("Spiel gewonnen");
 				spielFertig();
@@ -107,21 +115,24 @@ function checkAnswer(evt){
 				$.map(katBegriff, function(el, index){
 					if(el.id == answer){
 						el.verfuegbar = "false";
-						console.log(el);
+						//console.log(el);
 						el.choosen = "false";
 						//verfuegbar.splice(index,1);
 					}
 				}); // end $.map function			
 				$(".singleAnswer").unbind();		
-				nextWord();
-			}
-		
+				$(this).css("background","green");
+				$(this).css("border-radius","15px");	
+				$("#richtig").show();
+				//nextWord();
+			}		
 		} else {
 			// nicht das richtige Bild angeklickt			
-			console.log("falsch");
+			console.log("falsche Antwort");
+			$(this).css("background","red");
+			$(this).css("border-radius","15px");
 		}
 }
-
 
 
 function sortArray(a, b){

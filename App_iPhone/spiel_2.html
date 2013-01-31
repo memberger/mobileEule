@@ -12,15 +12,18 @@
 <body>
 <div id="logo"><img src="" class="logoBild" /></div>
 <!-- in welcher Kategorie wird gespielt -->
-<h1 id="kategorieName"></h1>
 <div id="kategorieBildContainer"><img src="" id="kategorieBild" /></div>
 
 <img id="euleBild" src="assets/img/eule/eule.svg" alt="Eule" />
 
 <!-- nun das eigentliche Spiel -->
-<div id="begriffBildContainer"><img src="" id="begriffBild" /></div>
+<div id="begriffBildContainer">
+	<img src="" id="begriffBild" />
+</div>
 <ul id="antworten"></ul>
-
+<div id="richtig">
+	<img src="assets/img/system/hackerl.svg" ontouchend ="nextWord()" />
+</div>
 <!-- Buttons -->
 <!--
 <button id="zurueck-karte">Spiel beenden zurück zur Karte</button>
@@ -29,9 +32,9 @@
 <a id="spiel-fertig" href="test.html"><img src="assets/img/system/hackerl.svg" /></a>
 
 <ul id="navBottom">
-	<li><a href="#"><img src="assets/img/system/karte.svg" /></a></li>
-	<li><a href="#"><img src="assets/img/system/einstellungen.svg" /></a></li>
-	<li><a href="#"><img src="assets/img/system/hilfe.svg"  ontouchend ="showHilfe()"/></a></li>
+	<li><img src="assets/img/system/karte.svg" id="karte"/></li>
+	<li><img src="assets/img/system/einstellungen.svg" /></li>
+	<li><img src="assets/img/system/hilfe.svg"  ontouchend ="showHilfe()"/></li>
 </ul>
 
 

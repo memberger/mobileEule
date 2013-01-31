@@ -22,18 +22,17 @@ body{
 	margin: 0 5px;
 }
 
-#navBottom > li > a > img {
-	height: 60px;
-	width: 60px;
+#navBottom > li > img {
+	height: 30px;
+	width: 30px;
 }
 
 #kategorieBildContainer {
 	position: absolute;
-	left: 780px;
-	height: 225px;
-	width: 225px;
-	top: 20px;
-	text-align: center;
+	right: 5%;
+	top: 0%;
+	width: 100px;
+	height: 100px;
 }
 
 #kategorieBild {
@@ -44,11 +43,10 @@ body{
 #euleBild{
 
 	position: absolute;
-	height: 250px;
-	width : 250px;
+	height: 80px;
+	width : 80px;
 	top: 0px;
 	left:0px;
-
 }
 
 
@@ -66,11 +64,10 @@ body{
 
 #begriffBildContainer {
 	position: absolute;
-	top: 30%;
-	height: 60%;
-	left: 20px;
-	z-index: -1;
-	text-align: center;
+	top: 40%;
+	left: 15%;
+	height: 100px;
+	width: 100px;
 }
 
 #begriffBild {
@@ -81,30 +78,46 @@ body{
 #antworten{
 	list-style-type: none;
 	position:absolute;
-	top: 35%;
-	left: 40%;
+	top: 20%;
+	left: 35%;
 }
 
 #antworten > li {
 	margin: 15px;
 	background: #FFF;
 	opacity: 0.6;
+	border-radius: 15px;
 }
 a.singleAnswer{
 	display: block;
-	padding: 20px 50px;
+	padding: 5px 20px;
 	/*margin: 20px;*/
 	text-decoration: none;
 	font-weight: bold;
 	color: black;
-
+	text-align: center;
 }
+
+#richtig{
+	position: absolute;
+	right: 30%;
+	top: 45%;
+}
+
+#richtig img{
+	width: 40px;
+	height: 40px;
+}
+
 
 #spiel-fertig{
 	display: none;
 	position: absolute;
-	width:100px;
-	height: 100px;
-	top: 550px;
-	left: 455px;
+	top: 45%;
+	right: 30%;
+}
+
+#spiel-fertig img{
+	width:40px;
+	height: 40px;
 }
