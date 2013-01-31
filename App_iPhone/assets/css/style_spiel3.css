@@ -1,6 +1,6 @@
 html, body {
-	width: 1024px;
-	height: 768px;
+	width: 960px;
+	height: 640px;
 	font-family: Arial;
 }
 
@@ -13,45 +13,42 @@ a img {
 	border: 0;
 }
 
-#kategorieBild {
+#kategorieText{
 	position: absolute;
-	height: 225px;
-	width: 225px;
+	font-weight: bold;
+	font-size: 32pt;
+	z-index: 3;
+	text-align: center;
+	right: 30px;
 	top: 20px;
-	left: 780px;
 }
 
 img.system{
-	height: 75px;
-	width: 75px;
+	height: 62.5px;
+	width: 62.5px;
 }
 
 #help{
 	position: absolute;
-	top: 675px;
-	left: 775px;
+	bottom: 20px;
+	right: 170px;
 }
 #map{
 	position: absolute;
-	top: 675px;
-	left: 850px;
+	bottom: 20px;
+	right: 90px;
 }
 #home{
 	position: absolute;
-	top: 675px;
-	left: 925px;
+	bottom: 20px;
+	right: 10px;
 }
-#eule{
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	height: 250px;
-	width: 250px;
-}
+
+
 #pfeil{
 	position: absolute;
-	top: 535px;
-	left: 875px;
+	top: 350px;
+	right: 40px;
 	height: 125px;
 	width: 125px;
 	display: none;
@@ -59,10 +56,10 @@ img.system{
 }
 #hackerl{
 	position: absolute;
-	top: 522.5px;
-	left: 50px;
-	height: 150px;
-	width: 150px;
+	top: 350px;
+	left: 20px;
+	height: 125px;
+	width: 125px;
 	display: none;
 	z-index: 3;
 }

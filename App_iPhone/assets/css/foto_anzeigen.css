@@ -17,6 +17,7 @@ a img {
 #euleBild{
 
 	position: absolute;
+	display: none;
 	height: 250px;
 	width : 250px;
 	top: 0px;
@@ -26,6 +27,8 @@ a img {
 
 #kategorieBildContainer {
 	position: absolute;
+	display: none;
+
 	left: 780px;
 	height: 225px;
 	width: 225px;
@@ -34,6 +37,8 @@ a img {
 }
 
 #kategorieBild {
+	display: none;
+
 	max-height: 100%;
 	max-width: 100%;
 }
@@ -55,33 +60,29 @@ a img {
 #fertig{
 
 	position: absolute;
-	top: 630px;
-	right: 560px;
-	width: 100px;
-	height: 100px;
-
+	bottom: 1%;
+	left : 30px;
+	width: 70px;
+	height: 70px;
 }
 
 #remove-pic{
 
 	position: absolute;
-	display:none;
-	width: 100px;
-	height: 100px;
-	top: 630px;
-	left: 560px;
-
-
+	bottom: 1%;
+	left: 130px;
+	width: 70px;
+	height: 70px;
 
 }
 
 #image-border{
 position: absolute;
 border-radius: 50px;
-top:250px;
-left:137px;
-width: 750px;
-height: 425px;
+top:5px;
+left:60px;
+width: 360px;
+height: 240px;
 background-color:rgba(246,246,246,0.8);
 
 }
@@ -89,10 +90,10 @@ background-color:rgba(246,246,246,0.8);
 #image{
     position: absolute;    
     display : none;
-    width:500px;
-    height: 333px;
-    top:46px;
-    left: 125px;
+    width:300px;
+    height: 200px;
+    top:20px;
+    left: 30px;
     /*height: auto;*/
     
     
@@ -103,10 +104,10 @@ background-color:rgba(246,246,246,0.8);
 #next-pic{
 position: absolute;
 display: none;
-width: 100px;
-height: 100px;
-top:413px;
-left:838px; 
+width: 70px;
+height: 70px;
+top:90px;
+right: 10px;
 
 
 
@@ -118,10 +119,10 @@ left:838px;
 
 position: absolute;
 display: none;
-width: 100px;
-height: 100px;
-top:413px;
-left: 87px;
+width: 70px;
+height: 70px;
+top:90px;
+left: 10px;
 
 
 
@@ -133,7 +134,7 @@ left: 87px;
 #navBottom {
 	list-style: none;
 	position: absolute;
-	bottom: 3%;
+	bottom: 1%;
 	right: 10px;
 }
 

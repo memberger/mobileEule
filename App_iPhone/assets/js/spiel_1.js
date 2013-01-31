@@ -156,8 +156,8 @@ function handleDragEnd(e) {
 			var offsetLeft = $(dragElement).parent().offset().left;
 			var offsetTop = $(dragElement).parent().offset().top;
 			
-			var newX = $(target).offset().left - offsetLeft - 6;
-			var newY = $(target).offset().top - offsetTop - 2;
+			var newX = $(target).offset().left - offsetLeft - 5;
+			var newY = $(target).offset().top - offsetTop + 3;
 		
 			dragElement.style.left = newX + "px";
 			dragElement.style.top =  newY + "px";
